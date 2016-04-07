@@ -264,7 +264,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="glg-u7-N3z">
-                                <rect key="frame" x="16" y="64" width="288" height="284"/>
+                                <rect key="frame" x="16" y="74" width="288" height="284"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="choiceCell" id="h2C-e9-cwU">
@@ -323,11 +323,13 @@
                             <constraint firstItem="glg-u7-N3z" firstAttribute="height" secondItem="m4Z-bm-NS2" secondAttribute="height" multiplier="0.5" id="2eZ-Zx-8E2"/>
                             <constraint firstItem="glg-u7-N3z" firstAttribute="leading" secondItem="m4Z-bm-NS2" secondAttribute="leadingMargin" id="A4q-lP-8Hm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="glg-u7-N3z" secondAttribute="trailing" id="Vcs-Cj-4qq"/>
-                            <constraint firstItem="glg-u7-N3z" firstAttribute="top" secondItem="lR6-g5-WPZ" secondAttribute="bottom" id="e56-Vl-9jf"/>
+                            <constraint firstItem="glg-u7-N3z" firstAttribute="top" secondItem="lR6-g5-WPZ" secondAttribute="bottom" constant="10" id="e56-Vl-9jf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My choice" id="hhB-4k-hud">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="R5n-52-h0F"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="R5n-52-h0F">
+                            <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
