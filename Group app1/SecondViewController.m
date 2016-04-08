@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     MainViewController *mainVC = self.navigationController.viewControllers[0];
     self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)mainVC.money];
     for (UIButton *button in self.bottomButtons) {
@@ -33,10 +34,6 @@
     }
     self.tableView.hidden = YES;
     self.tableViewLabel.hidden = YES;
-    
-    [self.navigationController.navigationBar setTitleTextAttributes: @{
-                                                                       NSFontAttributeName: [UIFont systemFontOfSize:20]                                                                      }];
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

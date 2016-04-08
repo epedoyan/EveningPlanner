@@ -23,12 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = [UIColor eveningPlannerGreenColor];
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    [self.navigationController.navigationBar setTitleTextAttributes: @{
-                                                                         NSFontAttributeName: [UIFont fontWithName:@"Party LET"
-                                                                                                              size:40.0f]                                                           }];
+    [self navigationBarCustomizing];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -69,6 +64,19 @@
         textField.text = [textField.text substringToIndex:6];
     }
     return YES;
+}
+
+- (void)navigationBarCustomizing {
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = [UIColor eveningPlannerGreenColor];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    
+    UILabel *barTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 48)];
+    barTitle.textColor = [UIColor blackColor];
+    barTitle.text = @"eveningPlanner";
+    barTitle.font = [UIFont fontWithName:@"Party LET" size:40.0];
+    
+    [self.navigationItem setTitleView:barTitle];
 }
 
 @end
