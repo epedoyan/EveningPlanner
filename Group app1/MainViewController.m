@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *rangeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *moneyField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchButtonBottomLayout;
+@property (weak, nonatomic) IBOutlet UILabel *metrLabel;
 
 @end
 
@@ -36,7 +37,13 @@
 }
 
 - (IBAction)sliderValueChanged:(UISlider *)sender {
-    self.rangeLabel.text = [[NSString stringWithFormat:@"%f",sender.value] substringToIndex:3];
+    if (sender.value < 1) {
+        self.rangeLabel.text = [[NSString stringWithFormat:@"%f",(sender.value * 1000)] substringToIndex:3];
+        self.metrLabel.text = @"Metr";
+    } else {
+        self.rangeLabel.text = [[NSString stringWithFormat:@"%f",sender.value] substringToIndex:3];
+        self.metrLabel.text = @"Kilometr";
+    }
 }
 
 - (IBAction)searchButtonTouched:(id)sender {

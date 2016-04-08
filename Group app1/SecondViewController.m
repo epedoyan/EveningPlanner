@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *bottomButtons;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *topButtons;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *tableViewLabel;
 
 @end
 
@@ -31,6 +32,7 @@
         button.hidden = YES;
     }
     self.tableView.hidden = YES;
+    self.tableViewLabel.hidden = YES;
     
     [self.navigationController.navigationBar setTitleTextAttributes: @{
                                                                        NSFontAttributeName: [UIFont systemFontOfSize:20]                                                                      }];
@@ -57,7 +59,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50.0;
+    return 65.0;
 }
 
 
@@ -87,8 +89,8 @@
             [self.topButtons[2] setBackgroundColor:self.view.backgroundColor];
             [self.topButtons[2] setTitleColor:[UIColor eveningPlannerGreenColor] forState:UIControlStateNormal];
         }];
-        [self.bottomButtons[0] setTitle:@"Pub" forState:UIControlStateNormal];
-        [self.bottomButtons[1] setTitle:@"Cafe" forState:UIControlStateNormal];
+        [self.bottomButtons[0] setTitle:@"Game" forState:UIControlStateNormal];
+        [self.bottomButtons[1] setTitle:@"Gym" forState:UIControlStateNormal];
 
     }
     if ([sender isEqual:self.topButtons[2]]) {
@@ -98,8 +100,8 @@
             [self.topButtons[1] setBackgroundColor:self.view.backgroundColor];
             [self.topButtons[1] setTitleColor:[UIColor eveningPlannerGreenColor] forState:UIControlStateNormal];
         }];
-        [self.bottomButtons[0] setTitle:@"Cinema" forState:UIControlStateNormal];
-        [self.bottomButtons[1] setTitle:@"Theatre" forState:UIControlStateNormal];
+        [self.bottomButtons[0] setTitle:@"Cinema, Theatre" forState:UIControlStateNormal];
+        [self.bottomButtons[1] setTitle:@"Museum" forState:UIControlStateNormal];
     }
     for (UIButton *button in self.bottomButtons) {
         [UIView animateWithDuration:0.5 animations:^{
@@ -128,6 +130,7 @@
         }];
     }
     self.tableView.hidden = NO;
+    self.tableViewLabel.hidden = NO;
 }
 
 @end
