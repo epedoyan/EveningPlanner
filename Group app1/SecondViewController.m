@@ -34,6 +34,12 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes: @{
                                                                        NSFontAttributeName: [UIFont systemFontOfSize:20]                                                                      }];
+    // Updates back button title on ChoicePageViewController
+    self.navigationItem.backBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:@"Back"
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
     
 }
 

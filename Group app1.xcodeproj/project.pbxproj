@@ -17,7 +17,7 @@
 		A57DA1FB1CB69508000FF02D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57DA1F41CB69508000FF02D /* SecondViewController.m */; };
 		A57DA1FC1CB69508000FF02D /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A57DA1F61CB69508000FF02D /* TableViewCell.m */; };
 		A57DA1FD1CB69508000FF02D /* UIColor+EveningPlannerColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A57DA1F81CB69508000FF02D /* UIColor+EveningPlannerColor.m */; };
-		CED977131CB5B04A00A77664 /* choicePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CED977121CB5B04A00A77664 /* choicePageVC.m */; };
+		CED977161CB8499000A77664 /* ChoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED977151CB8499000A77664 /* ChoicePageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,8 +39,8 @@
 		A57DA1F61CB69508000FF02D /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		A57DA1F71CB69508000FF02D /* UIColor+EveningPlannerColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+EveningPlannerColor.h"; sourceTree = "<group>"; };
 		A57DA1F81CB69508000FF02D /* UIColor+EveningPlannerColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+EveningPlannerColor.m"; sourceTree = "<group>"; };
-		CED977111CB5B04A00A77664 /* choicePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = choicePageVC.h; sourceTree = "<group>"; };
-		CED977121CB5B04A00A77664 /* choicePageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = choicePageVC.m; sourceTree = "<group>"; };
+		CED977141CB8499000A77664 /* ChoicePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoicePageViewController.h; sourceTree = "<group>"; };
+		CED977151CB8499000A77664 /* ChoicePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoicePageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,12 +76,12 @@
 				786041131CB45FF1000086E4 /* AppDelegate.h */,
 				786041141CB45FF1000086E4 /* AppDelegate.m */,
 				786041191CB45FF1000086E4 /* Main.storyboard */,
-				CED977111CB5B04A00A77664 /* choicePageVC.h */,
-				CED977121CB5B04A00A77664 /* choicePageVC.m */,
 				A57DA1F11CB69508000FF02D /* MainViewController.h */,
 				A57DA1F21CB69508000FF02D /* MainViewController.m */,
 				A57DA1F31CB69508000FF02D /* SecondViewController.h */,
 				A57DA1F41CB69508000FF02D /* SecondViewController.m */,
+				CED977141CB8499000A77664 /* ChoicePageViewController.h */,
+				CED977151CB8499000A77664 /* ChoicePageViewController.m */,
 				7860411C1CB45FF1000086E4 /* Assets.xcassets */,
 				7860411E1CB45FF1000086E4 /* LaunchScreen.storyboard */,
 				786041211CB45FF1000086E4 /* Info.plist */,
@@ -178,9 +178,9 @@
 				A57DA1FD1CB69508000FF02D /* UIColor+EveningPlannerColor.m in Sources */,
 				786041151CB45FF1000086E4 /* AppDelegate.m in Sources */,
 				A57DA1FB1CB69508000FF02D /* SecondViewController.m in Sources */,
-				CED977131CB5B04A00A77664 /* choicePageVC.m in Sources */,
 				A57DA1FC1CB69508000FF02D /* TableViewCell.m in Sources */,
 				786041121CB45FF1000086E4 /* main.m in Sources */,
+				CED977161CB8499000A77664 /* ChoicePageViewController.m in Sources */,
 				A57DA1F91CB69508000FF02D /* GreenButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
