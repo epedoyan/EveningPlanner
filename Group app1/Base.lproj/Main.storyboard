@@ -270,13 +270,6 @@
                                     <outlet property="delegate" destination="p2D-Qr-Bfe" id="Nyx-Aj-tnF"/>
                                 </connections>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallet" translatesAutoresizingMaskIntoConstraints="NO" id="a9U-uc-Zdb">
-                                <rect key="frame" x="130" y="116" width="60" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Pwd-4l-9Gd"/>
-                                    <constraint firstAttribute="width" constant="60" id="wXf-LN-ee9"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUc-l4-DFi">
                                 <rect key="frame" x="133" y="494" width="54" height="54"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -301,7 +294,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AMD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M95-Z2-gBb">
-                                <rect key="frame" x="195" y="126" width="40" height="30"/>
+                                <rect key="frame" x="260" y="126" width="40" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="2WR-IY-NMy"/>
                                     <constraint firstAttribute="height" constant="30" id="dOF-73-5IY"/>
@@ -352,6 +345,13 @@
                                     <constraint firstAttribute="width" constant="4" id="gDk-qy-rSW"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallet" translatesAutoresizingMaskIntoConstraints="NO" id="a9U-uc-Zdb">
+                                <rect key="frame" x="192" y="116" width="60" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Pwd-4l-9Gd"/>
+                                    <constraint firstAttribute="width" constant="60" id="wXf-LN-ee9"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -362,7 +362,7 @@
                             <constraint firstItem="BUc-l4-DFi" firstAttribute="centerX" secondItem="k3p-rE-kk3" secondAttribute="centerX" id="D5F-CD-raY"/>
                             <constraint firstItem="zlT-xF-iyI" firstAttribute="top" secondItem="goV-AV-NuU" secondAttribute="bottom" constant="20" id="Il0-MO-upG"/>
                             <constraint firstItem="4Oa-Pc-3hS" firstAttribute="top" secondItem="BUc-l4-DFi" secondAttribute="bottom" constant="20" id="K8h-wu-TeZ"/>
-                            <constraint firstAttribute="trailing" secondItem="M95-Z2-gBb" secondAttribute="trailing" constant="85" id="KPg-d1-nUC"/>
+                            <constraint firstAttribute="trailing" secondItem="M95-Z2-gBb" secondAttribute="trailing" constant="20" id="KPg-d1-nUC"/>
                             <constraint firstAttribute="trailing" secondItem="DuC-bj-zW7" secondAttribute="trailing" constant="6" id="LxM-lH-Wdf"/>
                             <constraint firstItem="zKW-6v-1Ge" firstAttribute="top" secondItem="zlT-xF-iyI" secondAttribute="bottom" constant="30" id="P91-Td-IYi"/>
                             <constraint firstItem="1Vd-Zg-uUG" firstAttribute="top" secondItem="AVe-40-WHj" secondAttribute="bottom" constant="10" id="Qsg-Kq-PNS"/>
@@ -371,7 +371,7 @@
                             <constraint firstAttribute="trailing" secondItem="goV-AV-NuU" secondAttribute="trailing" constant="19" id="U8R-Kj-Vc1"/>
                             <constraint firstItem="AVe-40-WHj" firstAttribute="top" secondItem="zlT-xF-iyI" secondAttribute="bottom" constant="30" id="UrP-M0-lFW"/>
                             <constraint firstItem="goV-AV-NuU" firstAttribute="leading" secondItem="k3p-rE-kk3" secondAttribute="leading" constant="20" id="WnS-n7-UoQ"/>
-                            <constraint firstItem="M95-Z2-gBb" firstAttribute="leading" secondItem="a9U-uc-Zdb" secondAttribute="trailing" constant="5" id="Wnm-pf-iCv"/>
+                            <constraint firstItem="M95-Z2-gBb" firstAttribute="leading" secondItem="a9U-uc-Zdb" secondAttribute="trailing" constant="8" id="Wnm-pf-iCv"/>
                             <constraint firstItem="dDB-Zm-eth" firstAttribute="top" secondItem="DuC-bj-zW7" secondAttribute="bottom" constant="6" id="ar9-6X-zCo"/>
                             <constraint firstItem="zKW-6v-1Ge" firstAttribute="leading" secondItem="Hvk-2K-3AR" secondAttribute="trailing" constant="2" id="bBN-PD-ZpP"/>
                             <constraint firstItem="Hvk-2K-3AR" firstAttribute="top" secondItem="zlT-xF-iyI" secondAttribute="bottom" constant="30" id="eKW-qq-4Z4"/>
