@@ -72,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qj9-2N-ce9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="661"/>
+            <point key="canvasLocation" x="1632" y="1069"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7YK-R5-pEI">
@@ -126,7 +126,7 @@
                                 <rect key="frame" x="0.0" y="84" width="320" height="284"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="choiceCell" id="h2C-e9-cwU">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="choiceCell" id="h2C-e9-cwU" customClass="MyChoiceCell">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h2C-e9-cwU" id="wd7-fR-Cx6">
@@ -145,7 +145,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQj-i0-WZ7" userLabel="Minus">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQj-i0-WZ7" userLabel="Minus">
                                                     <rect key="frame" x="282" y="7" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="DQj-i0-WZ7" secondAttribute="height" multiplier="1:1" id="be7-XI-Raq"/>
@@ -173,6 +173,12 @@
                                                 <constraint firstItem="7Ib-3T-XX2" firstAttribute="centerY" secondItem="wd7-fR-Cx6" secondAttribute="centerY" id="t6J-ai-Hxa"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="logoImage" destination="rh1-ql-DdZ" id="hng-3Z-k50"/>
+                                            <outlet property="nameLabel" destination="7Ib-3T-XX2" id="Cde-2j-SGK"/>
+                                            <outlet property="priceLabel" destination="xzH-sZ-nNF" id="oha-Dc-g5t"/>
+                                            <outlet property="removeButton" destination="DQj-i0-WZ7" id="mnt-fH-6Ti"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -185,6 +191,9 @@
                                 <state key="normal" title="Clear">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="clearButtonAction" destination="zTU-xG-igF" eventType="touchUpInside" id="iWP-Vq-1iA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -200,11 +209,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Choice" id="hhB-4k-hud">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="R5n-52-h0F">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="R5n-52-h0F">
                             <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="editButtonAction:" destination="zTU-xG-igF" id="RV0-FP-aDd"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="clearButton" destination="CHJ-Yh-DPi" id="3VS-sk-ba3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xr2-Cr-SuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
