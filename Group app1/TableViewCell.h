@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UIButton *addOrRemoveButton;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *starIcons;
 
 @end

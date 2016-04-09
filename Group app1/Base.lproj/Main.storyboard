@@ -521,7 +521,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KFC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnG-vw-JeR">
-                                                    <rect key="frame" x="71" y="22" width="32" height="21"/>
+                                                    <rect key="frame" x="70" y="22" width="32" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -544,22 +544,75 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kfc-logo" translatesAutoresizingMaskIntoConstraints="NO" id="upq-ga-Vrx">
-                                                    <rect key="frame" x="8" y="0.0" width="55" height="55"/>
+                                                    <rect key="frame" x="8" y="0.0" width="54" height="54"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="upq-ga-Vrx" secondAttribute="height" multiplier="1:1" id="dpd-0X-wSp"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_active" translatesAutoresizingMaskIntoConstraints="NO" id="ezb-8t-UG0">
+                                                    <rect key="frame" x="8" y="54" width="10" height="10"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="ezb-8t-UG0" secondAttribute="height" multiplier="1:1" id="JdC-Dz-WRk"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_active" translatesAutoresizingMaskIntoConstraints="NO" id="EGn-5I-8pt">
+                                                    <rect key="frame" x="18" y="54" width="10" height="10"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="EGn-5I-8pt" secondAttribute="height" multiplier="1:1" id="1ow-Vn-ZkG"/>
+                                                        <constraint firstAttribute="width" secondItem="EGn-5I-8pt" secondAttribute="height" multiplier="1:1" id="WCD-ch-lUX"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_active" translatesAutoresizingMaskIntoConstraints="NO" id="H0M-Zb-Xrs">
+                                                    <rect key="frame" x="29" y="54" width="10" height="10"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="H0M-Zb-Xrs" secondAttribute="height" multiplier="1:1" id="2Fc-Zh-8Wp"/>
+                                                        <constraint firstAttribute="width" secondItem="H0M-Zb-Xrs" secondAttribute="height" multiplier="1:1" id="agi-hD-QuN"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_inactive" translatesAutoresizingMaskIntoConstraints="NO" id="14y-Ms-rq5">
+                                                    <rect key="frame" x="40" y="54" width="10" height="10"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="14y-Ms-rq5" secondAttribute="height" multiplier="1:1" id="MHV-rC-FOT"/>
+                                                        <constraint firstAttribute="width" secondItem="14y-Ms-rq5" secondAttribute="height" multiplier="1:1" id="eol-ag-Dm9"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_inactive" translatesAutoresizingMaskIntoConstraints="NO" id="cSa-DL-Kpt">
+                                                    <rect key="frame" x="51" y="54" width="10" height="10"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="cSa-DL-Kpt" secondAttribute="height" multiplier="1:1" id="Twa-DK-lnJ"/>
+                                                        <constraint firstAttribute="width" secondItem="cSa-DL-Kpt" secondAttribute="height" multiplier="1:1" id="a6a-JE-4ah"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="H0M-Zb-Xrs" firstAttribute="leading" secondItem="EGn-5I-8pt" secondAttribute="trailing" constant="1" id="1NG-bc-f6Q"/>
+                                                <constraint firstItem="H0M-Zb-Xrs" firstAttribute="top" secondItem="upq-ga-Vrx" secondAttribute="bottom" id="7MG-SS-X9d"/>
+                                                <constraint firstItem="ezb-8t-UG0" firstAttribute="top" secondItem="upq-ga-Vrx" secondAttribute="bottom" id="8bO-Qi-lLZ"/>
                                                 <constraint firstItem="nnG-vw-JeR" firstAttribute="leading" secondItem="upq-ga-Vrx" secondAttribute="trailing" constant="8" id="96t-ht-wEc"/>
-                                                <constraint firstAttribute="bottom" secondItem="upq-ga-Vrx" secondAttribute="bottom" constant="9" id="EEV-yF-2vA"/>
+                                                <constraint firstItem="EGn-5I-8pt" firstAttribute="top" secondItem="upq-ga-Vrx" secondAttribute="bottom" id="B9A-In-Wpn"/>
+                                                <constraint firstAttribute="bottom" secondItem="ezb-8t-UG0" secondAttribute="bottom" id="Bzc-4n-nUm"/>
+                                                <constraint firstAttribute="bottom" secondItem="H0M-Zb-Xrs" secondAttribute="bottom" id="CSZ-pj-1d1"/>
+                                                <constraint firstAttribute="bottom" secondItem="upq-ga-Vrx" secondAttribute="bottom" constant="10" id="EEV-yF-2vA"/>
                                                 <constraint firstItem="ACI-ek-Uha" firstAttribute="centerY" secondItem="fmw-Ju-Rdq" secondAttribute="centerY" id="EmN-PG-RIQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="ACI-ek-Uha" secondAttribute="trailing" constant="8" id="FkN-RY-Ef4"/>
                                                 <constraint firstItem="tRh-15-NO8" firstAttribute="centerY" secondItem="fmw-Ju-Rdq" secondAttribute="centerY" id="GG0-DB-afh"/>
+                                                <constraint firstItem="EGn-5I-8pt" firstAttribute="leading" secondItem="ezb-8t-UG0" secondAttribute="trailing" id="Im3-I4-aQN"/>
+                                                <constraint firstItem="14y-Ms-rq5" firstAttribute="width" secondItem="14y-Ms-rq5" secondAttribute="height" multiplier="1:1" id="JC4-4C-FXg"/>
+                                                <constraint firstItem="14y-Ms-rq5" firstAttribute="leading" secondItem="H0M-Zb-Xrs" secondAttribute="trailing" constant="1" id="Jh6-hE-JGa"/>
                                                 <constraint firstItem="upq-ga-Vrx" firstAttribute="leading" secondItem="fmw-Ju-Rdq" secondAttribute="leading" constant="8" id="KJK-EQ-Oz4"/>
+                                                <constraint firstItem="cSa-DL-Kpt" firstAttribute="width" secondItem="cSa-DL-Kpt" secondAttribute="height" multiplier="1:1" id="LxW-qO-unV"/>
+                                                <constraint firstItem="cSa-DL-Kpt" firstAttribute="top" secondItem="upq-ga-Vrx" secondAttribute="bottom" id="MHi-iF-Xca"/>
                                                 <constraint firstItem="ACI-ek-Uha" firstAttribute="leading" secondItem="tRh-15-NO8" secondAttribute="trailing" constant="8" id="MQG-1J-jod"/>
                                                 <constraint firstItem="upq-ga-Vrx" firstAttribute="top" secondItem="fmw-Ju-Rdq" secondAttribute="top" id="Z9L-gq-oAx"/>
+                                                <constraint firstItem="cSa-DL-Kpt" firstAttribute="leading" secondItem="14y-Ms-rq5" secondAttribute="trailing" constant="1" id="aRl-59-cvd"/>
+                                                <constraint firstItem="H0M-Zb-Xrs" firstAttribute="width" secondItem="H0M-Zb-Xrs" secondAttribute="height" multiplier="1:1" id="ajU-ef-XYn"/>
+                                                <constraint firstItem="14y-Ms-rq5" firstAttribute="top" secondItem="upq-ga-Vrx" secondAttribute="bottom" id="dNv-7h-MVK"/>
+                                                <constraint firstAttribute="bottom" secondItem="EGn-5I-8pt" secondAttribute="bottom" id="icg-d1-O88"/>
+                                                <constraint firstItem="EGn-5I-8pt" firstAttribute="width" secondItem="EGn-5I-8pt" secondAttribute="height" multiplier="1:1" id="isE-4a-knA"/>
                                                 <constraint firstItem="nnG-vw-JeR" firstAttribute="centerY" secondItem="fmw-Ju-Rdq" secondAttribute="centerY" id="iyv-PQ-fpj"/>
+                                                <constraint firstAttribute="bottom" secondItem="14y-Ms-rq5" secondAttribute="bottom" id="oon-hj-lzY"/>
+                                                <constraint firstAttribute="bottom" secondItem="cSa-DL-Kpt" secondAttribute="bottom" id="qn4-1H-3ge"/>
+                                                <constraint firstItem="ezb-8t-UG0" firstAttribute="leading" secondItem="fmw-Ju-Rdq" secondAttribute="leading" constant="8" id="xHS-Dk-Ccr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -567,6 +620,11 @@
                                             <outlet property="logo" destination="upq-ga-Vrx" id="Map-qP-Rjc"/>
                                             <outlet property="name" destination="nnG-vw-JeR" id="AFu-3P-kPc"/>
                                             <outlet property="price" destination="tRh-15-NO8" id="i8x-lw-6Ai"/>
+                                            <outletCollection property="starIcons" destination="ezb-8t-UG0" id="YNa-eP-sIt"/>
+                                            <outletCollection property="starIcons" destination="EGn-5I-8pt" id="NHa-Ok-Lyb"/>
+                                            <outletCollection property="starIcons" destination="H0M-Zb-Xrs" id="pFT-gD-LmH"/>
+                                            <outletCollection property="starIcons" destination="14y-Ms-rq5" id="ytf-Gx-rCa"/>
+                                            <outletCollection property="starIcons" destination="cSa-DL-Kpt" id="Lww-lC-8Mw"/>
                                             <segue destination="N8o-y3-zZZ" kind="show" id="Sii-Js-jpj"/>
                                         </connections>
                                     </tableViewCell>
@@ -647,6 +705,8 @@
         <image name="kfc-logo" width="40" height="43"/>
         <image name="minus-1" width="512" height="512"/>
         <image name="plus" width="715" height="720"/>
+        <image name="star_active" width="25" height="23"/>
+        <image name="star_inactive" width="25" height="23"/>
         <image name="wallet" width="600" height="500"/>
     </resources>
     <inferredMetricsTieBreakers>
