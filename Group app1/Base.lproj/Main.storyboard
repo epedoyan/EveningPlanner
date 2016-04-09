@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QGe-2a-vxS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QGe-2a-vxS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -501,7 +501,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Mym-Ht-f1v"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Restaurant">
                                     <color key="titleColor" red="0.18823529410000001" green="0.4431372549" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -521,7 +521,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KFC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnG-vw-JeR">
-                                                    <rect key="frame" x="80" y="22" width="32" height="21"/>
+                                                    <rect key="frame" x="71" y="22" width="32" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -544,7 +544,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kfc-logo" translatesAutoresizingMaskIntoConstraints="NO" id="upq-ga-Vrx">
-                                                    <rect key="frame" x="8" y="0.0" width="64" height="64"/>
+                                                    <rect key="frame" x="8" y="0.0" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="upq-ga-Vrx" secondAttribute="height" multiplier="1:1" id="dpd-0X-wSp"/>
                                                     </constraints>
@@ -552,7 +552,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="nnG-vw-JeR" firstAttribute="leading" secondItem="upq-ga-Vrx" secondAttribute="trailing" constant="8" id="96t-ht-wEc"/>
-                                                <constraint firstAttribute="bottom" secondItem="upq-ga-Vrx" secondAttribute="bottom" id="EEV-yF-2vA"/>
+                                                <constraint firstAttribute="bottom" secondItem="upq-ga-Vrx" secondAttribute="bottom" constant="9" id="EEV-yF-2vA"/>
                                                 <constraint firstItem="ACI-ek-Uha" firstAttribute="centerY" secondItem="fmw-Ju-Rdq" secondAttribute="centerY" id="EmN-PG-RIQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="ACI-ek-Uha" secondAttribute="trailing" constant="8" id="FkN-RY-Ef4"/>
                                                 <constraint firstItem="tRh-15-NO8" firstAttribute="centerY" secondItem="fmw-Ju-Rdq" secondAttribute="centerY" id="GG0-DB-afh"/>
