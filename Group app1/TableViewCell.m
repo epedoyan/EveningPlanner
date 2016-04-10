@@ -19,11 +19,6 @@
 
 }
 - (IBAction)addOrRemoveButtonTouched:(UIButton *)sender {
-    if ([sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"plus"]]) {
-        [sender setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
-    } else {
-        [sender setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
-    }
 }
 
 @end

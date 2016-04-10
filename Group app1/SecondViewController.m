@@ -7,9 +7,10 @@
 //
 
 #import "SecondViewController.h"
+#import "MainViewController.h"
+#import "ChoicePageViewController.h"
 #import "TableViewCell.h"
 #import "UIColor+EveningPlannerColor.h"
-#import "MainViewController.h"
 
 @interface SecondViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -34,7 +35,7 @@
     }
     self.tableView.hidden = YES;
     self.tableViewLabel.hidden = YES;
-    // Updates back button title on ChoicePageViewController
+    
     self.navigationItem.backBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:@"Back"
                                      style:UIBarButtonItemStylePlain
@@ -42,15 +43,27 @@
                                     action:nil];
 }
 
+- (void)addOrRemoveButtonTouched:(UIButton *)sender {
+    if (![sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minus"]]) {
+        [sender setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
+    } else {
+        [sender setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
-    [[(TableViewCell *)cell logo] setImage:[UIImage imageNamed:@"kfc-logo"]];
-    [[(TableViewCell *)cell name] setText:@"KFC"];
-    [[(TableViewCell *)cell price] setText:@"3000"];
+    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
+    [[cell logo] setImage:[UIImage imageNamed:@"kfc-logo"]];
+    [[cell name] setText:@"KFC"];
+    [[cell price] setText:@"3000"];
+    [[cell addOrRemoveButton] addTarget:nil
+                                 action:@selector(addOrRemoveButtonTouched:)
+                       forControlEvents:UIControlEventTouchUpInside];
+    
     
     return cell;
 }
@@ -128,6 +141,10 @@
     }
     self.tableView.hidden = NO;
     self.tableViewLabel.hidden = NO;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

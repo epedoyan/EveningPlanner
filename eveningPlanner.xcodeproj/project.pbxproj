@@ -17,7 +17,9 @@
 		A57DA1FB1CB69508000FF02D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57DA1F41CB69508000FF02D /* SecondViewController.m */; };
 		A57DA1FC1CB69508000FF02D /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A57DA1F61CB69508000FF02D /* TableViewCell.m */; };
 		A57DA1FD1CB69508000FF02D /* UIColor+EveningPlannerColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A57DA1F81CB69508000FF02D /* UIColor+EveningPlannerColor.m */; };
-		CE0BD5AA1CB8EB2E00C8A7BB /* MyChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5A91CB8EB2E00C8A7BB /* MyChoiceCell.m */; };
+		A5C9D2191CBAE89B00E5B373 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C9D2181CBAE89B00E5B373 /* InfoViewController.m */; };
+		A5E177621CBA9B2A003B21E1 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E177611CBA9B2A003B21E1 /* MapViewController.m */; };
+		A5E177651CBA9B35003B21E1 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E177641CBA9B35003B21E1 /* WebViewController.m */; };
 		CED977161CB8499000A77664 /* ChoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED977151CB8499000A77664 /* ChoicePageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -40,8 +42,12 @@
 		A57DA1F61CB69508000FF02D /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		A57DA1F71CB69508000FF02D /* UIColor+EveningPlannerColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+EveningPlannerColor.h"; sourceTree = "<group>"; };
 		A57DA1F81CB69508000FF02D /* UIColor+EveningPlannerColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+EveningPlannerColor.m"; sourceTree = "<group>"; };
-		CE0BD5A81CB8EB2E00C8A7BB /* MyChoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyChoiceCell.h; sourceTree = "<group>"; };
-		CE0BD5A91CB8EB2E00C8A7BB /* MyChoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyChoiceCell.m; sourceTree = "<group>"; };
+		A5C9D2171CBAE89B00E5B373 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		A5C9D2181CBAE89B00E5B373 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		A5E177601CBA9B2A003B21E1 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		A5E177611CBA9B2A003B21E1 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		A5E177631CBA9B35003B21E1 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		A5E177641CBA9B35003B21E1 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		CED977141CB8499000A77664 /* ChoicePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoicePageViewController.h; sourceTree = "<group>"; };
 		CED977151CB8499000A77664 /* ChoicePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoicePageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,12 +85,18 @@
 				786041131CB45FF1000086E4 /* AppDelegate.h */,
 				786041141CB45FF1000086E4 /* AppDelegate.m */,
 				786041191CB45FF1000086E4 /* Main.storyboard */,
+				A5E177631CBA9B35003B21E1 /* WebViewController.h */,
+				A5E177641CBA9B35003B21E1 /* WebViewController.m */,
+				A5E177601CBA9B2A003B21E1 /* MapViewController.h */,
+				A5E177611CBA9B2A003B21E1 /* MapViewController.m */,
 				A57DA1F11CB69508000FF02D /* MainViewController.h */,
 				A57DA1F21CB69508000FF02D /* MainViewController.m */,
 				A57DA1F31CB69508000FF02D /* SecondViewController.h */,
 				A57DA1F41CB69508000FF02D /* SecondViewController.m */,
 				CED977141CB8499000A77664 /* ChoicePageViewController.h */,
 				CED977151CB8499000A77664 /* ChoicePageViewController.m */,
+				A5C9D2171CBAE89B00E5B373 /* InfoViewController.h */,
+				A5C9D2181CBAE89B00E5B373 /* InfoViewController.m */,
 				7860411C1CB45FF1000086E4 /* Assets.xcassets */,
 				7860411E1CB45FF1000086E4 /* LaunchScreen.storyboard */,
 				786041211CB45FF1000086E4 /* Info.plist */,
@@ -103,8 +115,6 @@
 				A57DA1EF1CB69508000FF02D /* GreenButton.h */,
 				A57DA1F01CB69508000FF02D /* GreenButton.m */,
 				786041111CB45FF1000086E4 /* main.m */,
-				CE0BD5A81CB8EB2E00C8A7BB /* MyChoiceCell.h */,
-				CE0BD5A91CB8EB2E00C8A7BB /* MyChoiceCell.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -182,11 +192,13 @@
 			files = (
 				A57DA1FA1CB69508000FF02D /* MainViewController.m in Sources */,
 				A57DA1FD1CB69508000FF02D /* UIColor+EveningPlannerColor.m in Sources */,
+				A5C9D2191CBAE89B00E5B373 /* InfoViewController.m in Sources */,
+				A5E177651CBA9B35003B21E1 /* WebViewController.m in Sources */,
 				786041151CB45FF1000086E4 /* AppDelegate.m in Sources */,
 				A57DA1FB1CB69508000FF02D /* SecondViewController.m in Sources */,
-				CE0BD5AA1CB8EB2E00C8A7BB /* MyChoiceCell.m in Sources */,
 				A57DA1FC1CB69508000FF02D /* TableViewCell.m in Sources */,
 				786041121CB45FF1000086E4 /* main.m in Sources */,
+				A5E177621CBA9B2A003B21E1 /* MapViewController.m in Sources */,
 				CED977161CB8499000A77664 /* ChoicePageViewController.m in Sources */,
 				A57DA1F91CB69508000FF02D /* GreenButton.m in Sources */,
 			);
