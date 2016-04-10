@@ -8,7 +8,9 @@
 
 #import "WebViewController.h"
 
-@interface WebViewController ()
+@interface WebViewController () <UIWebViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -16,7 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSURL *url = [NSURL URLWithString:@"https://www.kfc.com/"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    [self.webView loadRequest:request];
+
 }
 
 @end

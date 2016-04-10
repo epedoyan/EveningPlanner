@@ -152,6 +152,7 @@
                             <constraint firstItem="Bzd-zt-tUf" firstAttribute="top" secondItem="WxL-PZ-yNx" secondAttribute="bottom" constant="8" id="jqS-yf-58V"/>
                             <constraint firstItem="Zg5-oB-tZ2" firstAttribute="leading" secondItem="cje-Je-Rga" secondAttribute="trailing" constant="2" id="k9j-bH-LCV"/>
                             <constraint firstItem="WxL-PZ-yNx" firstAttribute="leading" secondItem="mzu-h5-lVL" secondAttribute="leading" constant="20" id="lOR-Hj-AX9"/>
+                            <constraint firstItem="OKU-BA-i5b" firstAttribute="leading" secondItem="mzu-h5-lVL" secondAttribute="leading" id="lRH-w6-vJR"/>
                             <constraint firstItem="0oZ-l5-7OV" firstAttribute="top" secondItem="Hh4-XJ-iuv" secondAttribute="bottom" constant="8" id="mey-gs-3Ze"/>
                             <constraint firstItem="PXf-nJ-ZAT" firstAttribute="top" secondItem="Bzd-zt-tUf" secondAttribute="bottom" constant="8" id="o95-T1-6BW"/>
                             <constraint firstItem="cje-Je-Rga" firstAttribute="leading" secondItem="Shk-hf-Dt6" secondAttribute="trailing" constant="2" id="odu-dk-NQt"/>
@@ -162,12 +163,15 @@
                             <constraint firstItem="OKU-BA-i5b" firstAttribute="leading" secondItem="mzu-h5-lVL" secondAttribute="leading" constant="20" id="wMO-oX-6Z7"/>
                             <constraint firstItem="biv-L7-KED" firstAttribute="top" secondItem="fcl-I5-whV" secondAttribute="bottom" constant="8" id="xOr-4r-n9C"/>
                             <constraint firstItem="wLA-zu-Oz3" firstAttribute="leading" secondItem="mzu-h5-lVL" secondAttribute="leading" constant="20" id="xg6-iP-ZvN"/>
+                            <constraint firstItem="OKU-BA-i5b" firstAttribute="width" secondItem="mzu-h5-lVL" secondAttribute="width" id="z20-tn-fSn"/>
                             <constraint firstItem="Zg5-oB-tZ2" firstAttribute="leading" secondItem="cje-Je-Rga" secondAttribute="trailing" constant="2" id="zDL-Tc-VpW"/>
                             <constraint firstAttribute="trailing" secondItem="fcl-I5-whV" secondAttribute="trailing" constant="20" id="zNj-f0-AfB"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="5E8-WA-CqU"/>
                                 <exclude reference="wMO-oX-6Z7"/>
+                                <exclude reference="z20-tn-fSn"/>
                                 <exclude reference="odu-dk-NQt"/>
                                 <exclude reference="pkB-LH-2Bh"/>
                                 <exclude reference="zDL-Tc-VpW"/>
@@ -193,12 +197,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qj9-2N-ce9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1381" y="1026"/>
+            <point key="canvasLocation" x="1505" y="1049"/>
         </scene>
-        <!--View Controller-->
+        <!--www.kfc.com-->
         <scene sceneID="7YK-R5-pEI">
             <objects>
-                <viewController id="y6v-Hk-jcB" sceneMemberID="viewController">
+                <viewController id="y6v-Hk-jcB" customClass="WebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jsT-mG-jKS"/>
                         <viewControllerLayoutGuide type="bottom" id="vh5-hS-LYi"/>
@@ -207,14 +211,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F2E-1s-2CC">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2E-1s-2CC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="y6v-Hk-jcB" id="GGA-3J-MKS"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="vh5-hS-LYi" firstAttribute="top" secondItem="F2E-1s-2CC" secondAttribute="bottom" id="3c6-P3-gwd"/>
+                            <constraint firstItem="F2E-1s-2CC" firstAttribute="top" secondItem="DRT-fg-ZIi" secondAttribute="top" id="Avj-r6-EK6"/>
+                            <constraint firstAttribute="trailing" secondItem="F2E-1s-2CC" secondAttribute="trailing" id="P3V-rH-YlE"/>
+                            <constraint firstItem="F2E-1s-2CC" firstAttribute="leading" secondItem="DRT-fg-ZIi" secondAttribute="leading" id="R7A-ay-4k6"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="www.kfc.com" id="6l3-xl-jvJ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="webView" destination="F2E-1s-2CC" id="wni-gO-4aC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJE-CM-0OZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -407,10 +424,10 @@
             </objects>
             <point key="canvasLocation" x="1955" y="367"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="Phi-g2-5y7">
             <objects>
-                <viewController id="LmE-Ld-0ou" sceneMemberID="viewController">
+                <viewController id="LmE-Ld-0ou" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="99Y-aT-kZ6"/>
                         <viewControllerLayoutGuide type="bottom" id="UUC-h9-Ee8"/>
@@ -419,13 +436,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lJQ-ID-kE1">
-                                <rect key="frame" x="30" y="38" width="260" height="491"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lJQ-ID-kE1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <connections>
+                                    <outlet property="delegate" destination="LmE-Ld-0ou" id="ZDr-Xw-zuA"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="UUC-h9-Ee8" firstAttribute="top" secondItem="lJQ-ID-kE1" secondAttribute="bottom" id="Bfl-fx-bR1"/>
+                            <constraint firstItem="lJQ-ID-kE1" firstAttribute="top" secondItem="Ft9-3q-8Lw" secondAttribute="top" id="V1M-Fo-JUD"/>
+                            <constraint firstItem="lJQ-ID-kE1" firstAttribute="leading" secondItem="Ft9-3q-8Lw" secondAttribute="leading" id="tpP-Go-bTQ"/>
+                            <constraint firstAttribute="trailing" secondItem="lJQ-ID-kE1" secondAttribute="trailing" id="wY7-0l-aQe"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mapView" destination="lJQ-ID-kE1" id="5LA-Rj-5qS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qx5-jr-1Wh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
