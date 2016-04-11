@@ -18,6 +18,8 @@
 		A57DA1FC1CB69508000FF02D /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A57DA1F61CB69508000FF02D /* TableViewCell.m */; };
 		A57DA1FD1CB69508000FF02D /* UIColor+EveningPlannerColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A57DA1F81CB69508000FF02D /* UIColor+EveningPlannerColor.m */; };
 		CE0BD5AA1CB8EB2E00C8A7BB /* MyChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5A91CB8EB2E00C8A7BB /* MyChoiceCell.m */; };
+		CE0BD5D21CBBF72B00C8A7BB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0BD5D11CBBF72B00C8A7BB /* CoreData.framework */; };
+		CE0BD5D61CBBFA6D00C8A7BB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5D41CBBFA6D00C8A7BB /* Model.xcdatamodeld */; };
 		CED977161CB8499000A77664 /* ChoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED977151CB8499000A77664 /* ChoicePageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,9 @@
 		A57DA1F81CB69508000FF02D /* UIColor+EveningPlannerColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+EveningPlannerColor.m"; sourceTree = "<group>"; };
 		CE0BD5A81CB8EB2E00C8A7BB /* MyChoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyChoiceCell.h; sourceTree = "<group>"; };
 		CE0BD5A91CB8EB2E00C8A7BB /* MyChoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyChoiceCell.m; sourceTree = "<group>"; };
+		CE0BD5D11CBBF72B00C8A7BB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CE0BD5D31CBBF80900C8A7BB /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		CE0BD5D51CBBFA6D00C8A7BB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		CED977141CB8499000A77664 /* ChoicePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoicePageViewController.h; sourceTree = "<group>"; };
 		CED977151CB8499000A77664 /* ChoicePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoicePageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0BD5D21CBBF72B00C8A7BB /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +66,7 @@
 		786041041CB45FF1000086E4 = {
 			isa = PBXGroup;
 			children = (
+				CE0BD5D11CBBF72B00C8A7BB /* CoreData.framework */,
 				7860410F1CB45FF1000086E4 /* Group app1 */,
 				7860410E1CB45FF1000086E4 /* Products */,
 			);
@@ -85,9 +92,11 @@
 				A57DA1F41CB69508000FF02D /* SecondViewController.m */,
 				CED977141CB8499000A77664 /* ChoicePageViewController.h */,
 				CED977151CB8499000A77664 /* ChoicePageViewController.m */,
+				CE0BD5D41CBBFA6D00C8A7BB /* Model.xcdatamodeld */,
 				7860411C1CB45FF1000086E4 /* Assets.xcassets */,
 				7860411E1CB45FF1000086E4 /* LaunchScreen.storyboard */,
 				786041211CB45FF1000086E4 /* Info.plist */,
+				CE0BD5D31CBBF80900C8A7BB /* PrefixHeader.pch */,
 				786041101CB45FF1000086E4 /* Supporting Files */,
 			);
 			path = "Group app1";
@@ -187,6 +196,7 @@
 				CE0BD5AA1CB8EB2E00C8A7BB /* MyChoiceCell.m in Sources */,
 				A57DA1FC1CB69508000FF02D /* TableViewCell.m in Sources */,
 				786041121CB45FF1000086E4 /* main.m in Sources */,
+				CE0BD5D61CBBFA6D00C8A7BB /* Model.xcdatamodeld in Sources */,
 				CED977161CB8499000A77664 /* ChoicePageViewController.m in Sources */,
 				A57DA1F91CB69508000FF02D /* GreenButton.m in Sources */,
 			);
@@ -303,6 +313,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = "Group app1/PrefixHeader.pch";
 				INFOPLIST_FILE = "Group app1/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.eveningPlaner;
@@ -315,6 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = "Group app1/PrefixHeader.pch";
 				INFOPLIST_FILE = "Group app1/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.eveningPlaner;
@@ -344,6 +356,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CE0BD5D41CBBFA6D00C8A7BB /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CE0BD5D51CBBFA6D00C8A7BB /* Model.xcdatamodel */,
+			);
+			currentVersion = CE0BD5D51CBBFA6D00C8A7BB /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 786041051CB45FF1000086E4 /* Project object */;
 }
