@@ -7,14 +7,13 @@
 //
 
 #import "ChoicePageViewController.h"
-#import "MyChoiceCell.h"
+#import "TableViewCell.h"
 
 static NSUInteger cellsCount; //temprorary solution, till have DB
 
 @interface  ChoicePageViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) UITableView *myTableView;
-@property (nonatomic, strong) UIButton *removeButton;
+@property (nonatomic, weak) IBOutlet UITableView *myTableView;
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
 
 @property (nonatomic) BOOL shouldHideRemoveBtn;
@@ -25,7 +24,6 @@ static NSUInteger cellsCount; //temprorary solution, till have DB
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     cellsCount = 3;
     self.shouldHideRemoveBtn = YES;
     self.clearButton.hidden = YES;
@@ -38,30 +36,23 @@ static NSUInteger cellsCount; //temprorary solution, till have DB
         cellsCount = 0;
         [self.myTableView reloadData];
     }];
-    [alert addAction:alertActionClear];
-    
     UIAlertAction *alertActionCancel = [ UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-
+    [alert addAction:alertActionClear];
     [alert addAction:alertActionCancel];
     
     [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)editButtonAction:(UIBarButtonItem *)sender {
-    
-    //NSLog(@"Edit title %@", sender.title);
-    
     if ([sender.title isEqualToString:@"Edit"]) {
         self.shouldHideRemoveBtn = NO;
         self.clearButton.hidden = NO;
         [sender setTitle:@"Done"];
-    }
-    else {
+    } else {
         self.shouldHideRemoveBtn = YES;
         self.clearButton.hidden = YES;
         [sender setTitle:@"Edit"];
     }
-    
     [self.myTableView reloadData];
 }
 
@@ -72,25 +63,25 @@ static NSUInteger cellsCount; //temprorary solution, till have DB
 #pragma mark - UITableViewDataSource methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    self.myTableView = tableView;
-    MyChoiceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"choiceCell"
-                                                            forIndexPath:indexPath];
+    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
+    [[(TableViewCell *)cell logo] setImage:[UIImage imageNamed:@"kfc-logo"]];
+    [[(TableViewCell *)cell name] setText:@"KFC"];
+    [[(TableViewCell *)cell price] setText:@"3000"];
+    [[(TableViewCell *)cell addOrRemoveButton] setHidden:YES];
     
-    self.removeButton = cell.removeButton;
-    self.removeButton.tag = indexPath.row;
+    cell.addOrRemoveButton.tag = indexPath.row;
     
-    [self.removeButton addTarget:self action:@selector(removeButtonActionForTableView:)
+    [cell.addOrRemoveButton addTarget:self action:@selector(removeButtonActionForTableView:)
      forControlEvents:UIControlEventTouchUpInside];
     
     if (self.shouldHideRemoveBtn) {
         [UIButton animateWithDuration:0.5 animations:^{
-        cell.removeButton.hidden = YES;
+        cell.addOrRemoveButton.hidden = YES;
         }];
     }
     else {
         [UIButton animateWithDuration:0.5 animations:^{
-            cell.removeButton.hidden = NO;
+            cell.addOrRemoveButton.hidden = NO;
         }];
     }
     
@@ -99,16 +90,14 @@ static NSUInteger cellsCount; //temprorary solution, till have DB
 
 - (void)removeButtonActionForTableView: (UIButton *) sender{
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(long)sender.tag inSection:0];
-    
-    [self tableView:self.myTableView commitEditingStyle: UITableViewCellEditingStyleDelete
-          forRowAtIndexPath: indexPath];
+    [self tableView:self.myTableView commitEditingStyle: UITableViewCellEditingStyleDelete forRowAtIndexPath: indexPath];    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 65.0;
 }
 
-#pragma mark - UITextViewDelegate methods
+#pragma mark - UITableViewDelegate methods
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.shouldHideRemoveBtn) {
@@ -117,11 +106,12 @@ static NSUInteger cellsCount; //temprorary solution, till have DB
     return UITableViewCellEditingStyleNone;
 }
 
-- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-                                             forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+                                            forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         cellsCount--;
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        [self.myTableView reloadData];
     }
 }
 
