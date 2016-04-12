@@ -34,15 +34,24 @@
 - (IBAction)sliderValueChanged:(UISlider *)sender {
     if (sender.value < 1) {
         self.rangeLabel.text = [[NSString stringWithFormat:@"%f",(sender.value * 1000)] substringToIndex:3];
-        self.metrLabel.text = @"Metr";
+        self.metrLabel.text = @"Meter";
     } else {
         self.rangeLabel.text = [[NSString stringWithFormat:@"%f",sender.value] substringToIndex:3];
-        self.metrLabel.text = @"Kilometr";
+        self.metrLabel.text = @"Kilometer";
     }
 }
 
 - (IBAction)searchButtonTouched:(id)sender {
     self.money = [self.moneyField.text integerValue];
+    if (self.money <= 500 || self.money >= 100000) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning!!!" message:@"Please, write in the range from 500 to 100000" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:alertAction];
+        alert.view.center = self.view.center;
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        [self performSegueWithIdentifier:@"SegueToAMD" sender:nil];
+    }
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
@@ -54,13 +63,7 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if (textField.text.length > 5) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning!!!" message:@"You can't write more than 6 numbers." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
-        [alert addAction:alertAction];
-        alert.view.center = self.view.center;
-        [self presentViewController:alert animated:YES completion:nil];
-        
+    if (textField.text.length > 6) {
         textField.text = [textField.text substringToIndex:6];
     }
     return YES;
