@@ -31,15 +31,15 @@
     self.imageScrollView.contentSize = CGSizeMake(self.imageScrollView.frame.size.width * 3, self.imageScrollView.frame.size.height);
     CGRect imageViewRect = self.imageScrollView.bounds;
     
-     UIImageView *firstImage = [self newImageViewWithImage:[UIImage imageNamed: ((Restaurants *)restaurantsList[0]).image1] frame:imageViewRect];
+     UIImageView *firstImage = [self newImageViewWithImage:[UIImage imageNamed: ((Place *)restaurantsList[0]).image1] frame:imageViewRect];
         imageViewRect.origin.x += imageViewRect.size.width;
-        UIImageView *seconfImage = [self newImageViewWithImage:[UIImage imageNamed:((Restaurants *)restaurantsList[0]).image2] frame:imageViewRect];
+        UIImageView *seconfImage = [self newImageViewWithImage:[UIImage imageNamed:((Place *)restaurantsList[0]).image2] frame:imageViewRect];
         imageViewRect.origin.x += imageViewRect.size.width;
-        UIImageView *thirdImage = [self newImageViewWithImage:[UIImage imageNamed:((Restaurants *)restaurantsList[0]).image3] frame:imageViewRect];
+        UIImageView *thirdImage = [self newImageViewWithImage:[UIImage imageNamed:((Place *)restaurantsList[0]).image3] frame:imageViewRect];
     
-    self.descriptionTextView.text = ((Restaurants *)restaurantsList[0]).descriptionInfo;
-    self.urlLabel.text = ((Restaurants *)restaurantsList[0]).url;
-    self.numberLabel.text = ((Restaurants *)restaurantsList[0]).contactNumber;
+    self.descriptionTextView.text = ((Place *)restaurantsList[0]).descriptionInfo;
+    self.urlLabel.text = ((Place *)restaurantsList[0]).url;
+    self.numberLabel.text = ((Place *)restaurantsList[0]).contactNumber;
     
 //    UIImageView *firstImage = [self newImageViewWithImage:[UIImage imageNamed:@"kfc1"] frame:imageViewRect];
 //    imageViewRect.origin.x += imageViewRect.size.width;

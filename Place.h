@@ -11,7 +11,7 @@
 
 //NS_ASSUME_NONNULL_BEGIN
 
-@interface Restaurants : NSManagedObject
+@interface Place : NSManagedObject
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *descriptionInfo;
@@ -24,6 +24,8 @@
 @property (nonatomic, retain) NSString *url;
 @property (nonatomic, retain) NSString *contactNumber;
 @property (nonatomic, retain) NSString *address;
+@property (nonatomic, retain) NSString *placeType;
+
 
 - (void)setName:(NSString *)name
 descriptionInfo:(NSString *)descriptionInfo
@@ -35,7 +37,8 @@ descriptionInfo:(NSString *)descriptionInfo
          image3:(NSString *)image3
             url:(NSString *)url
  contactNumber:(NSString *)contactNumber
-       address:(NSString *)address;
+       address:(NSString *)address
+      placeType:(NSString *)placeType;
 
 @end
 

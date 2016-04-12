@@ -23,7 +23,7 @@
 		A5E177651CBA9B35003B21E1 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E177641CBA9B35003B21E1 /* WebViewController.m */; };
 		CE0BD5D21CBBF72B00C8A7BB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0BD5D11CBBF72B00C8A7BB /* CoreData.framework */; };
 		CE0BD5D61CBBFA6D00C8A7BB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5D41CBBFA6D00C8A7BB /* Model.xcdatamodeld */; };
-		CE0BD5E21CBC286E00C8A7BB /* Restaurants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5E01CBC286E00C8A7BB /* Restaurants.m */; };
+		CE0BD5E21CBC286E00C8A7BB /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5E01CBC286E00C8A7BB /* Place.m */; };
 		CE0BD5E81CBC3C8300C8A7BB /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5E71CBC3C8300C8A7BB /* CoreDataManager.m */; };
 		CE0BD5EA1CBC463F00C8A7BB /* CDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5E91CBC463F00C8A7BB /* CDConstants.m */; };
 		CED977161CB8499000A77664 /* ChoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED977151CB8499000A77664 /* ChoicePageViewController.m */; };
@@ -59,8 +59,8 @@
 		CE0BD5D11CBBF72B00C8A7BB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CE0BD5D31CBBF80900C8A7BB /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		CE0BD5D51CBBFA6D00C8A7BB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		CE0BD5DF1CBC286E00C8A7BB /* Restaurants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurants.h; sourceTree = "<group>"; };
-		CE0BD5E01CBC286E00C8A7BB /* Restaurants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurants.m; sourceTree = "<group>"; };
+		CE0BD5DF1CBC286E00C8A7BB /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		CE0BD5E01CBC286E00C8A7BB /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		CE0BD5E61CBC3C8300C8A7BB /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = "Group app1/CoreDataManager.h"; sourceTree = "<group>"; };
 		CE0BD5E71CBC3C8300C8A7BB /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = "Group app1/CoreDataManager.m"; sourceTree = "<group>"; };
 		CE0BD5E91CBC463F00C8A7BB /* CDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDConstants.m; sourceTree = "<group>"; };
@@ -83,8 +83,8 @@
 		786041041CB45FF1000086E4 = {
 			isa = PBXGroup;
 			children = (
-				CE0BD5DF1CBC286E00C8A7BB /* Restaurants.h */,
-				CE0BD5E01CBC286E00C8A7BB /* Restaurants.m */,
+				CE0BD5DF1CBC286E00C8A7BB /* Place.h */,
+				CE0BD5E01CBC286E00C8A7BB /* Place.m */,
 				CE0BD5E61CBC3C8300C8A7BB /* CoreDataManager.h */,
 				CE0BD5E71CBC3C8300C8A7BB /* CoreDataManager.m */,
 				CE0BD5D11CBBF72B00C8A7BB /* CoreData.framework */,
@@ -225,7 +225,7 @@
 				A5C9D21C1CBAFA8800E5B373 /* MapAnnotation.m in Sources */,
 				A57DA1FB1CB69508000FF02D /* SecondViewController.m in Sources */,
 				A57DA1FC1CB69508000FF02D /* TableViewCell.m in Sources */,
-				CE0BD5E21CBC286E00C8A7BB /* Restaurants.m in Sources */,
+				CE0BD5E21CBC286E00C8A7BB /* Place.m in Sources */,
 				786041121CB45FF1000086E4 /* main.m in Sources */,
 				CE0BD5D61CBBFA6D00C8A7BB /* Model.xcdatamodeld in Sources */,
 				A5E177621CBA9B2A003B21E1 /* MapViewController.m in Sources */,

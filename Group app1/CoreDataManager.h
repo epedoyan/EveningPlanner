@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AppDelegate.h"
-#import "Restaurants.h"
+#import "Place.h"
 
 @interface CoreDataManager : NSObject
 

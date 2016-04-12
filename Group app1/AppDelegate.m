@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CoreDataManager.h"
-#import "Restaurants.h"
+#import "Place.h"
 
 @interface AppDelegate ()
 

@@ -6,11 +6,11 @@
 //
 //
 
-#import "Restaurants.h"
+#import "Place.h"
 
-@implementation Restaurants
+@implementation Place
 
-@dynamic name, descriptionInfo, logo, price, rating, image1, image2, image3, url, contactNumber, address;
+@dynamic name, descriptionInfo, logo, price, rating, image1, image2, image3, url, contactNumber, address, placeType;
 
 - (void)setName:(NSString *)name
 descriptionInfo:(NSString *)descriptionInfo
@@ -22,7 +22,8 @@ descriptionInfo:(NSString *)descriptionInfo
          image3:(NSString *)image3
             url:(NSString *)url
   contactNumber:(NSString *)contactNumber
-        address:(NSString *)address {
+        address:(NSString *)address
+      placeType:(NSString *)placeType{
     
     self.name = name;
     self.descriptionInfo = descriptionInfo;
@@ -35,6 +36,7 @@ descriptionInfo:(NSString *)descriptionInfo
     self.url = url;
     self.contactNumber = contactNumber;
     self.address = address;
+    self.placeType = placeType;
 }
 
 @end
