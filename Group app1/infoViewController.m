@@ -25,8 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CoreDataManager *cdm = [[CoreDataManager alloc]init];
-    NSArray *restaurantsList = [cdm fetchAllRestaurants];
+    NSArray *restaurantsList = [[CoreDataManager defaultManager] fetchFastFood];
     self.imageScrollView.frame = CGRectMake(self.imageScrollView.frame.origin.x, self.imageScrollView.frame.origin.y, self.view.frame.size.width, self.imageScrollView.frame.size.height);
     self.imageScrollView.contentSize = CGSizeMake(self.imageScrollView.frame.size.width * 3, self.imageScrollView.frame.size.height);
     CGRect imageViewRect = self.imageScrollView.bounds;

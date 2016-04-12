@@ -12,7 +12,15 @@
 
 @interface CoreDataManager : NSObject
 
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
++ (id)defaultManager;
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
+
 - (void)insertRestaurantsList;
-- (NSArray *)fetchAllRestaurants;
+- (NSArray *)fetchFastFood;
 
 @end
