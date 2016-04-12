@@ -17,13 +17,15 @@
 		A57DA1FB1CB69508000FF02D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57DA1F41CB69508000FF02D /* SecondViewController.m */; };
 		A57DA1FC1CB69508000FF02D /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A57DA1F61CB69508000FF02D /* TableViewCell.m */; };
 		A57DA1FD1CB69508000FF02D /* UIColor+EveningPlannerColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A57DA1F81CB69508000FF02D /* UIColor+EveningPlannerColor.m */; };
-		CE0BD5AA1CB8EB2E00C8A7BB /* MyChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5A91CB8EB2E00C8A7BB /* MyChoiceCell.m */; };
-		CE0BD5D21CBBF72B00C8A7BB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0BD5D11CBBF72B00C8A7BB /* CoreData.framework */; };
-		CE0BD5D61CBBFA6D00C8A7BB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5D41CBBFA6D00C8A7BB /* Model.xcdatamodeld */; };
 		A5C9D2191CBAE89B00E5B373 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C9D2181CBAE89B00E5B373 /* InfoViewController.m */; };
 		A5C9D21C1CBAFA8800E5B373 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C9D21B1CBAFA8800E5B373 /* MapAnnotation.m */; };
 		A5E177621CBA9B2A003B21E1 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E177611CBA9B2A003B21E1 /* MapViewController.m */; };
 		A5E177651CBA9B35003B21E1 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E177641CBA9B35003B21E1 /* WebViewController.m */; };
+		CE0BD5D21CBBF72B00C8A7BB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0BD5D11CBBF72B00C8A7BB /* CoreData.framework */; };
+		CE0BD5D61CBBFA6D00C8A7BB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5D41CBBFA6D00C8A7BB /* Model.xcdatamodeld */; };
+		CE0BD5E21CBC286E00C8A7BB /* Restaurants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5E01CBC286E00C8A7BB /* Restaurants.m */; };
+		CE0BD5E81CBC3C8300C8A7BB /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5E71CBC3C8300C8A7BB /* CoreDataManager.m */; };
+		CE0BD5EA1CBC463F00C8A7BB /* CDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5E91CBC463F00C8A7BB /* CDConstants.m */; };
 		CED977161CB8499000A77664 /* ChoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED977151CB8499000A77664 /* ChoicePageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -46,11 +48,6 @@
 		A57DA1F61CB69508000FF02D /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		A57DA1F71CB69508000FF02D /* UIColor+EveningPlannerColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+EveningPlannerColor.h"; sourceTree = "<group>"; };
 		A57DA1F81CB69508000FF02D /* UIColor+EveningPlannerColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+EveningPlannerColor.m"; sourceTree = "<group>"; };
-		CE0BD5A81CB8EB2E00C8A7BB /* MyChoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyChoiceCell.h; sourceTree = "<group>"; };
-		CE0BD5A91CB8EB2E00C8A7BB /* MyChoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyChoiceCell.m; sourceTree = "<group>"; };
-		CE0BD5D11CBBF72B00C8A7BB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		CE0BD5D31CBBF80900C8A7BB /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		CE0BD5D51CBBFA6D00C8A7BB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		A5C9D2171CBAE89B00E5B373 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		A5C9D2181CBAE89B00E5B373 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		A5C9D21A1CBAFA8800E5B373 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
@@ -59,6 +56,14 @@
 		A5E177611CBA9B2A003B21E1 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		A5E177631CBA9B35003B21E1 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		A5E177641CBA9B35003B21E1 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		CE0BD5D11CBBF72B00C8A7BB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CE0BD5D31CBBF80900C8A7BB /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		CE0BD5D51CBBFA6D00C8A7BB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		CE0BD5DF1CBC286E00C8A7BB /* Restaurants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurants.h; sourceTree = "<group>"; };
+		CE0BD5E01CBC286E00C8A7BB /* Restaurants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurants.m; sourceTree = "<group>"; };
+		CE0BD5E61CBC3C8300C8A7BB /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = "Group app1/CoreDataManager.h"; sourceTree = "<group>"; };
+		CE0BD5E71CBC3C8300C8A7BB /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = "Group app1/CoreDataManager.m"; sourceTree = "<group>"; };
+		CE0BD5E91CBC463F00C8A7BB /* CDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDConstants.m; sourceTree = "<group>"; };
 		CED977141CB8499000A77664 /* ChoicePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoicePageViewController.h; sourceTree = "<group>"; };
 		CED977151CB8499000A77664 /* ChoicePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoicePageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +83,10 @@
 		786041041CB45FF1000086E4 = {
 			isa = PBXGroup;
 			children = (
+				CE0BD5DF1CBC286E00C8A7BB /* Restaurants.h */,
+				CE0BD5E01CBC286E00C8A7BB /* Restaurants.m */,
+				CE0BD5E61CBC3C8300C8A7BB /* CoreDataManager.h */,
+				CE0BD5E71CBC3C8300C8A7BB /* CoreDataManager.m */,
 				CE0BD5D11CBBF72B00C8A7BB /* CoreData.framework */,
 				7860410F1CB45FF1000086E4 /* Group app1 */,
 				7860410E1CB45FF1000086E4 /* Products */,
@@ -116,6 +125,7 @@
 				786041211CB45FF1000086E4 /* Info.plist */,
 				CE0BD5D31CBBF80900C8A7BB /* PrefixHeader.pch */,
 				786041101CB45FF1000086E4 /* Supporting Files */,
+				CE0BD5E91CBC463F00C8A7BB /* CDConstants.m */,
 			);
 			path = "Group app1";
 			sourceTree = "<group>";
@@ -215,9 +225,12 @@
 				A5C9D21C1CBAFA8800E5B373 /* MapAnnotation.m in Sources */,
 				A57DA1FB1CB69508000FF02D /* SecondViewController.m in Sources */,
 				A57DA1FC1CB69508000FF02D /* TableViewCell.m in Sources */,
+				CE0BD5E21CBC286E00C8A7BB /* Restaurants.m in Sources */,
 				786041121CB45FF1000086E4 /* main.m in Sources */,
 				CE0BD5D61CBBFA6D00C8A7BB /* Model.xcdatamodeld in Sources */,
 				A5E177621CBA9B2A003B21E1 /* MapViewController.m in Sources */,
+				CE0BD5EA1CBC463F00C8A7BB /* CDConstants.m in Sources */,
+				CE0BD5E81CBC3C8300C8A7BB /* CoreDataManager.m in Sources */,
 				CED977161CB8499000A77664 /* ChoicePageViewController.m in Sources */,
 				A57DA1F91CB69508000FF02D /* GreenButton.m in Sources */,
 			);

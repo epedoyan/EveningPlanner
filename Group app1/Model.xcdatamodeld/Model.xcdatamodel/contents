@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
-    <elements/>
+    <entity name="Restaurants" representedClassName="Restaurants" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contactNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descriptionInfo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Restaurants" positionX="-54" positionY="-9" width="128" height="210"/>
+    </elements>
 </model>
