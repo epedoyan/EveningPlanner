@@ -27,18 +27,18 @@
     
     CoreDataManager *cdm = [[CoreDataManager alloc]init];
     NSArray *restaurantsList = [cdm fetchAllRestaurants];
-    
+    self.imageScrollView.frame = CGRectMake(self.imageScrollView.frame.origin.x, self.imageScrollView.frame.origin.y, self.view.frame.size.width, self.imageScrollView.frame.size.height);
     self.imageScrollView.contentSize = CGSizeMake(self.imageScrollView.frame.size.width * 3, self.imageScrollView.frame.size.height);
     CGRect imageViewRect = self.imageScrollView.bounds;
     
-     UIImageView *firstImage = [self newImageViewWithImage:[UIImage imageNamed: ((Place *)restaurantsList[0]).image1] frame:imageViewRect];
+     UIImageView *firstImage = [self newImageViewWithImage:[UIImage imageNamed: ((Place *)restaurantsList[0]).imageFirst] frame:imageViewRect];
         imageViewRect.origin.x += imageViewRect.size.width;
-        UIImageView *seconfImage = [self newImageViewWithImage:[UIImage imageNamed:((Place *)restaurantsList[0]).image2] frame:imageViewRect];
+        UIImageView *seconfImage = [self newImageViewWithImage:[UIImage imageNamed:((Place *)restaurantsList[0]).imageSecond] frame:imageViewRect];
         imageViewRect.origin.x += imageViewRect.size.width;
-        UIImageView *thirdImage = [self newImageViewWithImage:[UIImage imageNamed:((Place *)restaurantsList[0]).image3] frame:imageViewRect];
+        UIImageView *thirdImage = [self newImageViewWithImage:[UIImage imageNamed:((Place *)restaurantsList[0]).imageThird] frame:imageViewRect];
     
     self.descriptionTextView.text = ((Place *)restaurantsList[0]).descriptionInfo;
-    self.urlLabel.text = ((Place *)restaurantsList[0]).url;
+    self.urlLabel.text = ((Place *)restaurantsList[0]).urlString;
     self.numberLabel.text = ((Place *)restaurantsList[0]).contactNumber;
     
 //    UIImageView *firstImage = [self newImageViewWithImage:[UIImage imageNamed:@"kfc1"] frame:imageViewRect];

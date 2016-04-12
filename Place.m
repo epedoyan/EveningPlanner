@@ -10,33 +10,37 @@
 
 @implementation Place
 
-@dynamic name, descriptionInfo, logo, price, rating, image1, image2, image3, url, contactNumber, address, placeType;
+@dynamic name, descriptionInfo, logo, price, rating, imageFirst, imageSecond, imageThird, urlString, contactNumber, address, placeType, latitude, longitude;
 
 - (void)setName:(NSString *)name
 descriptionInfo:(NSString *)descriptionInfo
            logo:(NSString *)logo
           price:(NSNumber *)price
          rating:(NSNumber *)rating
-         image1:(NSString *)image1
-         image2:(NSString *)image2
-         image3:(NSString *)image3
-            url:(NSString *)url
+         image1:(NSString *)imageFirst
+         image2:(NSString *)imageSecond
+         image3:(NSString *)imageThird
+            url:(NSString *)urlString
   contactNumber:(NSString *)contactNumber
         address:(NSString *)address
-      placeType:(NSString *)placeType{
+      placeType:(NSString *)placeType
+      longitude:(NSNumber *)longitude
+       latitude:(NSNumber *)latitude {
     
     self.name = name;
     self.descriptionInfo = descriptionInfo;
     self.logo = logo;
     self.price = price;
     self.rating = rating;
-    self.image1 = image1;
-    self.image2 = image2;
-    self.image3 = image3;
-    self.url = url;
+    self.imageFirst = imageFirst;
+    self.imageSecond = imageSecond;
+    self.imageThird = imageThird;
+    self.urlString = urlString;
     self.contactNumber = contactNumber;
     self.address = address;
     self.placeType = placeType;
+    self.latitude = latitude;
+    self.longitude = longitude;
 }
 
 @end
