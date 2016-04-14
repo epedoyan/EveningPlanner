@@ -24,27 +24,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSManagedObjectContext *context = [[CoreDataManager defaultManager] managedObjectContext];
+    Place *place = [context objectWithID:self.placeObjectID];
     
-    NSArray *restaurantsList = [[CoreDataManager defaultManager] fetchFastFood];
     self.imageScrollView.frame = CGRectMake(self.imageScrollView.frame.origin.x, self.imageScrollView.frame.origin.y, self.view.frame.size.width, self.imageScrollView.frame.size.height);
     self.imageScrollView.contentSize = CGSizeMake(self.imageScrollView.frame.size.width * 3, self.imageScrollView.frame.size.height);
     CGRect imageViewRect = self.imageScrollView.bounds;
     
-     UIImageView *firstImage = [self newImageViewWithImage:[UIImage imageNamed: ((Place *)restaurantsList[0]).imageFirst] frame:imageViewRect];
+     UIImageView *firstImage = [self newImageViewWithImage:[UIImage imageNamed:place.imageFirst] frame:imageViewRect];
         imageViewRect.origin.x += imageViewRect.size.width;
-        UIImageView *seconfImage = [self newImageViewWithImage:[UIImage imageNamed:((Place *)restaurantsList[0]).imageSecond] frame:imageViewRect];
+        UIImageView *seconfImage = [self newImageViewWithImage:[UIImage imageNamed:place.imageSecond] frame:imageViewRect];
         imageViewRect.origin.x += imageViewRect.size.width;
-        UIImageView *thirdImage = [self newImageViewWithImage:[UIImage imageNamed:((Place *)restaurantsList[0]).imageThird] frame:imageViewRect];
+        UIImageView *thirdImage = [self newImageViewWithImage:[UIImage imageNamed:place.imageThird] frame:imageViewRect];
     
-    self.descriptionTextView.text = ((Place *)restaurantsList[0]).descriptionInfo;
-    self.urlLabel.text = ((Place *)restaurantsList[0]).urlString;
-    self.numberLabel.text = ((Place *)restaurantsList[0]).contactNumber;
-    
-//    UIImageView *firstImage = [self newImageViewWithImage:[UIImage imageNamed:@"kfc1"] frame:imageViewRect];
-//    imageViewRect.origin.x += imageViewRect.size.width;
-//    UIImageView *seconfImage = [self newImageViewWithImage:[UIImage imageNamed:@"kfc2"] frame:imageViewRect];
-//    imageViewRect.origin.x += imageViewRect.size.width;
-//    UIImageView *thirdImage = [self newImageViewWithImage:[UIImage imageNamed:@"kfc3"] frame:imageViewRect];
+    self.descriptionTextView.text = place.descriptionInfo;
+    self.urlLabel.text = place.urlString;
+    self.numberLabel.text = place.contactNumber;
     
     [self.imageScrollView addSubview:firstImage];
     [self.imageScrollView addSubview:seconfImage];
