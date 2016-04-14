@@ -7,7 +7,6 @@
 //
 
 #import "CoreDataManager.h"
-#import "CDConstants.m"
 
 
 @implementation CoreDataManager
@@ -23,6 +22,12 @@
 
 - (void)insertRestaurantsList {
     NSManagedObjectContext *context = [self managedObjectContext];
+//    
+//    Place *rest_Blackberry = [NSEntityDescription insertNewObjectForEntityForName:@"Places" inManagedObjectContext:context];
+//    
+//    [rest_Blackberry setName:@"Blackberry" descriptionInfo:@"The BlackBerry is one of the “L’Orange” network cafes opened its doors on March 5, 2005 in downtown Yerevan at 21 Abovyan St. The name L’Orange came from the wish to associate it with something fun and happy." logo:@"blackberry-logo" price:@10000 rating:@4 image1:@"blackberryImage1" image2:@"blackberryImage2" image3:@"blackberryImage3" url:@"www.blackberry.lorange.am" contactNumber:@"+37410 516711" address:@"3 Abovyan St, Yerevan, Armenia" placeType:@"Restaurant" longitude:@678 latitude:@765];
+//    
+    //Museums list
     
 
 //Games
@@ -230,12 +235,29 @@
 }
 
 - (NSArray *)fetchFastFood {
-    NSManagedObjectContext *context = [self managedObjectContext];
     
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Places"];
     
     return [context executeFetchRequest:fetchRequest error:nil];
 }
+
+- (NSArray *)fetchMuseum {
+    
+    NSString *placeType = @"Museum";
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Places"];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"placeType == %@", placeType]];
+    
+    return [context executeFetchRequest:fetchRequest error:nil];
+}
+
+//
+//- (NSArray *)fetchCinemaTheatre {
+//   //
+//}
+
 
 #pragma mark - Core Data stack
 

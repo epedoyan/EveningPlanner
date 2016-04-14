@@ -22,13 +22,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    self.str = [[NSUserDefaults standardUserDefaults] stringForKey:@"isDataInDB"];
-    CoreDataManager *cd = [[CoreDataManager alloc]init];
-
+//    self.str = [[NSUserDefaults standardUserDefaults] stringForKey:@"isDataInDB"];
+    CoreDataManager *cd = [CoreDataManager defaultManager];
+//
+//    
+//    if(![self.str isEqualToString: @"YES"]) {
     
-    if(![self.str isEqualToString: @"YES"]) {
-        [cd insertRestaurantsList];
-    }
+       //[cd insertRestaurantsList];
+//    }
     
 //    
 //    NSArray *restaurantsList = [cd fetchAllRestaurants];
@@ -39,7 +40,7 @@
 //    }
     
     
-    [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:@"isDataInDB"];
+//    [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:@"isDataInDB"];
     
     
     return YES;

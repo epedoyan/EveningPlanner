@@ -21,6 +21,9 @@
 - (NSURL *)applicationDocumentsDirectory;
 
 - (void)insertRestaurantsList;
+
 - (NSArray *)fetchFastFood;
+- (NSArray *)fetchMuseum;
+- (NSArray *)fetchCinemaTheatre;
 
 @end
