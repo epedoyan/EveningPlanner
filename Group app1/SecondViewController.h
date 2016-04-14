@@ -11,4 +11,6 @@
 
 @interface SecondViewController : UIViewController
 
+@property (nonatomic, strong) NSManagedObjectID *placeObjectID;
+
 @end

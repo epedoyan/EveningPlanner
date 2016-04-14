@@ -11,6 +11,7 @@
 #import "ChoicePageViewController.h"
 #import "TableViewCell.h"
 #import "UIColor+EveningPlannerColor.h"
+#import "CoreDataManager.h"
 
 @interface SecondViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -18,6 +19,9 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *topButtons;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *tableViewLabel;
+
+@property (strong, nonatomic) NSArray *places;
+@property (nonatomic) BOOL isTheFirstButtonTouched;
 
 @end
 
@@ -27,6 +31,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.isTheFirstButtonTouched = YES;
     
     MainViewController *mainVC = self.navigationController.viewControllers[0];
     self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)mainVC.money];
@@ -52,14 +58,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.places.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
-    [[cell logo] setImage:[UIImage imageNamed:@"kfc-logo"]];
-    [[cell name] setText:@"KFC"];
-    [[cell price] setText:@"3000"];
+    [[cell logo] setImage:[UIImage imageNamed:[self.places[indexPath.row] logo]]];
+    [[cell name] setText:[self.places[indexPath.row] name]];
+    [[cell price] setText:[NSString stringWithFormat:@"%@",[self.places[indexPath.row] price]]];
     [[cell addOrRemoveButton] addTarget:nil
                                  action:@selector(addOrRemoveButtonTouched:)
                        forControlEvents:UIControlEventTouchUpInside];
@@ -80,6 +86,7 @@
             [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }];
     }
+    [self.tableView reloadData];
     if ([sender isEqual:self.topButtons[0]]) {
         [UIView animateWithDuration:0.2 animations:^{
             [self.topButtons[1] setBackgroundColor:self.view.backgroundColor];
@@ -89,6 +96,12 @@
         }];
         [self.bottomButtons[0] setTitle:@"Fast Food" forState:UIControlStateNormal ];
         [self.bottomButtons[1] setTitle:@"Restaurant" forState:UIControlStateNormal];
+        
+        if (self.isTheFirstButtonTouched) {
+            self.places = [[CoreDataManager defaultManager] fetchFastFood];
+        } else {
+            self.places = [[CoreDataManager defaultManager] fetchRestaurants];
+        }
 
         
     }
@@ -101,6 +114,11 @@
         }];
         [self.bottomButtons[0] setTitle:@"Game" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Gym" forState:UIControlStateNormal];
+        if (self.isTheFirstButtonTouched) {
+            self.places = [[CoreDataManager defaultManager] fetchGames];
+        } else {
+            self.places = [[CoreDataManager defaultManager] fetchGyms];
+        }
 
     }
     if ([sender isEqual:self.topButtons[2]]) {
@@ -112,6 +130,11 @@
         }];
         [self.bottomButtons[0] setTitle:@"Cinema, Theatre" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Museum" forState:UIControlStateNormal];
+        if (self.isTheFirstButtonTouched) {
+            self.places = [[CoreDataManager defaultManager] fetchCinemaTheatre];
+        } else {
+            self.places = [[CoreDataManager defaultManager] fetchMuseum];
+        }
     }
     for (UIButton *button in self.bottomButtons) {
         [UIView animateWithDuration:0.5 animations:^{
@@ -127,16 +150,20 @@
             [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }];
     }
+    [self.tableView reloadData];
     if ([sender isEqual:self.bottomButtons[0]]) {
         [UIView animateWithDuration:0.2 animations:^{
             [self.bottomButtons[1] setBackgroundColor:self.view.backgroundColor];
             [self.bottomButtons[1] setTitleColor:[UIColor eveningPlannerGreenColor] forState:UIControlStateNormal];
+            
+            self.isTheFirstButtonTouched = YES;
         }];
     }
     if ([sender isEqual:self.bottomButtons[1]]) {
         [UIView animateWithDuration:0.2 animations:^{
             [self.bottomButtons[0] setBackgroundColor:self.view.backgroundColor];
             [self.bottomButtons[0] setTitleColor:[UIColor eveningPlannerGreenColor] forState:UIControlStateNormal];
+            self.isTheFirstButtonTouched = NO;
         }];
     }
     self.tableView.hidden = NO;
@@ -144,6 +171,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.placeObjectID = [self.places[indexPath.row] objectID];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

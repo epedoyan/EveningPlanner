@@ -23,12 +23,12 @@
     // Override point for customization after application launch.
     
 //    self.str = [[NSUserDefaults standardUserDefaults] stringForKey:@"isDataInDB"];
-//    CoreDataManager *cd = [CoreDataManager defaultManager];
+    CoreDataManager *cd = [CoreDataManager defaultManager];
 //
 //    
 //    if(![self.str isEqualToString: @"YES"]) {
     
-       //[cd insertRestaurantsList];
+       [cd insertRestaurantsList];
 //    }
     
 //    
