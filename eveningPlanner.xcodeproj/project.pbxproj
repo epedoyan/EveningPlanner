@@ -25,7 +25,6 @@
 		CE0BD5D61CBBFA6D00C8A7BB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5D41CBBFA6D00C8A7BB /* Model.xcdatamodeld */; };
 		CE0BD5E21CBC286E00C8A7BB /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5E01CBC286E00C8A7BB /* Place.m */; };
 		CE0BD5E81CBC3C8300C8A7BB /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5E71CBC3C8300C8A7BB /* CoreDataManager.m */; };
-		CE0BD5EA1CBC463F00C8A7BB /* CDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0BD5E91CBC463F00C8A7BB /* CDConstants.m */; };
 		CED977161CB8499000A77664 /* ChoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED977151CB8499000A77664 /* ChoicePageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +34,7 @@
 		786041131CB45FF1000086E4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		786041141CB45FF1000086E4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7860411A1CB45FF1000086E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7860411C1CB45FF1000086E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7860411C1CB45FF1000086E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Group app1/Assets.xcassets"; sourceTree = "<group>"; };
 		7860411F1CB45FF1000086E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		786041211CB45FF1000086E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A57DA1EF1CB69508000FF02D /* GreenButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreenButton.h; sourceTree = "<group>"; };
@@ -63,7 +62,6 @@
 		CE0BD5E01CBC286E00C8A7BB /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		CE0BD5E61CBC3C8300C8A7BB /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = "Group app1/CoreDataManager.h"; sourceTree = "<group>"; };
 		CE0BD5E71CBC3C8300C8A7BB /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = "Group app1/CoreDataManager.m"; sourceTree = "<group>"; };
-		CE0BD5E91CBC463F00C8A7BB /* CDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDConstants.m; sourceTree = "<group>"; };
 		CED977141CB8499000A77664 /* ChoicePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoicePageViewController.h; sourceTree = "<group>"; };
 		CED977151CB8499000A77664 /* ChoicePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoicePageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +85,7 @@
 				CE0BD5E01CBC286E00C8A7BB /* Place.m */,
 				CE0BD5E61CBC3C8300C8A7BB /* CoreDataManager.h */,
 				CE0BD5E71CBC3C8300C8A7BB /* CoreDataManager.m */,
+				7860411C1CB45FF1000086E4 /* Assets.xcassets */,
 				CE0BD5D11CBBF72B00C8A7BB /* CoreData.framework */,
 				7860410F1CB45FF1000086E4 /* Group app1 */,
 				7860410E1CB45FF1000086E4 /* Products */,
@@ -106,11 +105,11 @@
 			children = (
 				786041131CB45FF1000086E4 /* AppDelegate.h */,
 				786041141CB45FF1000086E4 /* AppDelegate.m */,
-				786041191CB45FF1000086E4 /* Main.storyboard */,
 				A5E177631CBA9B35003B21E1 /* WebViewController.h */,
 				A5E177641CBA9B35003B21E1 /* WebViewController.m */,
 				A5E177601CBA9B2A003B21E1 /* MapViewController.h */,
 				A5E177611CBA9B2A003B21E1 /* MapViewController.m */,
+				786041191CB45FF1000086E4 /* Main.storyboard */,
 				A57DA1F11CB69508000FF02D /* MainViewController.h */,
 				A57DA1F21CB69508000FF02D /* MainViewController.m */,
 				A57DA1F31CB69508000FF02D /* SecondViewController.h */,
@@ -120,12 +119,10 @@
 				CE0BD5D41CBBFA6D00C8A7BB /* Model.xcdatamodeld */,
 				A5C9D2171CBAE89B00E5B373 /* InfoViewController.h */,
 				A5C9D2181CBAE89B00E5B373 /* InfoViewController.m */,
-				7860411C1CB45FF1000086E4 /* Assets.xcassets */,
 				7860411E1CB45FF1000086E4 /* LaunchScreen.storyboard */,
 				786041211CB45FF1000086E4 /* Info.plist */,
 				CE0BD5D31CBBF80900C8A7BB /* PrefixHeader.pch */,
 				786041101CB45FF1000086E4 /* Supporting Files */,
-				CE0BD5E91CBC463F00C8A7BB /* CDConstants.m */,
 			);
 			path = "Group app1";
 			sourceTree = "<group>";
@@ -229,7 +226,6 @@
 				786041121CB45FF1000086E4 /* main.m in Sources */,
 				CE0BD5D61CBBFA6D00C8A7BB /* Model.xcdatamodeld in Sources */,
 				A5E177621CBA9B2A003B21E1 /* MapViewController.m in Sources */,
-				CE0BD5EA1CBC463F00C8A7BB /* CDConstants.m in Sources */,
 				CE0BD5E81CBC3C8300C8A7BB /* CoreDataManager.m in Sources */,
 				CED977161CB8499000A77664 /* ChoicePageViewController.m in Sources */,
 				A57DA1F91CB69508000FF02D /* GreenButton.m in Sources */,
