@@ -8,6 +8,7 @@
 
 #import "CoreDataManager.h"
 
+static NSString *const kEntityNamePlaces = @"Places";
 
 @implementation CoreDataManager
 
