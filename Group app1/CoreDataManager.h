@@ -23,7 +23,10 @@
 - (void)insertRestaurantsList;
 
 - (NSArray *)fetchFastFood;
+- (NSArray *)fetchRestaurants;
 - (NSArray *)fetchMuseum;
 - (NSArray *)fetchCinemaTheatre;
+- (NSArray *)fetchGames;
+- (NSArray *)fetchGyms;
 
 @end

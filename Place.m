@@ -17,10 +17,10 @@ descriptionInfo:(NSString *)descriptionInfo
            logo:(NSString *)logo
           price:(NSNumber *)price
          rating:(NSNumber *)rating
-         image1:(NSString *)imageFirst
-         image2:(NSString *)imageSecond
-         image3:(NSString *)imageThird
-            url:(NSString *)urlString
+     imageFirst:(NSString *)imageFirst
+    imageSecond:(NSString *)imageSecond
+     imageThird:(NSString *)imageThird
+      urlString:(NSString *)urlString
   contactNumber:(NSString *)contactNumber
         address:(NSString *)address
       placeType:(NSString *)placeType
