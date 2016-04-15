@@ -26,7 +26,6 @@
 @property (nonatomic) BOOL isTheFirstBottomButtonTouched;
 @property (nonatomic) NSInteger numberOfSelectedTopButton;
 
-
 @end
 
 
@@ -120,15 +119,7 @@
         [self.bottomButtons[0] setTitle:@"Fast Food" forState:UIControlStateNormal ];
         [self.bottomButtons[1] setTitle:@"Restaurant" forState:UIControlStateNormal];
         
-        if (self.isTheFirstButtonTouched) {
-            self.places = [[CoreDataManager defaultManager] fetchFastFood];
-            NSLog(@"Count%lu", (unsigned long)[self.places count]);
-
-        } else {
-            self.places = [[CoreDataManager defaultManager] fetchRestaurants];
-           // NSLog(@"Count%lu", (unsigned long)[self.places count]);
-        }
-
+        self.numberOfSelectedTopButton = 1;
         
     }
     if ([sender isEqual:self.topButtons[1]]) {
@@ -158,8 +149,7 @@
             button.hidden = NO;
         }];
     }
-    
-    //[self.tableView reloadData];
+    [self choosingPlaceType];
 }
 
 - (IBAction)bottomButtonTouched:(UIButton *)sender {
@@ -174,7 +164,8 @@
         [UIView animateWithDuration:0.2 animations:^{
             [self.bottomButtons[1] setBackgroundColor:self.view.backgroundColor];
             [self.bottomButtons[1] setTitleColor:[UIColor eveningPlannerGreenColor] forState:UIControlStateNormal];
-            //self.isTheFirstButtonTouched = YES;
+            
+            self.isTheFirstBottomButtonTouched = YES;
         }];
     }
     if ([sender isEqual:self.bottomButtons[1]]) {
@@ -186,9 +177,7 @@
     }
     self.tableView.hidden = NO;
     self.tableViewLabel.hidden = NO;
-    [self.tableView reloadData];
-    
-    
+    [self choosingPlaceType];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
