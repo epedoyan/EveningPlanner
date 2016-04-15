@@ -10,4 +10,6 @@
 
 @interface InfoViewController : UIViewController
 
+@property (nonatomic, strong) NSManagedObjectID *placeObjectID;
+
 @end

@@ -11,7 +11,7 @@
         <!--KFC-->
         <scene sceneID="wGZ-qw-pDf">
             <objects>
-                <viewController id="N8o-y3-zZZ" customClass="InfoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="infoVC" id="N8o-y3-zZZ" customClass="InfoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Vl-tW-UGk"/>
                         <viewControllerLayoutGuide type="bottom" id="PXf-nJ-ZAT"/>
@@ -641,7 +641,7 @@
         <!--AMD-->
         <scene sceneID="mUM-5a-Ox5">
             <objects>
-                <viewController id="q6F-Ni-F29" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="secondVC" id="q6F-Ni-F29" customClass="SecondViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2FD-NI-OqH"/>
                         <viewControllerLayoutGuide type="bottom" id="E8R-e4-sxL"/>
@@ -836,7 +836,6 @@
                                             <outletCollection property="starIcons" destination="H0M-Zb-Xrs" id="pFT-gD-LmH"/>
                                             <outletCollection property="starIcons" destination="14y-Ms-rq5" id="ytf-Gx-rCa"/>
                                             <outletCollection property="starIcons" destination="cSa-DL-Kpt" id="Lww-lC-8Mw"/>
-                                            <segue destination="N8o-y3-zZZ" kind="show" id="Sii-Js-jpj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -922,6 +921,6 @@
         <image name="wallet" width="600" height="500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7U4-R2-ydW"/>
+        <segue reference="9Vx-jQ-GJh"/>
     </inferredMetricsTieBreakers>
 </document>

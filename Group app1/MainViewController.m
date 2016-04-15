@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "UIColor+EveningPlannerColor.h"
+#import "SecondViewController.h"
 
 @interface MainViewController ()
 
@@ -42,15 +43,17 @@
 }
 
 - (IBAction)searchButtonTouched:(id)sender {
-    self.money = [self.moneyField.text integerValue];
-    if (self.money <= 500 || self.money >= 100000) {
+    SecondViewController *secondVC = [self.storyboard instantiateViewControllerWithIdentifier:@"secondVC"];
+    secondVC.money = [self.moneyField.text integerValue];
+    
+    if (secondVC.money <= 500 || secondVC.money >= 100000) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning!!!" message:@"Please, write in the range from 500 to 100000" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:alertAction];
         alert.view.center = self.view.center;
         [self presentViewController:alert animated:YES completion:nil];
     } else {
-        [self performSegueWithIdentifier:@"SegueToAMD" sender:nil];
+        [self showViewController:secondVC sender:self];
     }
 }
 

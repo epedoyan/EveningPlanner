@@ -244,7 +244,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     
     [blackBerry setName:@"Blackberry"
         descriptionInfo:@"The BlackBerry is one of the “L’Orange” network cafes opened its doors on March 5, 2005 in downtown Yerevan at 21 Abovyan St. The name L’Orange came from the wish to associate it with something fun and happy."
-                   logo:@"blackberryLogo"
+                   logo:@"blackBerryLogo"
                   price:@10000
                  rating:@4
              imageFirst:@"blackBerryOne"
@@ -278,12 +278,12 @@ static NSString *const kEntityNamePlaces = @"Places";
     
     [kavkazskayaPlennitsa setName:@"Caucasian Captive"
                   descriptionInfo:@"Owing to the professional cooks invited from Georgia, Armenia and the countries of caucasian region, you can tasty the most delicious armenian tolma, tavlama, harisa, georgian khachapuries, juicy chaxoxbili,  refined sacivi and other tasty dishes of the caucasian national cuisine."
-                             logo:@"plennitcaLogo"
+                             logo:@"plennitsaLogo"
                             price:@10000
                            rating:@4
-                       imageFirst:@"plennitcaOne"
-                      imageSecond:@"plennitcaTwo"
-                       imageThird:@"plennitcaThree"
+                       imageFirst:@"plennitsaOne"
+                      imageSecond:@"plennitsaTwo"
+                       imageThird:@"plennitsaThree"
                         urlString:@"http://kavkazskayaplennitsa.am"
                     contactNumber:@"+374 10 548 291"
                           address:@"4/6 Amiryan St, Yerevan, Armenia"
@@ -455,7 +455,7 @@ static NSString *const kEntityNamePlaces = @"Places";
                price:@10000
               rating:@4
           imageFirst:@"miaOne"
-         imageSecond:@"mianTwo"
+         imageSecond:@"miaTwo"
           imageThird:@"miaThree"
            urlString:@"http://mamamia.am"
        contactNumber:@"+374 10 538 181"

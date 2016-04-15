@@ -11,6 +11,8 @@
 
 @interface SecondViewController : UIViewController
 
-@property (nonatomic, strong) NSManagedObjectID *placeObjectID;
+@property (nonatomic, strong) NSMutableArray <NSManagedObjectID *> *placesObjectIDs;
+
+@property (nonatomic) NSInteger money;
 
 @end
