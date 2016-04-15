@@ -51,10 +51,11 @@
 }
 
 - (void)addOrRemoveButtonTouched:(UIButton *)sender {
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:(TableViewCell *)[sender superview]];
+    //NSIndexPath *indexPath = [self.tableView indexPathForCell:(TableViewCell *)[sender superview]];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:(TableViewCell *)[[sender superview] superview]];
     NSManagedObjectID *placeID = [self.places[indexPath.row] objectID];
     
-    if (![sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minus"]]) {
+    if ([sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minus"]]) { //removed ! here
         [sender setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
         [self.placesObjectIDs removeObject:placeID];
     } else {
@@ -74,12 +75,12 @@
     [cell.logo setImage:[UIImage imageNamed:place.logo]];
     [cell.name setText:place.name];
     [cell.price setText:[NSString stringWithFormat:@"%@",place.price]];
-    [cell.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
+    /*[cell.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
     for (Place *temp in self.places) {
         if ([temp.objectID isEqual:place.objectID]) {
             [cell.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
         }
-    }
+    }*/
     [[cell addOrRemoveButton] addTarget:nil
                                  action:@selector(addOrRemoveButtonTouched:)
                        forControlEvents:UIControlEventTouchUpInside];
@@ -141,7 +142,7 @@
             [self.topButtons[1] setBackgroundColor:self.view.backgroundColor];
             [self.topButtons[1] setTitleColor:[UIColor eveningPlannerGreenColor] forState:UIControlStateNormal];
         }];
-        [self.bottomButtons[0] setTitle:@"Cinema, Theatre" forState:UIControlStateNormal];
+        [self.bottomButtons[0] setTitle:@"Cinema, Theater" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Museum" forState:UIControlStateNormal];
         self.numberOfSelectedTopButton = 3;    }
     for (UIButton *button in self.bottomButtons) {

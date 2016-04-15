@@ -8,6 +8,7 @@
 
 #import "ChoicePageViewController.h"
 #import "TableViewCell.h"
+#import "SecondViewController.h"
 
 static NSUInteger cellsCount; //temprorary solution, till have DB
 
@@ -17,6 +18,7 @@ static NSUInteger cellsCount; //temprorary solution, till have DB
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
 
 @property (nonatomic) BOOL shouldHideRemoveBtn;
+@property (nonatomic, strong) NSArray *selectedPlacesIDs;
 
 @end
 
@@ -24,16 +26,19 @@ static NSUInteger cellsCount; //temprorary solution, till have DB
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    cellsCount = 3;
+    //cellsCount = 3;
     self.shouldHideRemoveBtn = YES;
     self.clearButton.hidden = YES;
+    
+    SecondViewController *secondVC = self.navigationController.viewControllers[1];
+    self.selectedPlacesIDs = secondVC.placesObjectIDs;
 }
 
 - (IBAction)clearButtonAction {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *alertActionClear = [UIAlertAction actionWithTitle:@"Clear All" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
-        cellsCount = 0;
+        //cellsCount = 0;
         [self.myTableView reloadData];
     }];
     UIAlertAction *alertActionCancel = [ UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
@@ -57,17 +62,23 @@ static NSUInteger cellsCount; //temprorary solution, till have DB
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return cellsCount;
+    return [self.selectedPlacesIDs count];
 }
 
 #pragma mark - UITableViewDataSource methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSManagedObjectContext *context = [[CoreDataManager defaultManager] managedObjectContext];
+    Place *place = [context objectWithID:self.selectedPlacesIDs[indexPath.row]];
+    
+    
     TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
-    [[(TableViewCell *)cell logo] setImage:[UIImage imageNamed:@"kfc-logo"]];
-    [[(TableViewCell *)cell name] setText:@"KFC"];
-    [[(TableViewCell *)cell price] setText:@"3000"];
-    [[(TableViewCell *)cell addOrRemoveButton] setHidden:YES];
+    
+    [[cell logo] setImage:[UIImage imageNamed:place.logo]];
+    [[cell name] setText:place.name];
+    [[cell price] setText:[NSString stringWithFormat:@"%@",place.price]];
+    [[cell addOrRemoveButton] setHidden:YES];
     
     cell.addOrRemoveButton.tag = indexPath.row;
     

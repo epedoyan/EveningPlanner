@@ -26,7 +26,6 @@
     self.str = [[NSUserDefaults standardUserDefaults] stringForKey:@"isDataInDB"];    
     
     if(![self.str isEqualToString: @"YES"]) {
-        NSLog(@"YES");
         [cd insertPlacesList];
         [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:@"isDataInDB"];
     }
