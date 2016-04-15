@@ -636,7 +636,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     
     Place *paronyanTheater = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     [paronyanTheater setName:@"Paronyan Theater" descriptionInfo:@"The Theatre was opened on June 22, 1942. The first artistic director was Shara Talyan. Many well-known persons worked in theatre, including Artemi Ayvazyan, Vardan Ajemian, Mikael Arutchian, Karp Khachvankyan, Svetlana Grigoryan, Armen Elbakyan, Yervand Ghazanchyan and others. Musical Comedy Theatre participated at international theatre festivals in Armenia, Georgia, Iran, England, the UnitedStates.In February 2009, the Best Presentation Award of Armenian Artavazd - 2009 festival was given to Yervand Ghazanchyan, who is the artistic director of theatre since 1993."
-                        logo:@"sundukyan-logo"
+                        logo:@"paronyan-logo"
                        price:@3500
                       rating:@4
                   imageFirst:@"paronyan1"
@@ -760,6 +760,16 @@ static NSString *const kEntityNamePlaces = @"Places";
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"placeType == %@", placeType]];
     
+    return [context executeFetchRequest:fetchRequest error:nil];
+}
+
+- (NSArray *)fetchSelectedPlaces:(NSArray *)arrayOfIDs {
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"(self IN %@)", arrayOfIDs]];
+
     return [context executeFetchRequest:fetchRequest error:nil];
 }
 

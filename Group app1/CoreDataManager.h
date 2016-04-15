@@ -28,5 +28,6 @@
 - (NSArray *)fetchCinemaTheatre;
 - (NSArray *)fetchGames;
 - (NSArray *)fetchGyms;
+- (NSArray *)fetchSelectedPlaces:(NSArray *)arrayOfIDs;
 
 @end

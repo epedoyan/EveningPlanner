@@ -10,8 +10,6 @@
 #import "TableViewCell.h"
 #import "SecondViewController.h"
 
-static NSUInteger cellsCount; //temprorary solution, till have DB
-
 @interface  ChoicePageViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *myTableView;
@@ -26,7 +24,6 @@ static NSUInteger cellsCount; //temprorary solution, till have DB
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //cellsCount = 3;
     self.shouldHideRemoveBtn = YES;
     self.clearButton.hidden = YES;
     
@@ -38,9 +35,12 @@ static NSUInteger cellsCount; //temprorary solution, till have DB
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *alertActionClear = [UIAlertAction actionWithTitle:@"Clear All" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
-        //cellsCount = 0;
+        NSMutableArray *mutableArray = [NSMutableArray array];
+        self.selectedPlacesIDs = mutableArray;
+        
         [self.myTableView reloadData];
     }];
+    
     UIAlertAction *alertActionCancel = [ UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:alertActionClear];
     [alert addAction:alertActionCancel];
@@ -70,8 +70,7 @@ static NSUInteger cellsCount; //temprorary solution, till have DB
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSManagedObjectContext *context = [[CoreDataManager defaultManager] managedObjectContext];
-    Place *place = [context objectWithID:self.selectedPlacesIDs[indexPath.row]];
-    
+    Place *place = [context objectWithID:self.selectedPlacesIDs[indexPath.row]];    
     
     TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
     
@@ -80,7 +79,7 @@ static NSUInteger cellsCount; //temprorary solution, till have DB
     [[cell price] setText:[NSString stringWithFormat:@"%@",place.price]];
     [[cell addOrRemoveButton] setHidden:YES];
     
-    cell.addOrRemoveButton.tag = indexPath.row;
+    //cell.addOrRemoveButton.tag = indexPath.row;
     
     [cell.addOrRemoveButton addTarget:self action:@selector(removeButtonActionForTableView:)
      forControlEvents:UIControlEventTouchUpInside];
@@ -100,7 +99,9 @@ static NSUInteger cellsCount; //temprorary solution, till have DB
 }
 
 - (void)removeButtonActionForTableView: (UIButton *) sender{
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(long)sender.tag inSection:0];
+    //NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(long)sender.tag inSection:0];
+    NSIndexPath *indexPath = [self.myTableView indexPathForCell:(TableViewCell *)[[sender superview] superview]];
+    
     [self tableView:self.myTableView commitEditingStyle: UITableViewCellEditingStyleDelete forRowAtIndexPath: indexPath];    
 }
 
@@ -118,10 +119,13 @@ static NSUInteger cellsCount; //temprorary solution, till have DB
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-                                            forRowAtIndexPath:(NSIndexPath *)indexPath {
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        cellsCount--;
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:self.selectedPlacesIDs];
+        [mutableArray removeObjectAtIndex:indexPath.row];
+        self.selectedPlacesIDs = mutableArray;
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.myTableView reloadData];
     }
 }
