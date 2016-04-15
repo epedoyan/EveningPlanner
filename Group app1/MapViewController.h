@@ -10,4 +10,7 @@
 
 @interface MapViewController : UIViewController
 
+@property (nonatomic, strong) NSArray *latitudes;
+@property (nonatomic, strong) NSArray *longitudes;
+
 @end

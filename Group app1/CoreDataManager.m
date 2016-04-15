@@ -35,7 +35,7 @@ static NSString *const kEntityNamePlaces = @"Places";
            imageFirst:@"playcityimg1"
           imageSecond:@"playcityimg2"
            imageThird:@"playcityimg3"
-            urlString:@"www.playcity.am"
+            urlString:@"http://playcity.am"
         contactNumber:@"+37410 620-999"
               address:@"35 Acharyan Str., Yerevan, Armenia"
             placeType:@"Games and Restaurant"
@@ -220,8 +220,8 @@ static NSString *const kEntityNamePlaces = @"Places";
              contactNumber:@"+374 10 508 800"
                    address:@"91 Teryan St, Yerevan, Armenia"
                  placeType:@"Restaurant"
-                 longitude:@678
-                  latitude:@765];
+                 longitude:@44.502000
+                  latitude:@40.178764];
     
     Place *villa = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
@@ -237,8 +237,8 @@ static NSString *const kEntityNamePlaces = @"Places";
      contactNumber:@"+374 10 671 050"
            address:@"10/2 Building, Jrvezh village 15th St, Kotayk Marz, Armenia"
          placeType:@"Restaurant"
-         longitude:@678
-          latitude:@765];
+         longitude:@44.605951
+          latitude:@40.187199];
     
     Place *blackBerry = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
@@ -254,8 +254,8 @@ static NSString *const kEntityNamePlaces = @"Places";
           contactNumber:@"+374 10 516 711"
                 address:@"3 Abovyan St, Yerevan, Armenia"
               placeType:@"Restaurant"
-              longitude:@678
-               latitude:@765];
+              longitude:@44.515522
+               latitude:@40.180855];
     
     Place *dolmama = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
@@ -271,8 +271,8 @@ static NSString *const kEntityNamePlaces = @"Places";
        contactNumber:@"+374 10 561 354"
              address:@"10 Puskin St, Yerevan, Armenia"
            placeType:@"Restaurant"
-           longitude:@678
-            latitude:@765];
+           longitude:@44.515849
+            latitude:@40.180511];
     
     Place *kavkazskayaPlennitsa = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
@@ -288,8 +288,8 @@ static NSString *const kEntityNamePlaces = @"Places";
                     contactNumber:@"+374 10 548 291"
                           address:@"4/6 Amiryan St, Yerevan, Armenia"
                         placeType:@"Restaurant"
-                        longitude:@678
-                         latitude:@765];
+                        longitude:@44.512023
+                         latitude:@40.180990];
     
     Place *blackAngus = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
@@ -305,8 +305,8 @@ static NSString *const kEntityNamePlaces = @"Places";
           contactNumber:@"+374 96 508 040"
                 address:@"39/9 Mashtots Ave, Yerevan, Armenia"
               placeType:@"Restaurant"
-              longitude:@678
-               latitude:@765];
+              longitude:@44.501243
+               latitude:@40.157077];
     
     Place *charles = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
@@ -322,8 +322,8 @@ static NSString *const kEntityNamePlaces = @"Places";
        contactNumber:@"+374 10 542 621"
              address:@"3/40 Tamanyan St, Yerevan, Armenia"
            placeType:@"Restaurant"
-           longitude:@678
-            latitude:@765];
+           longitude:@44.515091
+            latitude:@40.190086];
     
     Place *crumbs = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
@@ -339,8 +339,8 @@ static NSString *const kEntityNamePlaces = @"Places";
       contactNumber:@"+374 10 537 013"
             address:@"37 Mashtots Ave, Yerevan, Armenia"
           placeType:@"Restaurant"
-          longitude:@678
-           latitude:@765];
+          longitude:@44.503818
+           latitude:@40.171277];
     
     Place *theClub = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
@@ -356,8 +356,8 @@ static NSString *const kEntityNamePlaces = @"Places";
        contactNumber:@"+374 10 531 361"
              address:@"40 Tumanyan St, Yerevan, Armenia"
            placeType:@"Restaurant"
-           longitude:@678
-            latitude:@765];
+           longitude:@44.511992
+            latitude:@40.186492];
     
     // Fast Foods
     
@@ -375,8 +375,8 @@ static NSString *const kEntityNamePlaces = @"Places";
      contactNumber:@"+374 10 325 595"
            address:@"1/1 Leningradyan St, Yerevan, Armenia"
          placeType:@"Fast Food"
-         longitude:@678
-          latitude:@765];
+         longitude:@44.457230
+          latitude:@40.173729];
     
     Place *proshyanShaurma = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
@@ -392,8 +392,8 @@ static NSString *const kEntityNamePlaces = @"Places";
                contactNumber:@"+374 10 211 111"
                      address:@"42 Proshyan St, Yerevan, Armenia"
                    placeType:@"Fast Food"
-                   longitude:@678
-                    latitude:@765];
+                   longitude:@44.504316
+                    latitude:@40.187804];
     
     Place *gyros = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
@@ -409,8 +409,8 @@ static NSString *const kEntityNamePlaces = @"Places";
      contactNumber:@"+374 10 202 203"
            address:@"34 Arshakunyats St, Yerevan, Armenia"
          placeType:@"Fast Food"
-         longitude:@678
-          latitude:@765];
+         longitude:@44.511721
+          latitude:@40.186686];
     
     Place *pizzaHut = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
@@ -426,8 +426,8 @@ static NSString *const kEntityNamePlaces = @"Places";
         contactNumber:@"+374 10 501 504"
               address:@"34 Hyusisayin Ave, Yerevan, Armenia"
             placeType:@"Fast Food"
-            longitude:@678
-             latitude:@765];
+            longitude:@44.515336
+             latitude:@40.183742];
     
     Place *tashirPizza = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces
                                                        inManagedObjectContext:context];
@@ -440,12 +440,12 @@ static NSString *const kEntityNamePlaces = @"Places";
               imageFirst:@"tashirOne"
              imageSecond:@"tashirTwo"
               imageThird:@"tashirThree"
-               urlString:@"http://tashirpizza.am"
+               urlString:@"http://www.tashirpizza.am"
            contactNumber:@"+374 10 511 117"
                  address:@"69 Teryan St, Yerevan, Armenia"
                placeType:@"Fast Food"
-               longitude:@678
-                latitude:@765];
+               longitude:@44.445260
+                latitude:@40.173404];
     
     Place *mamaMia = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
@@ -461,8 +461,8 @@ static NSString *const kEntityNamePlaces = @"Places";
        contactNumber:@"+374 10 538 181"
              address:@"1/1 Aleq Manukyan St, Yerevan, Armenia"
            placeType:@"Fast Food"
-           longitude:@678
-            latitude:@765];
+           longitude:@44.523940
+            latitude:@40.177413];
     
     //Museums list
     

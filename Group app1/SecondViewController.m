@@ -51,17 +51,18 @@
 }
 
 - (void)addOrRemoveButtonTouched:(UIButton *)sender {
-    //NSIndexPath *indexPath = [self.tableView indexPathForCell:(TableViewCell *)[sender superview]];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:(TableViewCell *)[[sender superview] superview]];
     NSManagedObjectID *placeID = [self.places[indexPath.row] objectID];
-    
-    if ([sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minus"]]) { //removed ! here
+    if ([sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minus"]]) {
         [sender setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
         [self.placesObjectIDs removeObject:placeID];
+        self.money = self.money + [[self.places[indexPath.row] price] integerValue];
     } else {
         [sender setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
         [self.placesObjectIDs addObject:placeID];
+        self.money = self.money - [[self.places[indexPath.row] price] integerValue];
     }
+    self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)self.money];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -75,12 +76,12 @@
     [cell.logo setImage:[UIImage imageNamed:place.logo]];
     [cell.name setText:place.name];
     [cell.price setText:[NSString stringWithFormat:@"%@",place.price]];
-    /*[cell.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
-    for (Place *temp in self.places) {
-        if ([temp.objectID isEqual:place.objectID]) {
+    [cell.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
+    for (NSManagedObjectID *temp in self.placesObjectIDs) {
+        if ([temp isEqual:place.objectID]) {
             [cell.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
         }
-    }*/
+    }
     [[cell addOrRemoveButton] addTarget:nil
                                  action:@selector(addOrRemoveButtonTouched:)
                        forControlEvents:UIControlEventTouchUpInside];

@@ -22,9 +22,12 @@
     [super viewDidLoad];
     [MKMapView alloc];
     
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(40.1838083, 44.515267100000074);
-    MapAnnotation *annotation = [[MapAnnotation alloc] initWithCoordinates:coordinate title:@"KFC" subTitle:@"Fast Food"];
-    [self.mapView addAnnotation:annotation];
+    for (int i = 0; i < self.latitudes.count; i++) {
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([self.latitudes[i] doubleValue],
+                                                                       [self.longitudes[i] doubleValue]);
+        MapAnnotation *annotation = [[MapAnnotation alloc] initWithCoordinates:coordinate title:@"KFC" subTitle:@"Fast Food"];
+        [self.mapView addAnnotation:annotation];
+    }
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {

@@ -8,6 +8,8 @@
 
 #import "InfoViewController.h"
 #import "CoreDataManager.h"
+#import "MapViewController.h"
+#import "WebViewController.h"
 
 @interface InfoViewController ()
 
@@ -58,6 +60,28 @@
     result.contentMode = UIViewContentModeScaleAspectFit;
     result.image = image;
     return result;
+}
+
+- (IBAction)mapButtonTouched:(id)sender {
+    
+    NSManagedObjectContext *context = [[CoreDataManager defaultManager] managedObjectContext];
+    Place *place = [context objectWithID:self.placeObjectID];
+    
+    MapViewController *mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"mapVC"];
+    mapVC.latitudes = [NSArray arrayWithObject:place.latitude];
+    mapVC.longitudes = [NSArray arrayWithObject:place.longitude];
+    [self showViewController:mapVC sender:self];
+    
+}
+
+- (IBAction)webButtonTouched:(id)sender {
+    NSManagedObjectContext *context = [[CoreDataManager defaultManager] managedObjectContext];
+    Place *place = [context objectWithID:self.placeObjectID];
+    
+    WebViewController *webVC = [self.storyboard instantiateViewControllerWithIdentifier:@"webVC"];
+    webVC.urlString = [NSString stringWithString:place.urlString];
+
+    [self showViewController:webVC sender:self];
 }
 
 @end
