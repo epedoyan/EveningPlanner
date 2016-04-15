@@ -21,10 +21,9 @@ static NSString *const kEntityNamePlaces = @"Places";
     return defaultManager;
 }
 
-- (void)insertRestaurantsList {
+- (void)insertPlacesList {
     NSManagedObjectContext *context = [self managedObjectContext];
-    //Games
-    
+     //Games
     
     Place *PlayCity = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
@@ -113,12 +112,7 @@ static NSString *const kEntityNamePlaces = @"Places";
                 placeType:@"Games"
                 longitude:@44.48862
                  latitude:@40.17903	];
-    
-    
-    
     //Gyms
-    
-    
     
     Place *BoulderTown = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
@@ -455,7 +449,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     
     Place *mamaMia = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
-    [mamaMia setName:@"Tashir Pizza"
+    [mamaMia setName:@"Mama Mia"
      descriptionInfo:@"The network of “Mama Mia” pizzerias offers its visitors the best combination of recreation and entertainment. Here you can enjoy a wide range of pizzas, family hamburgers, hot dishes, khachapury, soups, garnish, salads, appetizers, as well as dessert, alcoholic and non-alcoholic beverages, fresh, coffee tea, beer, cocktails and cigarettes. Your “tasty time” spent here will be intensified through piano, jazz and other music played in the hall."
                 logo:@"miaLogo"
                price:@10000
@@ -489,33 +483,216 @@ static NSString *const kEntityNamePlaces = @"Places";
                     latitude:@40.190045];
     
     Place *nationalGallery = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
-    [nationalGallery setName:@"National Gallery" descriptionInfo:@"The National Gallery of Armenia is the country’s major art gallery. Its collection is displayed in 56 galleries, which allow the Gallery to tell the story of national visual arts, decorative-applied arts as well as world culture from ancient times to our days. In the galleries of European, Russian, Armenian and Oriental art the visitors are introduced to the art of Aivazovsky, Sarian, Kandinsky, Donatello and other distinguished artists." logo:@"natGallery-logo" price:@3000 rating:@5 imageFirst:@"natGallery1" imageSecond:@"natGallery2" imageThird:@"natGallery3" urlString:@"http://gallery.am" contactNumber:@"+374 10 580812" address:@"1 Aram St, Yerevan, Armenia" placeType:@"Museum" longitude:@44.512325 latitude:@40.180735];
+    [nationalGallery setName:@"National Gallery" descriptionInfo:@"The National Gallery of Armenia is the country’s major art gallery. Its collection is displayed in 56 galleries, which allow the Gallery to tell the story of national visual arts, decorative-applied arts as well as world culture from ancient times to our days. In the galleries of European, Russian, Armenian and Oriental art the visitors are introduced to the art of Aivazovsky, Sarian, Kandinsky, Donatello and other distinguished artists."
+                        logo:@"natGallery-logo"
+                       price:@3000
+                      rating:@5
+                  imageFirst:@"natGallery1"
+                 imageSecond:@"natGallery2"
+                  imageThird:@"natGallery3"
+                   urlString:@"http://gallery.am"
+               contactNumber:@"+374 10 580812"
+                     address:@"1 Aram St, Yerevan, Armenia"
+                   placeType:@"Museum"
+                   longitude:@44.512325
+                    latitude:@40.180735];
     
     Place *erebuniMuseum = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
-    [erebuniMuseum setName:@"Erebuni Museum" descriptionInfo:@"Erebuni Fortress also known as Arin Berd is a fortified city from the ancient kingdom of Urartu, located in what is present-day Yerevan, Armenia. It was one of several fortresses built along the northern Urartu border and was one of the most important political, economic and cultural centers of the vast kingdom. The name Yerevan itself is derived from Erebuni. Erebuni was founded by King Argishti I (r. ca. 785–753 B.C.) in 782 B.C. It was built on top of a hill called Arin Berd overlooking the Arax! River Valley to serve as a military stronghold to protect the kingdom's northern borders." logo:@"erebuni-logo" price:@2000 rating:@4 imageFirst:@"erebuni1" imageSecond:@"erebuni2" imageThird:@"erebuni3" urlString:@"http://erebuni.am" contactNumber:@"+374 10 458207" address:@"38 Erebuni St, Yerevan, Armenia" placeType:@"Museum" longitude:@44.531549 latitude:@40.141420];
+    [erebuniMuseum setName:@"Erebuni" descriptionInfo:@"Erebuni Fortress also known as Arin Berd is a fortified city from the ancient kingdom of Urartu, located in what is present-day Yerevan, Armenia. It was one of several fortresses built along the northern Urartu border and was one of the most important political, economic and cultural centers of the vast kingdom. The name Yerevan itself is derived from Erebuni. Erebuni was founded by King Argishti I (r. ca. 785–753 B.C.) in 782 B.C. It was built on top of a hill called Arin Berd overlooking the Arax! River Valley to serve as a military stronghold to protect the kingdom's northern borders."
+                      logo:@"erebuni-logo"
+                     price:@2000
+                    rating:@4
+                imageFirst:@"erebuni1"
+               imageSecond:@"erebuni2"
+                imageThird:@"erebuni3"
+                 urlString:@"http://erebuni.am"
+             contactNumber:@"+374 10 458207"
+                   address:@"38 Erebuni St, Yerevan, Armenia"
+                 placeType:@"Museum"
+                 longitude:@44.531549
+                  latitude:@40.141420];
     
     Place *modernArtMuseum = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
-    [modernArtMuseum setName:@"Modern Art Museum" descriptionInfo:@"Modern Art Museum was established in 1972 by the art critic Henrik Igityan, who was the director of the museum for 37 years. H. Igityan received a great support from the mayor of Yerevan of those years Grigor Hasratyan, as well as from the best Armenian artists of 1960s. Recently the collection of the Museum was enriched with the works of both Armenian and foreign masters, such as: Taline Zabounian (France), Sam Grigoryan (Germany), Harutyun Jinanyan (Jino) (Russia), Vatche Demirdjian (France), Lorent Nissou Soon (France), SYB (France), Christine Hagopian (France), Dibasar (France), Sharis Garabedian (France), Sebastiano (USA), Ziba Afshar (USA), Michael Gorman (USA), Garry John (USA), Karen Bistedt and Chris Brown (USA),  Haik Mesropian (Switzerland), Onik Atamyan (England) etc." logo:@"modernArt-logo" price:@2500 rating:@3 imageFirst:@"modernArt1" imageSecond:@"modernArt2" imageThird:@"modernArt3" urlString:@"http://mamy.am" contactNumber:@"+374 10 539637" address:@"7 Mashtots Ave, Yerevan, Armenia" placeType:@"Museum" longitude:@44.506211 latitude:@40.180263];
+    [modernArtMuseum setName:@"Modern Art" descriptionInfo:@"Modern Art Museum was established in 1972 by the art critic Henrik Igityan, who was the director of the museum for 37 years. H. Igityan received a great support from the mayor of Yerevan of those years Grigor Hasratyan, as well as from the best Armenian artists of 1960s. Recently the collection of the Museum was enriched with the works of both Armenian and foreign masters, such as: Taline Zabounian (France), Sam Grigoryan (Germany), Harutyun Jinanyan (Jino) (Russia), Vatche Demirdjian (France), Lorent Nissou Soon (France), SYB (France), Christine Hagopian (France), Dibasar (France), Sharis Garabedian (France), Sebastiano (USA), Ziba Afshar (USA), Michael Gorman (USA), Garry John (USA), Karen Bistedt and Chris Brown (USA),  Haik Mesropian (Switzerland), Onik Atamyan (England) etc."
+                        logo:@"modernArt-logo"
+                       price:@2500
+                      rating:@3
+                  imageFirst:@"modernArt1"
+                 imageSecond:@"modernArt2"
+                  imageThird:@"modernArt3"
+                   urlString:@"http://mamy.am"
+               contactNumber:@"+374 10 539637"
+                     address:@"7 Mashtots Ave, Yerevan, Armenia"
+                   placeType:@"Museum"
+                   longitude:@44.506211
+                    latitude:@40.180263];
     
     Place *genocideMuseum = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
-    [genocideMuseum setName:@"Genocide Museum" descriptionInfo:@"The Armenian Genocide Museum opened its doors in 1995, concurrently commemorating the eightieth anniversary of the Genocide. The Museum structure, planned by architects S. Kalashian, A. Tarkhanyan and sculptor F. Araqelyan, has a unique design. During the decennial activity the Museum received many visitors including schoolchildren, college students and an unprecedented number of tourists both local and abroad. The Genocide Monument is designed to memorialize the innocent victims of the first Genocide of the 20th century. The Genocide Museum’s mission statement is rooted in the fact that understanding the Armenian Genocide is an important step in preventing similar future tragedies, in keeping with the notion that those who forget the past are condemned to repeat it." logo:@"genocide-logo" price:@3000 rating:@5 imageFirst:@"genocide1" imageSecond:@"genocide2" imageThird:@"genocide3" urlString:@"http://genocide-museum.am" contactNumber:@"+374 10 390981" address:@"Tsitsernakaberd memorial complex, Yerevan, Armenia" placeType:@"Museum" longitude:@44.490303 latitude:@40.185821];
+    [genocideMuseum setName:@"Genocide Museum" descriptionInfo:@"The Armenian Genocide Museum opened its doors in 1995, concurrently commemorating the eightieth anniversary of the Genocide. The Museum structure, planned by architects S. Kalashian, A. Tarkhanyan and sculptor F. Araqelyan, has a unique design. During the decennial activity the Museum received many visitors including schoolchildren, college students and an unprecedented number of tourists both local and abroad. The Genocide Monument is designed to memorialize the innocent victims of the first Genocide of the 20th century. The Genocide Museum’s mission statement is rooted in the fact that understanding the Armenian Genocide is an important step in preventing similar future tragedies, in keeping with the notion that those who forget the past are condemned to repeat it."
+                       logo:@"genocide-logo"
+                      price:@3000
+                     rating:@5
+                 imageFirst:@"genocide1"
+                imageSecond:@"genocide2"
+                 imageThird:@"genocide3"
+                  urlString:@"http://genocide-museum.am"
+              contactNumber:@"+374 10 390981"
+                    address:@"Tsitsernakaberd memorial complex, Yerevan, Armenia"
+                  placeType:@"Museum"
+                  longitude:@44.490303
+                   latitude:@40.185821];
     
     Place *parajanovMuseum = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
-    [parajanovMuseum setName:@"Sergey Parajanov Museum" descriptionInfo:@"The Sergej Parajanov Museum is a tribute to one of the greatest figures [or auteurs] of 20th-century world cinema. Comprising some 1,400 exhibits, the museum’s collection includes installations, collages, assemblages, drawings, dolls, and hats. The museum also showcases unpublished screenplays, librettos, and various artworks which Parajanov created while in prison. Parajanov’s visionary films, such as “The Shadows of Forgotten Ancestors,” “Sayat-Nova,” and “The Legend of Suram Fortress,” earned him international acclaim and led to lifelong persecution by the Soviet regime." logo:@"parajanov-logo" price:@2000 rating:@4 imageFirst:@"parajanov1" imageSecond:@"parajanov2" imageThird:@"parajanov3" urlString:@"http://parajanovmuseum.am" contactNumber:@"+374 10 538473" address:@"Dzoragyugh, 15-16 eth. qrt. Yerevan, Armenia" placeType:@"Museum" longitude:@44.499103 latitude:@40.179186];
+    [parajanovMuseum setName:@"Parajanov Museum" descriptionInfo:@"The Sergej Parajanov Museum is a tribute to one of the greatest figures [or auteurs] of 20th-century world cinema. Comprising some 1,400 exhibits, the museum’s collection includes installations, collages, assemblages, drawings, dolls, and hats. The museum also showcases unpublished screenplays, librettos, and various artworks which Parajanov created while in prison. Parajanov’s visionary films, such as “The Shadows of Forgotten Ancestors,” “Sayat-Nova,” and “The Legend of Suram Fortress,” earned him international acclaim and led to lifelong persecution by the Soviet regime."
+                        logo:@"parajanov-logo"
+                       price:@2000
+                      rating:@4
+                  imageFirst:@"parajanov1"
+                 imageSecond:@"parajanov2"
+                 imageThird:@"parajanov3"
+                   urlString:@"http://parajanovmuseum.am"
+               contactNumber:@"+374 10 538473"
+                     address:@"Dzoragyugh, 15-16 eth. qrt. Yerevan, Armenia"
+                   placeType:@"Museum"
+                   longitude:@44.499103
+                    latitude:@40.179186];
     
     Place *matenadaran = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
-    [matenadaran setName:@"Matenadaran" descriptionInfo:@"In behaviors of our medieval famous bibliographers and workers are especially emphasized also their bibliography activities, which consist of gathering the old journals and creating the new others, combining past spiritual heritage and reviewing their great efforts, that became spiritual heroic lessons for future generations. Mesrop Mashtots (the first creator of the Matenadaran) and our specialists have created many matenadarans from early medieval to the new period of time by branching and connecting in the heart of the centuries. As eternal treasures they confronted to all disasters and led our people as a reasonable light. Like this was created also Mashtots Matenadaran. The illuminators of our culture and all generations participated for the creation, the whole nation as a spiritual unity. It is strong instinct result of our unity, collectivism, existence and our pledge of eternity. Matenadaran is our identity, flag, the State Emblem. It is, of course, a hymn that will sound forever." logo:@"matenadaran-logo" price:@1500 rating:@5 imageFirst:@"matenadaran1" imageSecond:@"matenadaran2" imageThird:@"matenadaran3" urlString:@"http://matenadaran.am" contactNumber:@"+374 10 513014" address:@"Mashtots Avenue 53, Yerevan, Armenia" placeType:@"Museum" longitude:@44.521098 latitude:@40.192125];
+    [matenadaran setName:@"Matenadaran" descriptionInfo:@"In behaviors of our medieval famous bibliographers and workers are especially emphasized also their bibliography activities, which consist of gathering the old journals and creating the new others, combining past spiritual heritage and reviewing their great efforts, that became spiritual heroic lessons for future generations. Mesrop Mashtots (the first creator of the Matenadaran) and our specialists have created many matenadarans from early medieval to the new period of time by branching and connecting in the heart of the centuries. As eternal treasures they confronted to all disasters and led our people as a reasonable light. Like this was created also Mashtots Matenadaran. The illuminators of our culture and all generations participated for the creation, the whole nation as a spiritual unity. It is strong instinct result of our unity, collectivism, existence and our pledge of eternity. Matenadaran is our identity, flag, the State Emblem. It is, of course, a hymn that will sound forever."
+                    logo:@"matenadaran-logo"
+                   price:@1500
+                  rating:@5
+              imageFirst:@"matenadaran1"
+             imageSecond:@"matenadaran2"
+              imageThird:@"matenadaran3"
+               urlString:@"http://matenadaran.am"
+           contactNumber:@"+374 10 513014"
+                 address:@"Mashtots Avenue 53, Yerevan, Armenia"
+               placeType:@"Museum"
+               longitude:@44.521098
+                latitude:@40.192125];
     
-    //Cinemas Theatres List
+    //Cinemas Theaters List
     
     Place *moscowCinema = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
-    [moscowCinema setName:@"Moscow Cinema" descriptionInfo:@"Cinema has four halls, the Red hal- 491 seats, the Blue hall - 350 seats, Red small hall - 49 seats, Videohall -  35 seats. The halls are equipped with modern technics. In parallel with film screenings Moscow cinema organizes various events and festivals. Some of them include 'Golden Apricot' Yerevan International Film Festival, 'British Film Festival', 'Rolan' International Film Festival', 'ReAnimania'  International Animation Film Festival of Yerevan, as well as screenings of Japanese, Indian, French and other films.Moreover, various events undertaken by differente mbassies are organizedhere. In parallel with film screenings different exhibitions are organizedin the waiting hall of the cinema." logo:@"moscowCinema-logo" price:@2000 rating:@4 imageFirst:@"moscowCinema1" imageSecond:@"moscowCinema2" imageThird:@"moscowCinema3" urlString:@"http://moscowcinema.com" contactNumber:@"+374 10 521210" address:@"18 Abovyan St, Yerevan, Armenia" placeType:@"TheatreCinema" longitude:@44.517365 latitude:@40.182076];
+    [moscowCinema setName:@"Moscow Cinema" descriptionInfo:@"Cinema has four halls, the Red hal- 491 seats, the Blue hall - 350 seats, Red small hall - 49 seats, Videohall -  35 seats. The halls are equipped with modern technics. In parallel with film screenings Moscow cinema organizes various events and festivals. Some of them include 'Golden Apricot' Yerevan International Film Festival, 'British Film Festival', 'Rolan' International Film Festival', 'ReAnimania'  International Animation Film Festival of Yerevan, as well as screenings of Japanese, Indian, French and other films.Moreover, various events undertaken by differente mbassies are organizedhere. In parallel with film screenings different exhibitions are organizedin the waiting hall of the cinema."
+                     logo:@"moscowCinema-logo"
+                    price:@2000
+                   rating:@4
+               imageFirst:@"moscowCinema1"
+              imageSecond:@"moscowCinema2"
+               imageThird:@"moscowCinema3"
+                urlString:@"http://moscowcinema.com"
+            contactNumber:@"+374 10 521210"
+                  address:@"18 Abovyan St, Yerevan, Armenia"
+                placeType:@"TheatreCinema"
+                longitude:@44.517365
+                 latitude:@40.182076];
     
     Place *cinemaStar = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
-    [cinemaStar setName:@"Cinema Star" descriptionInfo:@"The 'Cinema Star' multiplex cinema theatre was opened with 6 halls on 18 November 2013. It is part of Dalma Garden Mall shopping complex, located near the Tsitsernakaberd hill in Yerevan, which is the first mall opened in Armenia. The center also includes food outlets and cafeterias for family relaxation. This is a good entertainment center, having kids club, number of cinema halls, bowling, restaurant and much more." logo:@"cinemaStar-logo" price:@3000 rating:@5 imageFirst:@"cinemaStar1" imageSecond:@"cinemaStar2" imageThird:@"cinemaStar3" urlString:@"http://cinemastar.ru" contactNumber:@"+374 60 755555" address:@"3 Tsitsernakaberd highway, Yerevan, Armenia" placeType:@"TheatreCinema" longitude:@44.484441 latitude:@40.181554];
+    [cinemaStar setName:@"Cinema Star" descriptionInfo:@"The 'Cinema Star' multiplex cinema theatre was opened with 6 halls on 18 November 2013. It is part of Dalma Garden Mall shopping complex, located near the Tsitsernakaberd hill in Yerevan, which is the first mall opened in Armenia. The center also includes food outlets and cafeterias for family relaxation. This is a good entertainment center, having kids club, number of cinema halls, bowling, restaurant and much more."
+                   logo:@"cinemaStar-logo"
+                  price:@3000
+                 rating:@5
+             imageFirst:@"cinemaStar1"
+            imageSecond:@"cinemaStar2"
+             imageThird:@"cinemaStar3"
+              urlString:@"http://cinemastar.ru"
+          contactNumber:@"+374 60 755555"
+                address:@"3 Tsitsernakaberd highway, Yerevan, Armenia"
+              placeType:@"TheatreCinema"
+              longitude:@44.484441
+               latitude:@40.181554];
     
-    Place *dramaticTheatre = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
-    [dramaticTheatre setName:@"Dramatic Theater" descriptionInfo:@"Hrachya Ghaplanyan Drama Theatre is a theatre based in Yerevan, the capital of Armenia. It was founded in 1967. It is located on Avetik Isahakyan 28 street of the Kentron district. It was opened with a performance of Hovhannes Tumanian's 'Anush' opera, directed by Hrachya Ghaplanyan. Since 1986, the artistic director at the theatre is Armen Khandikyan." logo:@"dramaTheatre-logo" price:@4000 rating:@4 imageFirst:@"dramaTheatre1" imageSecond:@"dramaTheatre2" imageThird:@"dramaTheatre3" urlString:@"http://ydt.am" contactNumber:@"+374 10 524703" address:@"28 Isahakyan St, Yerevan, Armenia" placeType:@"TheatreCinema" longitude:@44.520304 latitude:@40.188555];
+    Place *dramaticTheater = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
+    [dramaticTheater setName:@"Dramatic Theater" descriptionInfo:@"Hrachya Ghaplanyan Drama Theatre is a theatre based in Yerevan, the capital of Armenia. It was founded in 1967. It is located on Avetik Isahakyan 28 street of the Kentron district. It was opened with a performance of Hovhannes Tumanian's 'Anush' opera, directed by Hrachya Ghaplanyan. Since 1986, the artistic director at the theatre is Armen Khandikyan."
+                        logo:@"drama-logo"
+                       price:@4000
+                      rating:@4
+                  imageFirst:@"drama1"
+                 imageSecond:@"drama2"
+                  imageThird:@"drama3"
+                   urlString:@"http://ydt.am"
+               contactNumber:@"+374 10 524703"
+                     address:@"28 Isahakyan St, Yerevan, Armenia"
+                   placeType:@"TheatreCinema"
+                   longitude:@44.520304
+                    latitude:@40.188555];
+    
+    Place *sundukyanTheater = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
+    [sundukyanTheater setName:@"Sundukyan Theater" descriptionInfo:@"Gabriel Sundukyan National Academic Theater is presently one of the most loved and visited theaters on the territory of the Republic of Armenia. Being the first state theater in Armenia it was founded in 1921 and officially opened in 1922. The theater was named after dramatist Gabriel Sundukyan in 1937, and was awarded the status of Academic Theater only thirty years later, in 1967. The first performance played in the theater was the comedy “Pepo.” In regard to the establishment of the theater, the efforts of two people should be mentioned; they were artist Isahak Alikhanyan and operator Levon Qalantar. They managed to create a theater where the modern and the traditional were combined, and where for the first time the actor's and directorial theaters harmonized."
+                         logo:@"sundukyan-logo"
+                        price:@4500
+                       rating:@4
+                   imageFirst:@"sundukyan1"
+                  imageSecond:@"sundukyan2"
+                   imageThird:@"sundukyan3"
+                    urlString:@"http://nationaltheater.am"
+                contactNumber:@"+374 10 527670"
+                      address:@"6 Gr. Lusavorich St, Yerevan, Armenia"
+                    placeType:@"TheatreCinema"
+                    longitude:@44.507363
+                     latitude:@40.173426];
+    
+    Place *paronyanTheater = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
+    [paronyanTheater setName:@"Paronyan Theater" descriptionInfo:@"The Theatre was opened on June 22, 1942. The first artistic director was Shara Talyan. Many well-known persons worked in theatre, including Artemi Ayvazyan, Vardan Ajemian, Mikael Arutchian, Karp Khachvankyan, Svetlana Grigoryan, Armen Elbakyan, Yervand Ghazanchyan and others. Musical Comedy Theatre participated at international theatre festivals in Armenia, Georgia, Iran, England, the UnitedStates.In February 2009, the Best Presentation Award of Armenian Artavazd - 2009 festival was given to Yervand Ghazanchyan, who is the artistic director of theatre since 1993."
+                        logo:@"sundukyan-logo"
+                       price:@3500
+                      rating:@4
+                  imageFirst:@"paronyan1"
+                 imageSecond:@"sundukyan2"
+                  imageThird:@"sundukyan3"
+                   urlString:@"http://comedytheater.am"
+               contactNumber:@"+374 10 580101"
+                     address:@"7 Vazgen Sargsyan St, Yerevan, Armenia"
+                   placeType:@"TheatreCinema"
+                   longitude:@44.510894
+                    latitude:@40.177424];
+    
+    Place *pantomimeTheater = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
+    [pantomimeTheater setName:@"Pantomime Theater" descriptionInfo:@"Yerevan State Pantomime theatre was founded in 1974. The status of the State Theatre received in 1983. Not having own building, theater performances are presented in Yerevan State Youth Theatre, the lease basis. In the summer of 2012, the Municipality of Yerevan, made decision to provide space in North Avenue for the construction of the building for the theatre. 1974 is considered to be the year of Pantomime Theatre establishment. In its first program the style of the theatre was evident. Later, several performances and etudes were staged, such as “Heroic Ballad”, “Stone, Eagle and Man”, “Blinds”, “The Robber and the Child”, “Autumn”, “Virus of Laugh” etudes and Saroyan’s “Who is there?”, Gogol’s “Overcoat” performances."
+                         logo:@"pantomime-logo"
+                        price:@2000
+                       rating:@3
+                   imageFirst:@"pantomime1"
+                  imageSecond:@"pantomime2"
+                   imageThird:@"pantomime3"
+                    urlString:@"http://pantomime.am"
+                contactNumber:@"+374 10 531398"
+                      address:@"3 Moskovyan St, Yerevan, Armenia"
+                    placeType:@"TheatreCinema"
+                    longitude:@44.522182
+                     latitude:@40.183943];
+    
+    Place *operaBalletTheater = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
+    [operaBalletTheater setName:@"Opera and Ballet" descriptionInfo:@"The pride of the Armenian nation, the Opera theatre, is located at the heart of the capital Yerevan. It is not simply a cultural structure, but an architectural masterpiece as well, whose creator is world-renowned Academician-Architect Alexander Tamanyan. It is not a coincidence that Tamanyan was honored first place in 1937 in Paris, during the world architecture exhibition. Today Armenia’s Opera and Ballet Theatre is taking practical steps to enlarge its playlist of both Armenian and International opera and ballet masterpieces, with the goal of representing them on Armenian stage."
+                           logo:@"opera-logo"
+                          price:@10000
+                         rating:@5
+                     imageFirst:@"opera1"
+                    imageSecond:@"opera2"
+                     imageThird:@"opera3"
+                      urlString:@"http://opera.am"
+                  contactNumber:@"+374 10 533391"
+                        address:@"54 Tumanyan St, Yerevan, Armenia"
+                      placeType:@"TheatreCinema"
+                      longitude:@44.513372
+                       latitude:@40.185292];
+    
+    Place *kinopark = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
+    [kinopark setName:@"Kinopark" descriptionInfo:@"Cinema has four halls, the Red hal- 491 seats, the Blue hall - 350 seats, Red small hall - 49 seats, Videohall -  35 seats. The halls are equipped with modern technics. In parallel with film screenings Moscow cinema organizes various events and festivals. Some of them include 'Golden Apricot' Yerevan International Film Festival, 'British Film Festival', 'Rolan' International Film Festival', 'ReAnimania'  International Animation Film Festival of Yerevan, as well as screenings of Japanese, Indian, French and other films.Moreover, various events undertaken by differente mbassies are organizedhere. In parallel with film screenings different exhibitions are organizedin the waiting hall of the cinema."
+                 logo:@"kinopark-logo"
+                price:@5000
+               rating:@5
+           imageFirst:@"kinopark1"
+          imageSecond:@"kinopark2"
+           imageThird:@"kinopark3"
+            urlString:@"http://yerevanmall.am"
+        contactNumber:@"+374 11 888888"
+              address:@"134/2 Arshakunyats Ave, Yerevan, Armenia"
+            placeType:@"TheatreCinema"
+            longitude:@44.507838
+             latitude:@40.170474];
     
     
     [self saveContext];
@@ -543,6 +720,7 @@ static NSString *const kEntityNamePlaces = @"Places";
 }
 
 - (NSArray *)fetchRestaurants {
+    
     NSString *placeType = @"Restaurant";
     NSManagedObjectContext *context = [self managedObjectContext];
     
@@ -554,7 +732,7 @@ static NSString *const kEntityNamePlaces = @"Places";
 
 - (NSArray *)fetchCinemaTheatre {
     
-    NSString *placeType = @"ThetreCinema";
+    NSString *placeType = @"TheatreCinema";
     NSManagedObjectContext *context = [self managedObjectContext];
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
@@ -564,6 +742,7 @@ static NSString *const kEntityNamePlaces = @"Places";
 }
 
 - (NSArray *)fetchGames {
+    
     NSString *placeType = @"Games";
     NSManagedObjectContext *context = [self managedObjectContext];
     

@@ -20,7 +20,7 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-- (void)insertRestaurantsList;
+- (void)insertPlacesList;
 
 - (NSArray *)fetchFastFood;
 - (NSArray *)fetchRestaurants;

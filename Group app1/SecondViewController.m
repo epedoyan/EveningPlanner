@@ -23,6 +23,7 @@
 @property (strong, nonatomic) NSArray *places;
 @property (nonatomic) BOOL isTheFirstButtonTouched;
 
+
 @end
 
 
@@ -62,6 +63,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
     [[cell logo] setImage:[UIImage imageNamed:[self.places[indexPath.row] logo]]];
     [[cell name] setText:[self.places[indexPath.row] name]];
@@ -69,8 +71,6 @@
     [[cell addOrRemoveButton] addTarget:nil
                                  action:@selector(addOrRemoveButtonTouched:)
                        forControlEvents:UIControlEventTouchUpInside];
-    
-    
     return cell;
 }
 
@@ -80,6 +80,17 @@
 
 
 - (IBAction)topButtonTouched:(UIButton *)sender {
+    self.tableView.hidden = YES;
+    self.tableViewLabel.hidden = YES;
+    [self.bottomButtons[0] setBackgroundColor:self.view.backgroundColor];
+    [self.bottomButtons[1] setBackgroundColor:self.view.backgroundColor];
+    [self.bottomButtons[0] setTitleColor:[UIColor eveningPlannerGreenColor] forState:UIControlStateNormal];
+    [self.bottomButtons[1] setTitleColor:[UIColor eveningPlannerGreenColor] forState:UIControlStateNormal];
+
+    
+    [self.tableView reloadData];
+    
+    
     if ([sender.backgroundColor isEqual:self.view.backgroundColor]) {
         [UIView animateWithDuration:0.2 animations:^{
             sender.backgroundColor = [UIColor eveningPlannerGreenColor];
@@ -99,8 +110,11 @@
         
         if (self.isTheFirstButtonTouched) {
             self.places = [[CoreDataManager defaultManager] fetchFastFood];
+            NSLog(@"Count%lu", (unsigned long)[self.places count]);
+
         } else {
             self.places = [[CoreDataManager defaultManager] fetchRestaurants];
+           // NSLog(@"Count%lu", (unsigned long)[self.places count]);
         }
 
         
@@ -141,6 +155,8 @@
             button.hidden = NO;
         }];
     }
+    
+    //[self.tableView reloadData];
 }
 
 - (IBAction)bottomButtonTouched:(UIButton *)sender {
@@ -155,8 +171,7 @@
         [UIView animateWithDuration:0.2 animations:^{
             [self.bottomButtons[1] setBackgroundColor:self.view.backgroundColor];
             [self.bottomButtons[1] setTitleColor:[UIColor eveningPlannerGreenColor] forState:UIControlStateNormal];
-            
-            self.isTheFirstButtonTouched = YES;
+            //self.isTheFirstButtonTouched = YES;
         }];
     }
     if ([sender isEqual:self.bottomButtons[1]]) {
@@ -168,6 +183,9 @@
     }
     self.tableView.hidden = NO;
     self.tableViewLabel.hidden = NO;
+    [self.tableView reloadData];
+    
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
