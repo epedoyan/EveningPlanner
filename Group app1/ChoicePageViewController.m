@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
 
 @property (nonatomic) BOOL shouldHideRemoveBtn;
-@property (nonatomic, strong) NSArray *selectedPlacesIDs;
+
 
 @end
 
@@ -26,18 +26,13 @@
     [super viewDidLoad];
     self.shouldHideRemoveBtn = YES;
     self.clearButton.hidden = YES;
-    
-    SecondViewController *secondVC = self.navigationController.viewControllers[1];
-    self.selectedPlacesIDs = secondVC.placesObjectIDs;
 }
 
 - (IBAction)clearButtonAction {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *alertActionClear = [UIAlertAction actionWithTitle:@"Clear All" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
-        NSMutableArray *mutableArray = [NSMutableArray array];
-        self.selectedPlacesIDs = mutableArray;
-        
+        [self.selectedPlacesIDs removeAllObjects];
         [self.myTableView reloadData];
     }];
     
@@ -122,9 +117,7 @@
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:self.selectedPlacesIDs];
-        [mutableArray removeObjectAtIndex:indexPath.row];
-        self.selectedPlacesIDs = mutableArray;
+        [self.selectedPlacesIDs removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.myTableView reloadData];
     }

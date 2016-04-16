@@ -10,4 +10,6 @@
 
 @interface ChoicePageViewController : UIViewController
 
+@property (nonatomic, strong) NSMutableArray *selectedPlacesIDs;
+
 @end

@@ -436,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xr2-Cr-SuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1955" y="367"/>
+            <point key="canvasLocation" x="2181" y="391"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="Phi-g2-5y7">
@@ -903,7 +903,7 @@
                     <navigationItem key="navigationItem" title="AMD" id="mH8-gc-D0j">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="tfS-aG-4Jk">
                             <connections>
-                                <segue destination="zTU-xG-igF" kind="show" id="kpc-CM-zqj"/>
+                                <action selector="resultBarButtonTouched:" destination="q6F-Ni-F29" id="vXo-G3-Ntm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -920,7 +920,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdx-pq-8a9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1505" y="367"/>
+            <point key="canvasLocation" x="1741" y="379"/>
         </scene>
     </scenes>
     <resources>

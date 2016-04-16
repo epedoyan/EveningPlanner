@@ -13,6 +13,7 @@
 #import "UIColor+EveningPlannerColor.h"
 #import "CoreDataManager.h"
 #import "InfoViewController.h"
+#import "ChoicePageViewController.h"
 
 @interface SecondViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -50,7 +51,14 @@
                                     action:nil];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 - (void)addOrRemoveButtonTouched:(UIButton *)sender {
+    
     NSIndexPath *indexPath = [self.tableView indexPathForCell:(TableViewCell *)[[sender superview] superview]];
     NSManagedObjectID *placeID = [self.places[indexPath.row] objectID];
     if ([sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minus"]]) {
@@ -90,6 +98,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 65.0;
+}
+
+- (IBAction)resultBarButtonTouched:(UIBarButtonItem *)sender {
+    ChoicePageViewController *myChoiceVC = [self.storyboard instantiateViewControllerWithIdentifier:@"myChoiceVC"];
+    myChoiceVC.selectedPlacesIDs = self.placesObjectIDs;
+    [self showViewController:myChoiceVC sender:self];
 }
 
 
