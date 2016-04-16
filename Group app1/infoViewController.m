@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *urlLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *callButton;
 
 @end
 
@@ -41,7 +42,9 @@
     
     self.descriptionTextView.text = place.descriptionInfo;
     self.urlLabel.text = place.urlString;
-    self.numberLabel.text = place.contactNumber;
+    //self.numberLabel.text = place.contactNumber;
+//self.callButton.titleLabel.text = self.numberLabel.text;
+    self.callButton.titleLabel.text = place.contactNumber;
     
     [self.imageScrollView addSubview:firstImage];
     [self.imageScrollView addSubview:seconfImage];
@@ -72,6 +75,13 @@
     mapVC.longitudes = [NSArray arrayWithObject:place.longitude];
     [self showViewController:mapVC sender:self];
     
+}
+- (IBAction)callPhone:(UIButton *)sender {
+    
+    NSString *numberWithoutSpaces = [sender.titleLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", numberWithoutSpaces];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
 
 - (IBAction)webButtonTouched:(id)sender {

@@ -174,7 +174,7 @@
 				TargetAttributes = {
 					7860410C1CB45FF1000086E4 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 47273DE9GS;
+						DevelopmentTeam = 6U8RWC3989;
 					};
 				};
 			};
@@ -343,11 +343,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "Group app1/PrefixHeader.pch";
 				INFOPLIST_FILE = "Group app1/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.eveningPlaner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.eveningPlanner;
 				PRODUCT_NAME = ePlanner;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -356,11 +359,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "Group app1/PrefixHeader.pch";
 				INFOPLIST_FILE = "Group app1/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.eveningPlaner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.eveningPlanner;
 				PRODUCT_NAME = ePlanner;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

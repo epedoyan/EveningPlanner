@@ -36,7 +36,7 @@ static NSString *const kEntityNamePlaces = @"Places";
           imageSecond:@"playcityimg2"
            imageThird:@"playcityimg3"
             urlString:@"http://playcity.am"
-        contactNumber:@"+37410 620-999"
+        contactNumber:@"+374 10 620 999"
               address:@"35 Acharyan Str., Yerevan, Armenia"
             placeType:@"Games and Restaurant"
             longitude:@44.55773
@@ -55,7 +55,7 @@ static NSString *const kEntityNamePlaces = @"Places";
             imageSecond:@"captainkidimg2"
              imageThird:@"captainkidimg3"
               urlString:@"www.captainkid.am"
-          contactNumber:@"+37411 200-022"
+          contactNumber:@"+374 11 200 022"
                 address:@"34 Arshakunyats Av., Yerevan, Armenia"
               placeType:@"Games"
               longitude:@44.50008
@@ -72,7 +72,7 @@ static NSString *const kEntityNamePlaces = @"Places";
       imageSecond:@"aeonimg2"
        imageThird:@"aeonimg3"
         urlString:@"www.aeonyerevan.com"
-    contactNumber:@"+37410 538-766 "
+    contactNumber:@"+374 10 538 766 "
           address:@"3A Teryan Str., Yerevan, Armenia"
         placeType:@"Games"
         longitude:@44.51198
@@ -89,7 +89,7 @@ static NSString *const kEntityNamePlaces = @"Places";
       imageSecond:@"loftimg2"
        imageThird:@"loftimg3"
         urlString:@"www.loft.am"
-    contactNumber:@"+37443 408-864 "
+    contactNumber:@"+374 43 408 864 "
           address:@"3 Moskovyan Str., Yerevan, Armenia"
         placeType:@"Games"
         longitude:@44.52235
@@ -107,7 +107,7 @@ static NSString *const kEntityNamePlaces = @"Places";
               imageSecond:@"dalmabowlingimg2"
                imageThird:@"dalmabowlingimg3"
                 urlString:@"www.dalma.am"
-            contactNumber:@"+37460 755-555"
+            contactNumber:@"+374 60 755 555"
                   address:@"3 Tsitsernakaberd Hwy, Yerevan, Armenia"
                 placeType:@"Games"
                 longitude:@44.48862
@@ -125,7 +125,7 @@ static NSString *const kEntityNamePlaces = @"Places";
              imageSecond:@"bouldertownimg2"
               imageThird:@"bouldertownimg3"
                urlString:@"www.upthrocks.com"
-           contactNumber:@"+37493 337-937"
+           contactNumber:@"+374 93 337 937"
                  address:@"1 Kajaznuni Str., Yerevan, Armenia"
                placeType:@"Gym"
                longitude:@44.51967
@@ -143,7 +143,7 @@ static NSString *const kEntityNamePlaces = @"Places";
           imageSecond:@"goldsgymimg2"
            imageThird:@"goldsgymimg3"
             urlString:@"www.goldsgym.am"
-        contactNumber:@"+37410 322-010"
+        contactNumber:@"+374 10 322 010"
               address:@"40/1 Komitas Av., Yerevan, Armenia"
             placeType:@"Gym"
             longitude:@44.50827
@@ -161,7 +161,7 @@ static NSString *const kEntityNamePlaces = @"Places";
          imageSecond:@"incourtimg2"
           imageThird:@"incourtimg3"
            urlString:@"www.incourt.am"
-       contactNumber:@"+37410 565-665"
+       contactNumber:@"+374 10 565 665"
              address:@"7/1 Tsitsernakaberdi Hwy., Yerevan, Armenia"
            placeType:@"Gym"
            longitude:@44.52141
@@ -180,7 +180,7 @@ static NSString *const kEntityNamePlaces = @"Places";
              imageSecond:@"golfarmeniaimg2"
               imageThird:@"golfarmeniaimg3"
                urlString:@"www.goldarmenia.am"
-           contactNumber:@"+37410 565-665"
+           contactNumber:@"+374 10 565 665"
                  address:@"151/2 Z. Sarkavagi Str., Yerevan, Armenia"
                placeType:@"Gym"
                longitude:@44.456928
@@ -197,7 +197,7 @@ static NSString *const kEntityNamePlaces = @"Places";
             imageSecond:@"grandsportimg2"
              imageThird:@"grandsportimg3"
               urlString:@"www.grandsport.am"
-          contactNumber:@"+374(10) 447766"
+          contactNumber:@"+374 10 447 766"
                 address:@"61 Arshakunyats Av., Yerevan, Armenia"
               placeType:@"Gym"
               longitude:@44.49788
@@ -476,7 +476,7 @@ static NSString *const kEntityNamePlaces = @"Places";
                  imageSecond:@"cafesjian2"
                   imageThird:@"cafesjian3"
                    urlString:@"http://cmf.am"
-               contactNumber:@"+374 10 567262"
+               contactNumber:@"+374 10 567 262"
                      address:@"10 Tamanyan St, Yerevan, Armenia"
                    placeType:@"Museum"
                    longitude:@44.515706
@@ -491,7 +491,7 @@ static NSString *const kEntityNamePlaces = @"Places";
                  imageSecond:@"natGallery2"
                   imageThird:@"natGallery3"
                    urlString:@"http://gallery.am"
-               contactNumber:@"+374 10 580812"
+               contactNumber:@"+374 10 580 812"
                      address:@"1 Aram St, Yerevan, Armenia"
                    placeType:@"Museum"
                    longitude:@44.512325
@@ -506,7 +506,7 @@ static NSString *const kEntityNamePlaces = @"Places";
                imageSecond:@"erebuni2"
                 imageThird:@"erebuni3"
                  urlString:@"http://erebuni.am"
-             contactNumber:@"+374 10 458207"
+             contactNumber:@"+374 10 458 207"
                    address:@"38 Erebuni St, Yerevan, Armenia"
                  placeType:@"Museum"
                  longitude:@44.531549
@@ -521,7 +521,7 @@ static NSString *const kEntityNamePlaces = @"Places";
                  imageSecond:@"modernArt2"
                   imageThird:@"modernArt3"
                    urlString:@"http://mamy.am"
-               contactNumber:@"+374 10 539637"
+               contactNumber:@"+374 10 539 637"
                      address:@"7 Mashtots Ave, Yerevan, Armenia"
                    placeType:@"Museum"
                    longitude:@44.506211
@@ -536,7 +536,7 @@ static NSString *const kEntityNamePlaces = @"Places";
                 imageSecond:@"genocide2"
                  imageThird:@"genocide3"
                   urlString:@"http://genocide-museum.am"
-              contactNumber:@"+374 10 390981"
+              contactNumber:@"+374 10 390 981"
                     address:@"Tsitsernakaberd memorial complex, Yerevan, Armenia"
                   placeType:@"Museum"
                   longitude:@44.490303
@@ -551,7 +551,7 @@ static NSString *const kEntityNamePlaces = @"Places";
                  imageSecond:@"parajanov2"
                  imageThird:@"parajanov3"
                    urlString:@"http://parajanovmuseum.am"
-               contactNumber:@"+374 10 538473"
+               contactNumber:@"+374 10 538 473"
                      address:@"Dzoragyugh, 15-16 eth. qrt. Yerevan, Armenia"
                    placeType:@"Museum"
                    longitude:@44.499103
@@ -566,7 +566,7 @@ static NSString *const kEntityNamePlaces = @"Places";
              imageSecond:@"matenadaran2"
               imageThird:@"matenadaran3"
                urlString:@"http://matenadaran.am"
-           contactNumber:@"+374 10 513014"
+           contactNumber:@"+374 10 513 014"
                  address:@"Mashtots Avenue 53, Yerevan, Armenia"
                placeType:@"Museum"
                longitude:@44.521098
@@ -583,7 +583,7 @@ static NSString *const kEntityNamePlaces = @"Places";
               imageSecond:@"moscowCinema2"
                imageThird:@"moscowCinema3"
                 urlString:@"http://moscowcinema.com"
-            contactNumber:@"+374 10 521210"
+            contactNumber:@"+374 10 521 210"
                   address:@"18 Abovyan St, Yerevan, Armenia"
                 placeType:@"TheatreCinema"
                 longitude:@44.517365
@@ -598,7 +598,7 @@ static NSString *const kEntityNamePlaces = @"Places";
             imageSecond:@"cinemaStar2"
              imageThird:@"cinemaStar3"
               urlString:@"http://cinemastar.ru"
-          contactNumber:@"+374 60 755555"
+          contactNumber:@"+374 60 755 555"
                 address:@"3 Tsitsernakaberd highway, Yerevan, Armenia"
               placeType:@"TheatreCinema"
               longitude:@44.484441
@@ -613,7 +613,7 @@ static NSString *const kEntityNamePlaces = @"Places";
                  imageSecond:@"drama2"
                   imageThird:@"drama3"
                    urlString:@"http://ydt.am"
-               contactNumber:@"+374 10 524703"
+               contactNumber:@"+374 10 524 703"
                      address:@"28 Isahakyan St, Yerevan, Armenia"
                    placeType:@"TheatreCinema"
                    longitude:@44.520304
@@ -628,7 +628,7 @@ static NSString *const kEntityNamePlaces = @"Places";
                   imageSecond:@"sundukyan2"
                    imageThird:@"sundukyan3"
                     urlString:@"http://nationaltheater.am"
-                contactNumber:@"+374 10 527670"
+                contactNumber:@"+374 10 527 670"
                       address:@"6 Gr. Lusavorich St, Yerevan, Armenia"
                     placeType:@"TheatreCinema"
                     longitude:@44.507363
@@ -643,7 +643,7 @@ static NSString *const kEntityNamePlaces = @"Places";
                  imageSecond:@"sundukyan2"
                   imageThird:@"sundukyan3"
                    urlString:@"http://comedytheater.am"
-               contactNumber:@"+374 10 580101"
+               contactNumber:@"+374 10 580 101"
                      address:@"7 Vazgen Sargsyan St, Yerevan, Armenia"
                    placeType:@"TheatreCinema"
                    longitude:@44.510894
@@ -658,7 +658,7 @@ static NSString *const kEntityNamePlaces = @"Places";
                   imageSecond:@"pantomime2"
                    imageThird:@"pantomime3"
                     urlString:@"http://pantomime.am"
-                contactNumber:@"+374 10 531398"
+                contactNumber:@"+374 10 531 398"
                       address:@"3 Moskovyan St, Yerevan, Armenia"
                     placeType:@"TheatreCinema"
                     longitude:@44.522182
@@ -673,7 +673,7 @@ static NSString *const kEntityNamePlaces = @"Places";
                     imageSecond:@"opera2"
                      imageThird:@"opera3"
                       urlString:@"http://opera.am"
-                  contactNumber:@"+374 10 533391"
+                  contactNumber:@"+374 10 533 391"
                         address:@"54 Tumanyan St, Yerevan, Armenia"
                       placeType:@"TheatreCinema"
                       longitude:@44.513372
@@ -688,7 +688,7 @@ static NSString *const kEntityNamePlaces = @"Places";
           imageSecond:@"kinopark2"
            imageThird:@"kinopark3"
             urlString:@"http://yerevanmall.am"
-        contactNumber:@"+374 11 888888"
+        contactNumber:@"+374 11 888 888"
               address:@"134/2 Arshakunyats Ave, Yerevan, Armenia"
             placeType:@"TheatreCinema"
             longitude:@44.507838
