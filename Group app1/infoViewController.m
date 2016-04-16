@@ -42,8 +42,7 @@
     
     self.descriptionTextView.text = place.descriptionInfo;
     self.urlLabel.text = place.urlString;
-    //self.numberLabel.text = place.contactNumber;
-//self.callButton.titleLabel.text = self.numberLabel.text;
+    self.numberLabel.text = place.contactNumber;
     self.callButton.titleLabel.text = place.contactNumber;
     
     [self.imageScrollView addSubview:firstImage];
