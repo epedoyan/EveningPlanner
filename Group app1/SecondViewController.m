@@ -14,8 +14,9 @@
 #import "CoreDataManager.h"
 #import "InfoViewController.h"
 #import "ChoicePageViewController.h"
+#import <MapKit/MapKit.h>
 
-@interface SecondViewController () <UITableViewDelegate,UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface SecondViewController () <UITableViewDelegate,UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *bottomButtons;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *topButtons;
@@ -28,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomLayout;
 @property (weak, nonatomic) IBOutlet UIButton *sortByPickerDoneButton;
 @property (weak, nonatomic) IBOutlet UIButton *sortByPickerCancelButton;
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @property (strong, nonatomic) NSArray *places;
 @property (nonatomic, strong) id sortingType;
@@ -42,6 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self customizeViewController];
+    [self getCurrentCoordinates];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -50,7 +54,25 @@
     [self.tableView reloadData];
 }
 
+- (void)getCurrentCoordinates {
+    [self.locationManager requestWhenInUseAuthorization];
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations{
+    [self.locationManager stopUpdatingLocation];
+}
+
 - (void)customizeViewController {
+    self.sortingMethod = @selector(sortByRating);
     self.placesObjectIDs = [[NSMutableArray alloc] init];
     self.places  = [[CoreDataManager defaultManager] fetchAllPlaces];
     
@@ -101,10 +123,6 @@
     [self.bottomButtons[1] setBackgroundColor:self.view.backgroundColor];
     [self.bottomButtons[0] setTitleColor:[UIColor eveningPlannerGreenColor] forState:UIControlStateNormal];
     [self.bottomButtons[1] setTitleColor:[UIColor eveningPlannerGreenColor] forState:UIControlStateNormal];
-
-    
-    [self.tableView reloadData];
-    
     
     if ([sender.backgroundColor isEqual:self.view.backgroundColor]) {
         [UIView animateWithDuration:0.2 animations:^{
@@ -236,7 +254,15 @@
     [cell.logo setImage:[UIImage imageNamed:place.logo]];
     [cell.name setText:place.name];
     [cell.price setText:[NSString stringWithFormat:@"%@",place.price]];
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([place.latitude doubleValue],
+                                                                   [place.longitude doubleValue]);
+    CLLocationCoordinate2D userCoordinate = CLLocationCoordinate2DMake(self.locationManager.location.coordinate.latitude,
+                                                                     self.locationManager.location.coordinate.longitude);
+    MKMapPoint pointOne = MKMapPointForCoordinate(coordinate);
+    MKMapPoint pointTwo = MKMapPointForCoordinate(userCoordinate);
+    CLLocationDistance distance = MKMetersBetweenMapPoints(pointOne, pointTwo);
     
+    [cell.distanceLabel setText:[NSString stringWithFormat:@"%.01f meter from current position.", distance/1000]];
     [cell.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
     for (NSManagedObjectID *temp in self.placesObjectIDs) {
         if ([temp isEqual:place.objectID]) {
@@ -266,7 +292,7 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 4;
+    return 3;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
@@ -279,9 +305,6 @@
             break;
         case 2:
             return @"Price";
-            break;
-        case 3:
-            return @"Distance";
             break;
             
         default:
@@ -300,9 +323,6 @@
             break;
         case 2:
             [self sortByPrice];
-            break;
-        case 3:
-            [self sortByDistance];
             break;
             
         default:
@@ -355,12 +375,5 @@
     self.places = [self.places sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         return [[(Place *)a price] compare:[(Place *)b price]]; }];
 }
-
-- (void)sortByDistance {
-    self.sortingMethod = @selector(sortByDistance);
-    self.places = [self.places sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-        return [[(Place *)a price] compare:[(Place *)b rating]]; }];
-}
-
 
 @end
