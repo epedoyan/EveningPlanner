@@ -106,7 +106,7 @@
             [sender setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
             [self.placesObjectIDs addObject:placeID];
         }
-
+        
     }
     self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)self.money];
 }

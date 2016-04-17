@@ -17,4 +17,6 @@
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *starIcons;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 
+- (void)showRating:(NSNumber *)activeStarsQty;
+
 @end
