@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UIButton *addOrRemoveButton;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *starIcons;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 
 @end

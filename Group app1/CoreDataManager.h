@@ -28,6 +28,10 @@
 - (NSArray *)fetchCinemaTheatre;
 - (NSArray *)fetchGames;
 - (NSArray *)fetchGyms;
+- (NSArray *)fetchAllPlaces;
+- (NSArray *)fetchFood;
+- (NSArray *)fetchEntertainment;
+- (NSArray *)fetchCulture;
 - (NSArray *)fetchSelectedPlaces:(NSArray *)arrayOfIDs;
 
 @end

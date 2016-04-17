@@ -171,7 +171,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     
     Place *GolfArmenia = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
-    [GolfArmenia setName:@"National Golf Association of Armenia"
+    [GolfArmenia setName:@"Golf Association"
          descriptionInfo:@"Incourt tennis club operates since 1974. Over 40 years our club has become the best choice for, professional tennis players, tennis amateurs and active recreation funs. In 2014 the club was rebranded becoming Incourt tennis club the only professional institution to promote tennis in Armenia. The mission of our club is to form and spread tennis culture turning it to a trendy lifestyle. Incourt tennis club operates within the framework of Kinetic Sports company which also includes Orange Fitness club. "
                     logo:@"golfarmenia-logo"
                    price:@3500
@@ -772,6 +772,54 @@ static NSString *const kEntityNamePlaces = @"Places";
 
     return [context executeFetchRequest:fetchRequest error:nil];
 }
+
+- (NSArray *)fetchAllPlaces {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
+    
+    return [context executeFetchRequest:fetchRequest error:nil];
+
+}
+
+- (NSArray *)fetchFood {
+    NSString *placeTypeOne = @"Fast Food";
+    NSString *placeTypeTwo = @"Restaurant";
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"placeType == %@ OR placeType == %@", placeTypeOne,
+                                placeTypeTwo]];
+    
+    return [context executeFetchRequest:fetchRequest error:nil];
+}
+
+- (NSArray *)fetchEntertainment {
+    NSString *placeTypeOne = @"Games";
+    NSString *placeTypeTwo = @"Gym";
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"placeType == %@ OR placeType == %@", placeTypeOne,
+                                placeTypeTwo]];
+    
+    return [context executeFetchRequest:fetchRequest error:nil];
+    
+}
+
+- (NSArray *)fetchCulture {
+    NSString *placeTypeOne = @"TheatreCinema";
+    NSString *placeTypeTwo = @"Museum";
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"placeType == %@ || placeType == %@", placeTypeOne,
+                                placeTypeTwo]];
+    
+    return [context executeFetchRequest:fetchRequest error:nil];
+    
+}
+
 
 #pragma mark - Core Data stack
 

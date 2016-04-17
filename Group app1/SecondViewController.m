@@ -36,12 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.placesObjectIDs = [[NSMutableArray alloc] init];
-    
-    for (UIButton *button in self.bottomButtons) {
-        button.hidden = YES;
-    }
-    self.tableView.hidden = YES;
-    self.tableViewLabel.hidden = YES;
+    self.places  = [[CoreDataManager defaultManager] fetchAllPlaces];
     
     self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)self.money];
     self.navigationItem.backBarButtonItem =
@@ -66,9 +61,21 @@
         [self.placesObjectIDs removeObject:placeID];
         self.money = self.money + [[self.places[indexPath.row] price] integerValue];
     } else {
-        [sender setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
-        [self.placesObjectIDs addObject:placeID];
-        self.money = self.money - [[self.places[indexPath.row] price] integerValue];
+        NSInteger money = self.money - [[self.places[indexPath.row] price] integerValue];
+        if (money < 0) {
+            UIAlertController *moneyAlert = [UIAlertController alertControllerWithTitle:@"No Money"
+                                                                                message:@"You have not so much money"
+                                                                         preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                               style:UIAlertActionStyleDefault handler:nil];
+            [moneyAlert addAction:okAction];
+            [self presentViewController:moneyAlert animated:YES completion:nil];
+        } else {
+            self.money = money;
+            [sender setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
+            [self.placesObjectIDs addObject:placeID];
+        }
+
     }
     self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)self.money];
 }
@@ -84,6 +91,7 @@
     [cell.logo setImage:[UIImage imageNamed:place.logo]];
     [cell.name setText:place.name];
     [cell.price setText:[NSString stringWithFormat:@"%@",place.price]];
+    
     [cell.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
     for (NSManagedObjectID *temp in self.placesObjectIDs) {
         if ([temp isEqual:place.objectID]) {
@@ -108,8 +116,6 @@
 
 
 - (IBAction)topButtonTouched:(UIButton *)sender {
-    self.tableView.hidden = YES;
-    self.tableViewLabel.hidden = YES;
     [self.bottomButtons[0] setBackgroundColor:self.view.backgroundColor];
     [self.bottomButtons[1] setBackgroundColor:self.view.backgroundColor];
     [self.bottomButtons[0] setTitleColor:[UIColor eveningPlannerGreenColor] forState:UIControlStateNormal];
@@ -132,8 +138,9 @@
             [self.topButtons[2] setBackgroundColor:self.view.backgroundColor];
             [self.topButtons[2] setTitleColor:[UIColor eveningPlannerGreenColor] forState:UIControlStateNormal];
         }];
-        [self.bottomButtons[0] setTitle:@"Fast Food" forState:UIControlStateNormal ];
+        [self.bottomButtons[0] setTitle:@"Fast Food" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Restaurant" forState:UIControlStateNormal];
+        self.places = [[CoreDataManager defaultManager] fetchFood];
         
         self.numberOfSelectedTopButton = 1;
         
@@ -147,6 +154,8 @@
         }];
         [self.bottomButtons[0] setTitle:@"Game" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Gym" forState:UIControlStateNormal];
+        self.places = [[CoreDataManager defaultManager] fetchEntertainment];
+
         self.numberOfSelectedTopButton = 2;
 
     }
@@ -159,13 +168,15 @@
         }];
         [self.bottomButtons[0] setTitle:@"Cinema, Theater" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Museum" forState:UIControlStateNormal];
+        self.places = [[CoreDataManager defaultManager] fetchCulture];
+
         self.numberOfSelectedTopButton = 3;    }
     for (UIButton *button in self.bottomButtons) {
         [UIView animateWithDuration:0.5 animations:^{
             button.hidden = NO;
         }];
     }
-    [self choosingPlaceType];
+    [self.tableView reloadData];
 }
 
 - (IBAction)bottomButtonTouched:(UIButton *)sender {
@@ -191,8 +202,7 @@
             self.isTheFirstBottomButtonTouched = NO;
         }];
     }
-    self.tableView.hidden = NO;
-    self.tableViewLabel.hidden = NO;
+
     [self choosingPlaceType];
 }
 
