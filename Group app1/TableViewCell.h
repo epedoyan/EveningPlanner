@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *addOrRemoveButton;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *starIcons;
 
+- (void)showRating:(NSNumber *)activeStarsQty;
+
 @end

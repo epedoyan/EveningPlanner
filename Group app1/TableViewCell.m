@@ -21,4 +21,15 @@
 - (IBAction)addOrRemoveButtonTouched:(UIButton *)sender {
 }
 
+- (void)showRating:(NSNumber *)activeStarsQty {
+    for ( NSInteger i = 0; i < 5; ++i ) {
+        if( i < [activeStarsQty integerValue] ) {
+            [self.starIcons[i] setImage:[UIImage imageNamed:@"star_active"]];
+        }
+        else {
+            [self.starIcons[i] setImage:[UIImage imageNamed:@"star_inactive"]];
+        }
+    }
+}
+
 @end

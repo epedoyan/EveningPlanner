@@ -232,6 +232,9 @@
                                     <outlet property="delegate" destination="y6v-Hk-jcB" id="GGA-3J-MKS"/>
                                 </connections>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TRu-4a-94C">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -239,11 +242,14 @@
                             <constraint firstItem="F2E-1s-2CC" firstAttribute="top" secondItem="DRT-fg-ZIi" secondAttribute="top" id="Avj-r6-EK6"/>
                             <constraint firstAttribute="trailing" secondItem="F2E-1s-2CC" secondAttribute="trailing" id="P3V-rH-YlE"/>
                             <constraint firstItem="F2E-1s-2CC" firstAttribute="leading" secondItem="DRT-fg-ZIi" secondAttribute="leading" id="R7A-ay-4k6"/>
+                            <constraint firstItem="TRu-4a-94C" firstAttribute="centerY" secondItem="F2E-1s-2CC" secondAttribute="centerY" id="cn0-f3-ezd"/>
+                            <constraint firstItem="TRu-4a-94C" firstAttribute="centerX" secondItem="F2E-1s-2CC" secondAttribute="centerX" id="plg-sK-TKt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="www.kfc.com" id="6l3-xl-jvJ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="TRu-4a-94C" id="1Yh-0B-tSj"/>
                         <outlet property="webView" destination="F2E-1s-2CC" id="wni-gO-4aC"/>
                     </connections>
                 </viewController>
@@ -284,8 +290,9 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zt2-12-VMG">
-                                <rect key="frame" x="0.0" y="64" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="475"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="65" id="Z2B-44-rI5" customClass="TableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="320" height="65"/>
@@ -358,6 +365,7 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="v0f-V5-6w6" firstAttribute="leading" secondItem="BHP-Qz-Tne" secondAttribute="trailing" constant="1" id="77J-7u-OLS"/>
                                                 <constraint firstItem="q1e-MH-ewJ" firstAttribute="top" secondItem="71B-6M-bR8" secondAttribute="bottom" id="93O-lz-9b7"/>
@@ -389,6 +397,7 @@
                                                 <constraint firstItem="r27-BQ-sBk" firstAttribute="centerY" secondItem="FsB-AE-1f0" secondAttribute="centerY" id="zkf-ZK-og6"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="addOrRemoveButton" destination="sNz-vB-Jx1" id="mqZ-cE-U9I"/>
                                             <outlet property="logo" destination="71B-6M-bR8" id="9Ks-KK-Fxc"/>
@@ -745,7 +754,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KFC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnG-vw-JeR">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KFC" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnG-vw-JeR">
                                                     <rect key="frame" x="82" y="22" width="32" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

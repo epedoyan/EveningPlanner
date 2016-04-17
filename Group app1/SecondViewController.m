@@ -93,6 +93,7 @@
     [[cell addOrRemoveButton] addTarget:nil
                                  action:@selector(addOrRemoveButtonTouched:)
                        forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
 }
 

@@ -48,6 +48,22 @@
     [self.imageScrollView addSubview:firstImage];
     [self.imageScrollView addSubview:seconfImage];
     [self.imageScrollView addSubview:thirdImage];
+    
+    // rating part
+    for ( NSInteger i = 0; i < 5; ++i ) {
+        if( i < [place.rating integerValue] ) {
+            [self.ratingStars[i] setImage:[UIImage imageNamed:@"star_active"]];
+        }
+        else {
+            [self.ratingStars[i] setImage:[UIImage imageNamed:@"star_inactive"]];
+        }
+    }
+    
+    self.navigationItem.backBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:@""
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
 }
 - (IBAction)addOrRemoveButtonTouched:(UIButton *)sender {
     if (![sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minus"]]) {
@@ -89,6 +105,9 @@
     
     WebViewController *webVC = [self.storyboard instantiateViewControllerWithIdentifier:@"webVC"];
     webVC.urlString = [NSString stringWithString:place.urlString];
+    
+    NSString *urlWithoutHTTP = [place.urlString stringByReplacingOccurrencesOfString:@"http://" withString:@""];
+    webVC.navigationItem.title = [NSString stringWithString:urlWithoutHTTP];
 
     [self showViewController:webVC sender:self];
 }
