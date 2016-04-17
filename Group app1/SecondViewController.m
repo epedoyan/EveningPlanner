@@ -262,7 +262,7 @@
     MKMapPoint pointTwo = MKMapPointForCoordinate(userCoordinate);
     CLLocationDistance distance = MKMetersBetweenMapPoints(pointOne, pointTwo);
     
-    [cell.distanceLabel setText:[NSString stringWithFormat:@"%.01f meter from current position.", distance/1000]];
+    [cell.distanceLabel setText:[NSString stringWithFormat:@"%.01f kilometer from current position.", distance/1000]];
     [cell.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
     for (NSManagedObjectID *temp in self.placesObjectIDs) {
         if ([temp isEqual:place.objectID]) {
