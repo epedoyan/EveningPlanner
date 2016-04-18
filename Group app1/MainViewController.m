@@ -36,10 +36,19 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+}
+
+-(void)dismissKeyboard {
+    [self.moneyField resignFirstResponder];
 }
 
 - (IBAction)sliderValueChanged:(UISlider *)sender {
-    [self.moneyField resignFirstResponder];
     if (sender.value < 1) {
         self.rangeLabel.text = [[NSString stringWithFormat:@"%f",(sender.value * 1000)] substringToIndex:3];
         self.metrLabel.text = @"Meter";

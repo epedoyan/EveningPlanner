@@ -224,6 +224,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="callButton" destination="emD-vu-ea5" id="UF7-jX-ugE"/>
+                        <outlet property="callIcon" destination="Q2V-Gb-CYK" id="4sX-qS-iBa"/>
                         <outlet property="descriptionTextView" destination="biv-L7-KED" id="8ns-By-til"/>
                         <outlet property="imageScrollView" destination="OKU-BA-i5b" id="x7R-Jg-oYT"/>
                         <outlet property="mapButton" destination="ZwI-eT-lJK" id="MpE-j8-0Yo"/>

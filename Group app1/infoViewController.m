@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *mapButton;
 @property (weak, nonatomic) IBOutlet UIButton *callButton;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIButton *callIcon;
 
 @end
 
@@ -48,6 +49,7 @@
     [self.callButton setTitle:place.contactNumber forState:UIControlStateNormal];
    
     self.callButton.titleLabel.text = place.contactNumber;
+    self.callIcon.titleLabel.text = place.contactNumber;
     
     [self.imageScrollView addSubview:firstImage];
     [self.imageScrollView addSubview:seconfImage];
@@ -113,7 +115,7 @@
 - (IBAction)callPhone:(UIButton *)sender {
     
     NSString *numberWithoutSpaces = [sender.titleLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
+    NSLog(@"%@", numberWithoutSpaces);
     NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", numberWithoutSpaces];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
