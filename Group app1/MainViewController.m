@@ -45,6 +45,11 @@
 - (IBAction)searchButtonTouched:(id)sender {
     SecondViewController *secondVC = [self.storyboard instantiateViewControllerWithIdentifier:@"secondVC"];
     secondVC.money = [self.moneyField.text integerValue];
+    if ([self.rangeLabel.text floatValue] < 100) {
+        secondVC.distanceLimit = [self.rangeLabel.text floatValue];
+    } else {
+        secondVC.distanceLimit = [self.rangeLabel.text floatValue] / 1000;
+    }
     
    // if (secondVC.money <= 500 || secondVC.money >= 100000) {
 //        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning!!!" message:@"Please, write in the range from 500 to 100000" preferredStyle:UIAlertControllerStyleAlert];

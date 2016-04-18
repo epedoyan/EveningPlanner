@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSMutableArray <NSManagedObjectID *> *placesObjectIDs;
 
 @property (nonatomic) NSInteger money;
+@property (nonatomic) CGFloat distanceLimit;
 
 @end

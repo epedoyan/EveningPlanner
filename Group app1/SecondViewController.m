@@ -44,8 +44,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self customizeViewController];
     [self getCurrentCoordinates];
+    [self customizeViewController];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -74,7 +74,7 @@
 - (void)customizeViewController {
     self.sortingMethod = @selector(sortByRating);
     self.placesObjectIDs = [[NSMutableArray alloc] init];
-    self.places  = [[CoreDataManager defaultManager] fetchAllPlaces];
+    [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchAllPlaces]];
     
     self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)self.money];
     self.navigationItem.backBarButtonItem =
@@ -82,6 +82,23 @@
                                      style:UIBarButtonItemStylePlain
                                     target:nil
                                     action:nil];
+}
+
+- (void)makeDistanceLimit:(NSArray *)array {
+    CLLocationCoordinate2D userCoordinate = CLLocationCoordinate2DMake(self.locationManager.location.coordinate.latitude,
+                                                                       self.locationManager.location.coordinate.longitude);
+    NSMutableArray *tempPlaces = [[NSMutableArray alloc] init];
+    for (int i = 0; i < array.count; i++) {
+        CLLocationCoordinate2D placeCoordinate = CLLocationCoordinate2DMake([[array[i] latitude] doubleValue],
+                                                                            [[array[i] longitude] doubleValue]);
+        MKMapPoint pointOne = MKMapPointForCoordinate(placeCoordinate);
+        MKMapPoint pointTwo = MKMapPointForCoordinate(userCoordinate);
+        CLLocationDistance distance = MKMetersBetweenMapPoints(pointOne, pointTwo);
+        if (self.distanceLimit > distance/1000) {
+            [tempPlaces addObject:array[i]];
+        }
+    }
+    self.places = [tempPlaces copy];
 }
 
 - (void)addOrRemoveButtonTouched:(UIButton *)sender {
@@ -139,7 +156,7 @@
         }];
         [self.bottomButtons[0] setTitle:@"Fast Food" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Restaurant" forState:UIControlStateNormal];
-        self.places = [[CoreDataManager defaultManager] fetchFood];
+        [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchFood]];
         
         self.numberOfSelectedTopButton = 1;
         
@@ -153,7 +170,7 @@
         }];
         [self.bottomButtons[0] setTitle:@"Game" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Gym" forState:UIControlStateNormal];
-        self.places = [[CoreDataManager defaultManager] fetchEntertainment];
+        [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchEntertainment]];
 
         self.numberOfSelectedTopButton = 2;
 
@@ -167,7 +184,7 @@
         }];
         [self.bottomButtons[0] setTitle:@"Cinema, Theater" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Museum" forState:UIControlStateNormal];
-        self.places = [[CoreDataManager defaultManager] fetchCulture];
+        [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchCulture]];
 
         self.numberOfSelectedTopButton = 3;    }
     for (UIButton *button in self.bottomButtons) {
@@ -210,13 +227,13 @@
     if (self.isTheFirstBottomButtonTouched) {
         switch (self.numberOfSelectedTopButton) {
             case 1:
-                self.places = [[CoreDataManager defaultManager] fetchFastFood];
+                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchFastFood]];
                 break;
             case 2:
-                self.places = [[CoreDataManager defaultManager] fetchGames];
+                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchGames]];
                 break;
             case 3:
-                self.places = [[CoreDataManager defaultManager] fetchCinemaTheatre];
+                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchCinemaTheatre]];
                 break;
                 
             default:
@@ -225,13 +242,13 @@
     } else {
         switch (self.numberOfSelectedTopButton) {
             case 1:
-                self.places = [[CoreDataManager defaultManager] fetchRestaurants];
+                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchRestaurants]];
                 break;
             case 2:
-                self.places = [[CoreDataManager defaultManager] fetchGyms];
+                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchGyms]];
                 break;
             case 3:
-                self.places = [[CoreDataManager defaultManager] fetchMuseum];
+                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchMuseum]];
                 break;
                 
             default:
@@ -261,7 +278,6 @@
     MKMapPoint pointOne = MKMapPointForCoordinate(coordinate);
     MKMapPoint pointTwo = MKMapPointForCoordinate(userCoordinate);
     CLLocationDistance distance = MKMetersBetweenMapPoints(pointOne, pointTwo);
-    
     [cell.distanceLabel setText:[NSString stringWithFormat:@"%.01f kilometer from current position.", distance/1000]];
     [cell.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
     for (NSManagedObjectID *temp in self.placesObjectIDs) {
@@ -306,7 +322,7 @@
         case 2:
             return @"Price";
             break;
-            
+    
         default:
             break;
     }
