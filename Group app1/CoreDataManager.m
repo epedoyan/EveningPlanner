@@ -136,7 +136,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     
     [GoldsGym setName:@"Gold's Gym"
       descriptionInfo:@"Established in Venice, California in 1965, Gold’s Gym is the largest full service chain in the world with over 700 locations in 42 states and 28 countries. Gold’s Gym offers state of the art exercise equipment and industry leading fitness programs, including group exercise, personal training, cardiovascular equipment, cycling, Pilates, yoga and Cardio.With over 3.5 million members worldwide, Gold’s Gym helps all kinds of people achieve their individual potential through fitness."
-                 logo:@"bouldertown-logo"
+                 logo:@"goldsgym-logo"
                 price:@3500
                rating:@4
            imageFirst:@"goldsgymimg1"

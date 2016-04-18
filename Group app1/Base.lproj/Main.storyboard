@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QGe-2a-vxS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QGe-2a-vxS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -72,49 +72,30 @@
                                     <constraint firstAttribute="width" constant="32" id="mON-Mf-b87"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+374 10 549282" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WxL-PZ-yNx">
-                                <rect key="frame" x="20" y="478" width="136" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="hWx-O2-Udh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.kfc.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLA-zu-Oz3">
-                                <rect key="frame" x="20" y="436" width="109" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="LZS-Z7-aMT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="biv-L7-KED">
-                                <rect key="frame" x="20" y="216" width="280" height="212"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">KFC Corporation, based in Louisville, Kentucky, is one of the few brands in America that can boast a rich, decades-long history of success and innovation. It all started with one cook who created a soon-to-be world-famous recipe more than 70 years ago, a list of secret herbs and spices scratched out on the back of the door to his kitchen. That cook was Colonel Harland Sanders, of course, and now KFC is the world’s most popular chicken restaurant chain, specializing in that same Original Recipe® along with Extra Crispy™ chicken, home-style sides and buttermilk biscuits. There are more than 18,000 KFC outlets in 115 countries and territories around the world. And you know what? There’s still a cook in a kitchen in every last one of them, freshly preparing delicious, complete family meals at affordable prices.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hh4-XJ-iuv">
-                                <rect key="frame" x="266" y="436" width="34" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Hh4-XJ-iuv" secondAttribute="height" id="QuG-B2-XGD"/>
-                                </constraints>
+                                <rect key="frame" x="266" y="394" width="34" height="34"/>
                                 <state key="normal" backgroundImage="safari"/>
                                 <connections>
                                     <action selector="webButtonTouched:" destination="N8o-y3-zZZ" eventType="touchUpInside" id="eHD-2z-ofe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oZ-l5-7OV">
-                                <rect key="frame" x="266" y="478" width="34" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="0oZ-l5-7OV" secondAttribute="height" id="N9m-Nw-bzi"/>
-                                </constraints>
+                                <rect key="frame" x="266" y="436" width="34" height="34"/>
                                 <state key="normal" backgroundImage="Map-Google"/>
                                 <connections>
                                     <action selector="mapButtonTouched:" destination="N8o-y3-zZZ" eventType="touchUpInside" id="hNR-WA-5zF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2V-Gb-CYK">
+                                <rect key="frame" x="266" y="478" width="34" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="9ko-Ns-9ID"/>
+                                    <constraint firstAttribute="width" constant="34" id="R3f-Nj-37N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" backgroundImage="call-icon"/>
+                                <connections>
+                                    <action selector="callPhone:" destination="N8o-y3-zZZ" eventType="touchUpInside" id="k5O-q2-ycf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3000 AMD" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcl-I5-whV">
@@ -123,59 +104,87 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDu-wH-QBF">
-                                <rect key="frame" x="171" y="478" width="34" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="tDu-wH-QBF" secondAttribute="height" multiplier="1:1" id="lZ7-Nc-7dR"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="call-icon"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4X-a5-Ynu">
+                                <rect key="frame" x="20" y="394" width="75" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="urlButton"/>
                                 <connections>
-                                    <action selector="callPhone:" destination="N8o-y3-zZZ" eventType="touchUpInside" id="Fp7-eE-4ub"/>
+                                    <action selector="webButtonTouched:" destination="N8o-y3-zZZ" eventType="touchUpInside" id="2RG-LQ-NMs"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZwI-eT-lJK">
+                                <rect key="frame" x="20" y="436" width="90" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="mapButton"/>
+                                <connections>
+                                    <action selector="mapButtonTouched:" destination="N8o-y3-zZZ" eventType="touchUpInside" id="iLG-eq-4jj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emD-vu-ea5">
+                                <rect key="frame" x="20" y="478" width="82" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="callButton"/>
+                                <connections>
+                                    <action selector="callPhone:" destination="N8o-y3-zZZ" eventType="touchUpInside" id="9jG-8Q-j5n"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="biv-L7-KED">
+                                <rect key="frame" x="20" y="216" width="280" height="170"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">KFC Corporation, based in Louisville, Kentucky, is one of the few brands in America that can boast a rich, decades-long history of success and innovation. It all started with one cook who created a soon-to-be world-famous recipe more than 70 years ago, a list of secret herbs and spices scratched out on the back of the door to his kitchen. That cook was Colonel Harland Sanders, of course, and now KFC is the world’s most popular chicken restaurant chain, specializing in that same Original Recipe® along with Extra Crispy™ chicken, home-style sides and buttermilk biscuits. There are more than 18,000 KFC outlets in 115 countries and territories around the world. And you know what? There’s still a cook in a kitchen in every last one of them, freshly preparing delicious, complete family meals at affordable prices.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="emD-vu-ea5" firstAttribute="leading" secondItem="mzu-h5-lVL" secondAttribute="leading" constant="20" id="0RG-yP-kyB"/>
                             <constraint firstItem="cje-Je-Rga" firstAttribute="leading" secondItem="Shk-hf-Dt6" secondAttribute="trailing" constant="2" id="2bL-MY-jDM"/>
+                            <constraint firstItem="0oZ-l5-7OV" firstAttribute="height" secondItem="Q2V-Gb-CYK" secondAttribute="height" id="4yK-nN-34n"/>
                             <constraint firstItem="OKU-BA-i5b" firstAttribute="width" secondItem="mzu-h5-lVL" secondAttribute="width" id="5E8-WA-CqU"/>
-                            <constraint firstItem="0oZ-l5-7OV" firstAttribute="height" secondItem="wLA-zu-Oz3" secondAttribute="height" id="6bH-W4-J7K"/>
                             <constraint firstItem="fcl-I5-whV" firstAttribute="top" secondItem="OKU-BA-i5b" secondAttribute="bottom" constant="8" id="7z3-pm-DKN"/>
+                            <constraint firstItem="emD-vu-ea5" firstAttribute="top" secondItem="ZwI-eT-lJK" secondAttribute="bottom" constant="8" id="8pe-jq-cHG"/>
                             <constraint firstItem="H7D-GH-Fyx" firstAttribute="leading" secondItem="uCd-KH-2oD" secondAttribute="trailing" constant="2" id="D4s-wY-Gar"/>
                             <constraint firstItem="uCd-KH-2oD" firstAttribute="leading" secondItem="Zg5-oB-tZ2" secondAttribute="trailing" constant="2" id="DCW-2S-blK"/>
-                            <constraint firstItem="Hh4-XJ-iuv" firstAttribute="top" secondItem="biv-L7-KED" secondAttribute="bottom" constant="8" id="GG5-Qi-jiW"/>
-                            <constraint firstAttribute="trailing" secondItem="Hh4-XJ-iuv" secondAttribute="trailing" constant="20" id="JHi-zj-CIi"/>
-                            <constraint firstItem="WxL-PZ-yNx" firstAttribute="top" secondItem="wLA-zu-Oz3" secondAttribute="bottom" constant="8" id="JRy-3Y-dpm"/>
+                            <constraint firstItem="ZwI-eT-lJK" firstAttribute="top" secondItem="W4X-a5-Ynu" secondAttribute="bottom" constant="8" id="JZT-Tg-rYA"/>
+                            <constraint firstAttribute="trailing" secondItem="Hh4-XJ-iuv" secondAttribute="trailing" constant="20" id="Lya-jZ-r56"/>
+                            <constraint firstItem="Q2V-Gb-CYK" firstAttribute="top" secondItem="0oZ-l5-7OV" secondAttribute="bottom" constant="8" id="MyO-Ql-qHD"/>
+                            <constraint firstItem="Hh4-XJ-iuv" firstAttribute="width" secondItem="Q2V-Gb-CYK" secondAttribute="width" id="O9M-Ko-JrW"/>
+                            <constraint firstItem="Hh4-XJ-iuv" firstAttribute="height" secondItem="Q2V-Gb-CYK" secondAttribute="height" id="OOl-c5-MPx"/>
+                            <constraint firstItem="0oZ-l5-7OV" firstAttribute="top" secondItem="Hh4-XJ-iuv" secondAttribute="bottom" constant="8" id="PX8-BC-m6w"/>
+                            <constraint firstAttribute="trailing" secondItem="0oZ-l5-7OV" secondAttribute="trailing" constant="20" id="RcP-ld-n95"/>
                             <constraint firstItem="Shk-hf-Dt6" firstAttribute="top" secondItem="OKU-BA-i5b" secondAttribute="bottom" constant="8" id="Rgn-w8-BL3"/>
+                            <constraint firstItem="W4X-a5-Ynu" firstAttribute="top" secondItem="biv-L7-KED" secondAttribute="bottom" constant="8" id="Rt0-H8-WG6"/>
                             <constraint firstItem="biv-L7-KED" firstAttribute="top" secondItem="H7D-GH-Fyx" secondAttribute="bottom" constant="8" id="SMh-Ug-GwG"/>
-                            <constraint firstItem="Hh4-XJ-iuv" firstAttribute="height" secondItem="WxL-PZ-yNx" secondAttribute="height" id="VBJ-XN-CAX"/>
+                            <constraint firstItem="Bzd-zt-tUf" firstAttribute="top" secondItem="emD-vu-ea5" secondAttribute="bottom" constant="8" id="Tw5-pr-ckN"/>
                             <constraint firstItem="cje-Je-Rga" firstAttribute="top" secondItem="OKU-BA-i5b" secondAttribute="bottom" constant="8" id="WV6-MC-MGz"/>
                             <constraint firstItem="Shk-hf-Dt6" firstAttribute="leading" secondItem="mzu-h5-lVL" secondAttribute="leading" constant="20" id="ZRT-at-LOM"/>
                             <constraint firstItem="OKU-BA-i5b" firstAttribute="top" secondItem="3Vl-tW-UGk" secondAttribute="bottom" constant="8" id="bYs-a8-IU7"/>
-                            <constraint firstAttribute="trailing" secondItem="0oZ-l5-7OV" secondAttribute="trailing" constant="20" id="blh-U5-yWQ"/>
                             <constraint firstAttribute="trailing" secondItem="OKU-BA-i5b" secondAttribute="trailing" id="bsK-FF-7N3"/>
+                            <constraint firstItem="Hh4-XJ-iuv" firstAttribute="top" secondItem="biv-L7-KED" secondAttribute="bottom" constant="8" id="cNu-aG-2e8"/>
+                            <constraint firstItem="Bzd-zt-tUf" firstAttribute="top" secondItem="Q2V-Gb-CYK" secondAttribute="bottom" constant="8" id="cnv-GL-YLn"/>
                             <constraint firstItem="H7D-GH-Fyx" firstAttribute="leading" secondItem="uCd-KH-2oD" secondAttribute="trailing" constant="2" id="dGE-IK-GFL"/>
-                            <constraint firstItem="tDu-wH-QBF" firstAttribute="top" secondItem="0oZ-l5-7OV" secondAttribute="top" id="ew2-hc-ixb"/>
+                            <constraint firstItem="W4X-a5-Ynu" firstAttribute="height" secondItem="emD-vu-ea5" secondAttribute="height" id="eM3-pP-Bai"/>
                             <constraint firstItem="Bzd-zt-tUf" firstAttribute="centerX" secondItem="mzu-h5-lVL" secondAttribute="centerX" id="fCf-th-e85"/>
+                            <constraint firstItem="ZwI-eT-lJK" firstAttribute="leading" secondItem="mzu-h5-lVL" secondAttribute="leading" constant="20" id="gCu-2H-jnf"/>
                             <constraint firstAttribute="trailing" secondItem="biv-L7-KED" secondAttribute="trailing" constant="20" id="h8Q-IB-7Xo"/>
                             <constraint firstItem="H7D-GH-Fyx" firstAttribute="top" secondItem="OKU-BA-i5b" secondAttribute="bottom" constant="8" id="hjP-1G-l2J"/>
                             <constraint firstItem="uCd-KH-2oD" firstAttribute="leading" secondItem="Zg5-oB-tZ2" secondAttribute="trailing" constant="2" id="iA2-wH-Ie9"/>
-                            <constraint firstItem="wLA-zu-Oz3" firstAttribute="top" secondItem="biv-L7-KED" secondAttribute="bottom" constant="8" id="iCM-3n-7N5"/>
-                            <constraint firstItem="Bzd-zt-tUf" firstAttribute="top" secondItem="WxL-PZ-yNx" secondAttribute="bottom" constant="8" id="jqS-yf-58V"/>
+                            <constraint firstAttribute="trailing" secondItem="Q2V-Gb-CYK" secondAttribute="trailing" constant="20" id="jnj-CJ-bkO"/>
                             <constraint firstItem="Zg5-oB-tZ2" firstAttribute="leading" secondItem="cje-Je-Rga" secondAttribute="trailing" constant="2" id="k9j-bH-LCV"/>
-                            <constraint firstItem="WxL-PZ-yNx" firstAttribute="leading" secondItem="mzu-h5-lVL" secondAttribute="leading" constant="20" id="lOR-Hj-AX9"/>
+                            <constraint firstItem="W4X-a5-Ynu" firstAttribute="leading" secondItem="mzu-h5-lVL" secondAttribute="leading" constant="20" id="kZs-xk-hCl"/>
                             <constraint firstItem="OKU-BA-i5b" firstAttribute="leading" secondItem="mzu-h5-lVL" secondAttribute="leading" id="lRH-w6-vJR"/>
-                            <constraint firstItem="tDu-wH-QBF" firstAttribute="leading" secondItem="WxL-PZ-yNx" secondAttribute="trailing" constant="15" id="lkX-Z6-ogP"/>
                             <constraint firstItem="0oZ-l5-7OV" firstAttribute="top" secondItem="Hh4-XJ-iuv" secondAttribute="bottom" constant="8" id="mey-gs-3Ze"/>
+                            <constraint firstItem="0oZ-l5-7OV" firstAttribute="width" secondItem="Q2V-Gb-CYK" secondAttribute="width" id="mth-D0-luN"/>
                             <constraint firstItem="PXf-nJ-ZAT" firstAttribute="top" secondItem="Bzd-zt-tUf" secondAttribute="bottom" constant="8" id="o95-T1-6BW"/>
                             <constraint firstItem="cje-Je-Rga" firstAttribute="leading" secondItem="Shk-hf-Dt6" secondAttribute="trailing" constant="2" id="odu-dk-NQt"/>
                             <constraint firstItem="Zg5-oB-tZ2" firstAttribute="centerX" secondItem="mzu-h5-lVL" secondAttribute="centerX" id="pkB-LH-2Bh"/>
                             <constraint firstItem="uCd-KH-2oD" firstAttribute="top" secondItem="OKU-BA-i5b" secondAttribute="bottom" constant="8" id="qLI-nb-xT7"/>
-                            <constraint firstItem="tDu-wH-QBF" firstAttribute="height" secondItem="wLA-zu-Oz3" secondAttribute="height" id="vbZ-Kf-XjM"/>
+                            <constraint firstItem="emD-vu-ea5" firstAttribute="height" secondItem="Q2V-Gb-CYK" secondAttribute="height" id="uPW-H6-IpM"/>
                             <constraint firstItem="biv-L7-KED" firstAttribute="leading" secondItem="mzu-h5-lVL" secondAttribute="leading" constant="20" id="viA-WR-xwI"/>
                             <constraint firstItem="Zg5-oB-tZ2" firstAttribute="top" secondItem="OKU-BA-i5b" secondAttribute="bottom" constant="8" id="wGZ-FF-uYw"/>
                             <constraint firstItem="OKU-BA-i5b" firstAttribute="leading" secondItem="mzu-h5-lVL" secondAttribute="leading" constant="20" id="wMO-oX-6Z7"/>
                             <constraint firstItem="biv-L7-KED" firstAttribute="top" secondItem="fcl-I5-whV" secondAttribute="bottom" constant="8" id="xOr-4r-n9C"/>
-                            <constraint firstItem="wLA-zu-Oz3" firstAttribute="leading" secondItem="mzu-h5-lVL" secondAttribute="leading" constant="20" id="xg6-iP-ZvN"/>
                             <constraint firstItem="OKU-BA-i5b" firstAttribute="width" secondItem="mzu-h5-lVL" secondAttribute="width" id="z20-tn-fSn"/>
                             <constraint firstItem="Zg5-oB-tZ2" firstAttribute="leading" secondItem="cje-Je-Rga" secondAttribute="trailing" constant="2" id="zDL-Tc-VpW"/>
                             <constraint firstAttribute="trailing" secondItem="fcl-I5-whV" secondAttribute="trailing" constant="20" id="zNj-f0-AfB"/>
@@ -196,12 +205,12 @@
                     <navigationItem key="navigationItem" title="KFC" id="Sto-6j-1Tr"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="callButton" destination="tDu-wH-QBF" id="xbt-Zv-fLS"/>
+                        <outlet property="callButton" destination="emD-vu-ea5" id="UF7-jX-ugE"/>
                         <outlet property="descriptionTextView" destination="biv-L7-KED" id="8ns-By-til"/>
                         <outlet property="imageScrollView" destination="OKU-BA-i5b" id="x7R-Jg-oYT"/>
-                        <outlet property="numberLabel" destination="WxL-PZ-yNx" id="WTf-Ln-Ldm"/>
+                        <outlet property="mapButton" destination="ZwI-eT-lJK" id="MpE-j8-0Yo"/>
                         <outlet property="priceLabel" destination="fcl-I5-whV" id="pNS-7d-WdH"/>
-                        <outlet property="urlLabel" destination="wLA-zu-Oz3" id="vy6-cT-9Pc"/>
+                        <outlet property="urlButton" destination="W4X-a5-Ynu" id="0CE-g4-qcr"/>
                         <outletCollection property="ratingStars" destination="Shk-hf-Dt6" id="rpp-V6-Xw7"/>
                         <outletCollection property="ratingStars" destination="cje-Je-Rga" id="Q2X-Gr-OiL"/>
                         <outletCollection property="ratingStars" destination="Zg5-oB-tZ2" id="ZKK-mk-lty"/>
@@ -298,7 +307,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z2B-44-rI5" id="FsB-AE-1f0">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KFC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qna-Nw-Ttn">
@@ -751,7 +760,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8DR-f7-bV2" id="fmw-Ju-Rdq">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KFC" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnG-vw-JeR">
@@ -1000,9 +1009,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Map-Google" width="512" height="512"/>
+        <image name="Map-Google" width="467" height="449"/>
         <image name="Search" width="256" height="256"/>
-        <image name="call-icon" width="128" height="128"/>
+        <image name="call-icon" width="294" height="296"/>
         <image name="kfc-logo" width="256" height="256"/>
         <image name="minus" width="512" height="512"/>
         <image name="plus" width="256" height="256"/>

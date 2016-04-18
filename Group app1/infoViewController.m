@@ -16,9 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *ratingStars;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
-@property (weak, nonatomic) IBOutlet UILabel *urlLabel;
-@property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *urlButton;
+@property (weak, nonatomic) IBOutlet UIButton *mapButton;
 @property (weak, nonatomic) IBOutlet UIButton *callButton;
 
 @end
@@ -41,14 +41,22 @@
         UIImageView *thirdImage = [self newImageViewWithImage:[UIImage imageNamed:place.imageThird] frame:imageViewRect];
     
     self.descriptionTextView.text = place.descriptionInfo;
-    self.urlLabel.text = place.urlString;
-    self.numberLabel.text = place.contactNumber;
+   [self.urlButton setTitle:place.urlString forState:UIControlStateNormal];
+    //self.urlButton.titleLabel.text = place.urlString;
+  // NSString *title = [place.urlString stringByReplacingOccurrencesOfString:@", Yerevan, Armenia" withString:@""];
+
+   // [self.urlButton setTitle:title forState:UIControlStateNormal];
+
+    [self.callButton setTitle:place.contactNumber forState:UIControlStateNormal];
+    [self.mapButton setTitle:[place.address stringByReplacingOccurrencesOfString:@", Yerevan, Armenia" withString:@""]forState:UIControlStateNormal];
     self.callButton.titleLabel.text = place.contactNumber;
     
     [self.imageScrollView addSubview:firstImage];
     [self.imageScrollView addSubview:seconfImage];
     [self.imageScrollView addSubview:thirdImage];
     
+    self.navigationItem.title = place.name;
+
     // rating part
     for ( NSInteger i = 0; i < 5; ++i ) {
         if( i < [place.rating integerValue] ) {
