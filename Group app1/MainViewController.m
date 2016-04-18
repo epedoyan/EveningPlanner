@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *moneyField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchButtonBottomLayout;
 @property (weak, nonatomic) IBOutlet UILabel *metrLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *iconTopLayout;
 
 @end
 
@@ -30,9 +31,15 @@
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 - (IBAction)sliderValueChanged:(UISlider *)sender {
+    [self.moneyField resignFirstResponder];
     if (sender.value < 1) {
         self.rangeLabel.text = [[NSString stringWithFormat:@"%f",(sender.value * 1000)] substringToIndex:3];
         self.metrLabel.text = @"Meter";
@@ -63,6 +70,15 @@
     CGRect keyboardRect = [keyboardFrameBegin CGRectValue];
     
     self.searchButtonBottomLayout.constant = keyboardRect.size.height + 5;
+    
+    self.iconTopLayout.constant = -(self.view.frame.size.height / 3.0);
+
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    
+    self.searchButtonBottomLayout.constant = 30;
+    self.iconTopLayout.constant = 0;    
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
