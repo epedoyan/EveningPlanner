@@ -40,15 +40,12 @@
         imageViewRect.origin.x += imageViewRect.size.width;
         UIImageView *thirdImage = [self newImageViewWithImage:[UIImage imageNamed:place.imageThird] frame:imageViewRect];
     
+    self.priceLabel.text = [place.price.stringValue stringByAppendingString:@" AMD"];
     self.descriptionTextView.text = place.descriptionInfo;
-   [self.urlButton setTitle:place.urlString forState:UIControlStateNormal];
-    //self.urlButton.titleLabel.text = place.urlString;
-  // NSString *title = [place.urlString stringByReplacingOccurrencesOfString:@", Yerevan, Armenia" withString:@""];
-
-   // [self.urlButton setTitle:title forState:UIControlStateNormal];
-
-    [self.callButton setTitle:place.contactNumber forState:UIControlStateNormal];
+    [self.urlButton setTitle:[place.urlString stringByReplacingOccurrencesOfString:@"http://" withString:@""]forState:UIControlStateNormal];
     [self.mapButton setTitle:[place.address stringByReplacingOccurrencesOfString:@", Yerevan, Armenia" withString:@""]forState:UIControlStateNormal];
+    [self.callButton setTitle:place.contactNumber forState:UIControlStateNormal];
+   
     self.callButton.titleLabel.text = place.contactNumber;
     
     [self.imageScrollView addSubview:firstImage];
@@ -72,7 +69,21 @@
                                      style:UIBarButtonItemStylePlain
                                     target:nil
                                     action:nil];
+    
+    UIImage* image3 = [UIImage imageNamed:@"basket1"];
+    CGRect frameimg = CGRectMake(100, 100, 32, 32);
+    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+    [someButton setBackgroundImage:image3 forState:UIControlStateNormal];
+    [someButton addTarget:self action:@selector(sendmail)
+         forControlEvents:UIControlEventTouchUpInside];
+    [someButton setShowsTouchWhenHighlighted:NO];
+    UIBarButtonItem *mailbutton =[[UIBarButtonItem alloc] initWithCustomView:someButton];
+    self.navigationItem.rightBarButtonItem=mailbutton;
+   // [someButton release];
+    
 }
+
+
 - (IBAction)addOrRemoveButtonTouched:(UIButton *)sender {
     if (![sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minus"]]) {
         [sender setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
@@ -118,6 +129,10 @@
     webVC.navigationItem.title = [NSString stringWithString:urlWithoutHTTP];
 
     [self showViewController:webVC sender:self];
+}
+
+- (void)sendmail {
+    [self performSegueWithIdentifier:@"SegueToMyChoice" sender:self];
 }
 
 @end

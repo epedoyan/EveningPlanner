@@ -26,7 +26,7 @@
                                     <constraint firstAttribute="height" constant="40" id="RID-bw-NE2"/>
                                     <constraint firstAttribute="width" constant="40" id="vE3-Hh-rTC"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="plus"/>
+                                <state key="normal" backgroundImage="plussymbol"/>
                                 <connections>
                                     <action selector="addOrRemoveButtonTouched:" destination="N8o-y3-zZZ" eventType="touchUpInside" id="J7k-Ji-lPv"/>
                                 </connections>
@@ -135,6 +135,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Be-NC-6gx">
+                                <rect key="frame" x="0.0" y="-8" width="320" height="44"/>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -216,6 +219,7 @@
                         <outletCollection property="ratingStars" destination="Zg5-oB-tZ2" id="ZKK-mk-lty"/>
                         <outletCollection property="ratingStars" destination="uCd-KH-2oD" id="Jso-yD-ejG"/>
                         <outletCollection property="ratingStars" destination="H7D-GH-Fyx" id="p3D-MD-rf5"/>
+                        <segue destination="zTU-xG-igF" kind="show" identifier="SegueToMyChoice" id="D92-wc-ZRX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qj9-2N-ce9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1015,6 +1019,7 @@
         <image name="kfc-logo" width="256" height="256"/>
         <image name="minus" width="512" height="512"/>
         <image name="plus" width="256" height="256"/>
+        <image name="plussymbol" width="447" height="451"/>
         <image name="safari" width="1024" height="1024"/>
         <image name="star_active" width="25" height="23"/>
         <image name="star_inactive" width="25" height="23"/>
