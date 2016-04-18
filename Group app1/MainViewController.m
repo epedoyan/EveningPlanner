@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *moneyField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchButtonBottomLayout;
 @property (weak, nonatomic) IBOutlet UILabel *metrLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *iconTopLayout;
 
 @end
 
@@ -30,6 +31,21 @@
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+}
+
+-(void)dismissKeyboard {
+    [self.moneyField resignFirstResponder];
 }
 
 - (IBAction)sliderValueChanged:(UISlider *)sender {
@@ -68,6 +84,15 @@
     CGRect keyboardRect = [keyboardFrameBegin CGRectValue];
     
     self.searchButtonBottomLayout.constant = keyboardRect.size.height + 5;
+    
+    self.iconTopLayout.constant = -(self.view.frame.size.height / 3.0);
+
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    
+    self.searchButtonBottomLayout.constant = 30;
+    self.iconTopLayout.constant = 0;    
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
