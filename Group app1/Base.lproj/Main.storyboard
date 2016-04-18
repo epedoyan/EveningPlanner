@@ -31,7 +31,7 @@
                                     <action selector="addOrRemoveButtonTouched:" destination="N8o-y3-zZZ" eventType="touchUpInside" id="J7k-Ji-lPv"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKU-BA-i5b">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKU-BA-i5b">
                                 <rect key="frame" x="0.0" y="28" width="320" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="3oE-21-pH2"/>
@@ -138,11 +138,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Be-NC-6gx">
-                                <rect key="frame" x="0.0" y="-8" width="320" height="44"/>
-                            </navigationBar>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="jPm-OZ-3xy">
-                                <rect key="frame" x="141" y="158" width="39" height="37"/>
+                                <rect key="frame" x="141" y="156" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -160,7 +157,7 @@
                             <constraint firstItem="emD-vu-ea5" firstAttribute="top" secondItem="ZwI-eT-lJK" secondAttribute="bottom" constant="8" id="8pe-jq-cHG"/>
                             <constraint firstItem="H7D-GH-Fyx" firstAttribute="leading" secondItem="uCd-KH-2oD" secondAttribute="trailing" constant="2" id="D4s-wY-Gar"/>
                             <constraint firstItem="uCd-KH-2oD" firstAttribute="leading" secondItem="Zg5-oB-tZ2" secondAttribute="trailing" constant="2" id="DCW-2S-blK"/>
-                            <constraint firstItem="jPm-OZ-3xy" firstAttribute="top" secondItem="OKU-BA-i5b" secondAttribute="bottom" constant="-10" id="FRU-PJ-7S4"/>
+                            <constraint firstItem="jPm-OZ-3xy" firstAttribute="top" secondItem="OKU-BA-i5b" secondAttribute="bottom" constant="-12" id="FRU-PJ-7S4"/>
                             <constraint firstItem="ZwI-eT-lJK" firstAttribute="top" secondItem="W4X-a5-Ynu" secondAttribute="bottom" constant="8" id="JZT-Tg-rYA"/>
                             <constraint firstAttribute="trailing" secondItem="Hh4-XJ-iuv" secondAttribute="trailing" constant="20" id="Lya-jZ-r56"/>
                             <constraint firstItem="Q2V-Gb-CYK" firstAttribute="top" secondItem="0oZ-l5-7OV" secondAttribute="bottom" constant="8" id="MyO-Ql-qHD"/>
@@ -223,6 +220,7 @@
                     <navigationItem key="navigationItem" title="KFC" id="Sto-6j-1Tr"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="addOrRemoveButton" destination="Bzd-zt-tUf" id="gKa-qZ-VaN"/>
                         <outlet property="callButton" destination="emD-vu-ea5" id="UF7-jX-ugE"/>
                         <outlet property="descriptionTextView" destination="biv-L7-KED" id="8ns-By-til"/>
                         <outlet property="imageScrollView" destination="OKU-BA-i5b" id="x7R-Jg-oYT"/>
@@ -790,10 +788,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACI-ek-Uha">
-                                                    <rect key="frame" x="282" y="17" width="30" height="30"/>
+                                                    <rect key="frame" x="267" y="10" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="ACI-ek-Uha" secondAttribute="height" multiplier="1:1" id="fMD-ue-T0S"/>
-                                                        <constraint firstAttribute="width" constant="30" id="xaj-Mi-OvT"/>
+                                                        <constraint firstAttribute="width" constant="45" id="xaj-Mi-OvT"/>
                                                     </constraints>
                                                     <state key="normal" backgroundImage="plus"/>
                                                     <connections>
@@ -801,7 +799,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRh-15-NO8">
-                                                    <rect key="frame" x="232" y="22" width="42" height="21"/>
+                                                    <rect key="frame" x="217" y="22" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>

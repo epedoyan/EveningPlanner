@@ -35,6 +35,7 @@
 @property (strong, nonatomic) NSArray *places;
 @property (nonatomic, strong) id sortingType;
 @property (nonatomic) SEL sortingMethod;
+@property (nonatomic) NSInteger currentMoney;
 
 @end
 
@@ -48,10 +49,36 @@
     [self customizeViewController];
 }
 
--(void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
+    [self basketButtonCustomizing];
+    NSManagedObjectContext *context = [[CoreDataManager defaultManager] managedObjectContext];
+    for (NSManagedObjectID *temp in self.placesObjectIDs) {
+        Place *place = [context objectWithID:temp];
+        self.currentMoney = self.money - [place.price integerValue];
+    }
+    self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)self.currentMoney];
+    
+}
+
+- (void)basketButtonCustomizing {
+    UIImage* image = nil;
+    if (self.placesObjectIDs.count == 0) {
+        image = [UIImage imageNamed:@"basket"];
+    } else {
+        image = [UIImage imageNamed:@"basketadd"];
+    }
+    CGRect frameimg = CGRectMake(0, 0, 30, 30);
+    UIButton *myChoicesButton = [[UIButton alloc] initWithFrame:frameimg];
+    [myChoicesButton addTarget:self action:@selector(basketButtonTouched)
+              forControlEvents:UIControlEventTouchUpInside];
+    [myChoicesButton setShowsTouchWhenHighlighted:NO];
+    [myChoicesButton setBackgroundImage:image forState:UIControlStateNormal];
+    UIBarButtonItem *button =[[UIBarButtonItem alloc] initWithCustomView:myChoicesButton];
+    self.navigationItem.rightBarButtonItem = button;
+    
 }
 
 - (void)getCurrentCoordinates {
@@ -72,23 +99,18 @@
 }
 
 - (void)customizeViewController {
+    self.currentMoney = self.money;
     self.sortingMethod = @selector(sortByRating);
     self.placesObjectIDs = [[NSMutableArray alloc] init];
     [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchAllPlaces]];
     
-    self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)self.money];
+    self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)self.currentMoney];
     self.navigationItem.backBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:@"Back"
                                      style:UIBarButtonItemStylePlain
                                     target:nil
                                     action:nil];
-    UIButton *button     = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *buttonImage = [UIImage imageNamed:@"basket.png"]  ;
-    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(basketButtonTouched) forControlEvents:UIControlEventTouchUpInside];
-    button.frame = CGRectMake(0, 0, 30, 30);
-    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button] ;
-    self.navigationItem.rightBarButtonItem = barButton;
+    [self basketButtonCustomizing];
 }
 
 - (void)makeDistanceLimit:(NSArray *)array {
@@ -115,9 +137,9 @@
     if ([sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minus"]]) {
         [sender setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
         [self.placesObjectIDs removeObject:placeID];
-        self.money = self.money + [[self.places[indexPath.row] price] integerValue];
+        self.currentMoney = self.currentMoney + [[self.places[indexPath.row] price] integerValue];
     } else {
-        NSInteger money = self.money - [[self.places[indexPath.row] price] integerValue];
+        NSInteger money = self.currentMoney - [[self.places[indexPath.row] price] integerValue];
         if (money < 0) {
             UIAlertController *moneyAlert = [UIAlertController alertControllerWithTitle:@"No Money"
                                                                                 message:@"You have not so much money"
@@ -127,43 +149,21 @@
             [moneyAlert addAction:okAction];
             [self presentViewController:moneyAlert animated:YES completion:nil];
         } else {
-            self.money = money;
+            self.currentMoney = money;
             [sender setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
             [self.placesObjectIDs addObject:placeID];
         }
         
     }
-    self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)self.money];
-    if (self.placesObjectIDs.count != 0) {
-        UIButton *button     = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage *buttonImage = [UIImage imageNamed:@"basketadd.png"]  ;
-        [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(basketButtonTouched) forControlEvents:UIControlEventTouchUpInside];
-        button.frame = CGRectMake(0, 0, 30, 30);
-        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button] ;
-        self.navigationItem.rightBarButtonItem = barButton;
-    } else {
-        UIButton *button     = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage *buttonImage = [UIImage imageNamed:@"basket.png"]  ;
-        [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(basketButtonTouched) forControlEvents:UIControlEventTouchUpInside];
-        button.frame = CGRectMake(0, 0, 30, 30);
-        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button] ;
-        self.navigationItem.rightBarButtonItem = barButton;
-    }
+    self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)self.currentMoney];
+    [self basketButtonCustomizing];
 }
 
 - (void)basketButtonTouched {
-    ChoicePageViewController *choiceVC = [self.storyboard instantiateViewControllerWithIdentifier:@"myChoiceVC"];
-    [self showViewController:choiceVC sender:self];
-}
-
-- (IBAction)resultBarButtonTouched:(UIBarButtonItem *)sender {
     ChoicePageViewController *myChoiceVC = [self.storyboard instantiateViewControllerWithIdentifier:@"myChoiceVC"];
     myChoiceVC.selectedPlacesIDs = self.placesObjectIDs;
     [self showViewController:myChoiceVC sender:self];
 }
-
 
 - (IBAction)topButtonTouched:(UIButton *)sender {
     [self.bottomButtons[0] setBackgroundColor:self.view.backgroundColor];
@@ -327,6 +327,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     InfoViewController *infoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"infoVC"];
     infoVC.placeObjectID = [self.places[indexPath.row] objectID];
+    infoVC.selectedPlacesIDs = self.placesObjectIDs;
+    infoVC.currentMoney = self.currentMoney;
     [self showViewController:infoVC sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

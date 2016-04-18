@@ -10,6 +10,8 @@
 #import "CoreDataManager.h"
 #import "MapViewController.h"
 #import "WebViewController.h"
+#import "SecondViewController.h"
+#import "ChoicePageViewController.h"
 
 @interface InfoViewController () <UIScrollViewDelegate>
 
@@ -21,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *mapButton;
 @property (weak, nonatomic) IBOutlet UIButton *callButton;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIButton *addOrRemoveButton;
 
 @end
 
@@ -70,26 +73,69 @@
                                      style:UIBarButtonItemStylePlain
                                     target:nil
                                     action:nil];
+    [self.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
+    for (NSManagedObjectID *temp in self.selectedPlacesIDs) {
+        if ([temp isEqual:self.placeObjectID]) {
+            [self.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
+        }
+    }
     
-    UIImage* image = [UIImage imageNamed:@"basketadd"];
-    CGRect frameimg = CGRectMake(0, 0, 32, 32);
-    UIButton *myChoicesButton = [[UIButton alloc] initWithFrame:frameimg];
-    [myChoicesButton setBackgroundImage:image forState:UIControlStateNormal];
-    [myChoicesButton addTarget:self action:@selector(segueToMyChoice)
-         forControlEvents:UIControlEventTouchUpInside];
-    [myChoicesButton setShowsTouchWhenHighlighted:NO];
-    UIBarButtonItem *button =[[UIBarButtonItem alloc] initWithCustomView:myChoicesButton];
-    self.navigationItem.rightBarButtonItem = button;
+    [self basketButtonCustomizing];
+    
+    
     
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self basketButtonCustomizing];
+    [self.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
+    for (NSManagedObjectID *temp in self.selectedPlacesIDs) {
+        if ([temp isEqual:self.placeObjectID]) {
+            [self.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
+        }
+    }
+}
 
+- (void)basketButtonCustomizing {
+    UIImage* image = nil;
+    if (self.selectedPlacesIDs.count == 0) {
+        image = [UIImage imageNamed:@"basket"];
+    } else {
+        image = [UIImage imageNamed:@"basketadd"];
+    }
+    CGRect frameimg = CGRectMake(0, 0, 30, 30);
+    UIButton *myChoicesButton = [[UIButton alloc] initWithFrame:frameimg];
+    [myChoicesButton addTarget:self action:@selector(segueToMyChoice)
+              forControlEvents:UIControlEventTouchUpInside];
+    [myChoicesButton setShowsTouchWhenHighlighted:NO];
+    [myChoicesButton setBackgroundImage:image forState:UIControlStateNormal];
+    UIBarButtonItem *button =[[UIBarButtonItem alloc] initWithCustomView:myChoicesButton];
+    self.navigationItem.rightBarButtonItem = button;
+
+}
 
 - (IBAction)addOrRemoveButtonTouched:(UIButton *)sender {
-    if (![sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minussymbol"]]) {
-        [sender setBackgroundImage:[UIImage imageNamed:@"minussymbol"] forState:UIControlStateNormal];
+    if (![sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minus"]]) {
+        NSManagedObjectContext *context = [[CoreDataManager defaultManager] managedObjectContext];
+        Place *place = [context objectWithID:self.placeObjectID];
+        if (self.currentMoney - [place.price integerValue] <0) {
+            UIAlertController *moneyAlert = [UIAlertController alertControllerWithTitle:@"No Money"
+                                                                                message:@"You have not so much money"
+                                                                         preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                               style:UIAlertActionStyleDefault handler:nil];
+            [moneyAlert addAction:okAction];
+            [self presentViewController:moneyAlert animated:YES completion:nil];
+        } else {
+            [sender setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
+            [self.selectedPlacesIDs addObject:self.placeObjectID];
+        }
     } else {
-        [sender setBackgroundImage:[UIImage imageNamed:@"plussymbol"] forState:UIControlStateNormal];
+        [sender setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
+        [self.selectedPlacesIDs removeObject:self.placeObjectID];
     }
+    [self basketButtonCustomizing];
 }
 
 - (UIImageView *) newImageViewWithImage:(UIImage *)image frame:(CGRect)frame{
@@ -132,7 +178,9 @@
 }
 
 - (void) segueToMyChoice {
-    [self performSegueWithIdentifier:@"SegueToMyChoice" sender:self];
+    ChoicePageViewController *myChoiceVC = [self.storyboard instantiateViewControllerWithIdentifier:@"myChoiceVC"];
+    myChoiceVC.selectedPlacesIDs = self.selectedPlacesIDs;
+    [self showViewController:myChoiceVC sender:self];
 }
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat pageWidth = self.imageScrollView.frame.size.width;
