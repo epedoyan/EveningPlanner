@@ -70,25 +70,24 @@
                                     target:nil
                                     action:nil];
     
-    UIImage* image3 = [UIImage imageNamed:@"basket1"];
-    CGRect frameimg = CGRectMake(100, 100, 32, 32);
-    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
-    [someButton setBackgroundImage:image3 forState:UIControlStateNormal];
-    [someButton addTarget:self action:@selector(sendmail)
+    UIImage* image = [UIImage imageNamed:@"basket1"];
+    CGRect frameimg = CGRectMake(0, 0, 32, 32);
+    UIButton *myChoicesButton = [[UIButton alloc] initWithFrame:frameimg];
+    [myChoicesButton setBackgroundImage:image forState:UIControlStateNormal];
+    [myChoicesButton addTarget:self action:@selector(segueToMyChoice)
          forControlEvents:UIControlEventTouchUpInside];
-    [someButton setShowsTouchWhenHighlighted:NO];
-    UIBarButtonItem *mailbutton =[[UIBarButtonItem alloc] initWithCustomView:someButton];
-    self.navigationItem.rightBarButtonItem=mailbutton;
-   // [someButton release];
+    [myChoicesButton setShowsTouchWhenHighlighted:NO];
+    UIBarButtonItem *button =[[UIBarButtonItem alloc] initWithCustomView:myChoicesButton];
+    self.navigationItem.rightBarButtonItem = button;
     
 }
 
 
 - (IBAction)addOrRemoveButtonTouched:(UIButton *)sender {
-    if (![sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minus"]]) {
-        [sender setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
+    if (![sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minussymbol"]]) {
+        [sender setBackgroundImage:[UIImage imageNamed:@"minussymbol"] forState:UIControlStateNormal];
     } else {
-        [sender setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
+        [sender setBackgroundImage:[UIImage imageNamed:@"plussymbol"] forState:UIControlStateNormal];
     }
 }
 
@@ -131,7 +130,7 @@
     [self showViewController:webVC sender:self];
 }
 
-- (void)sendmail {
+- (void) segueToMyChoice {
     [self performSegueWithIdentifier:@"SegueToMyChoice" sender:self];
 }
 

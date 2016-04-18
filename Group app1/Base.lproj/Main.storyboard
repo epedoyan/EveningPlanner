@@ -1020,7 +1020,7 @@
         <image name="minus" width="512" height="512"/>
         <image name="plus" width="256" height="256"/>
         <image name="plussymbol" width="447" height="451"/>
-        <image name="safari" width="1024" height="1024"/>
+        <image name="safari" width="315" height="314"/>
         <image name="star_active" width="25" height="23"/>
         <image name="star_inactive" width="25" height="23"/>
         <image name="wallet" width="600" height="500"/>
