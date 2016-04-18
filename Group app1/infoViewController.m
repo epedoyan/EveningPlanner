@@ -158,7 +158,7 @@
 }
 - (IBAction)callPhone:(UIButton *)sender {
     
-    NSString *numberWithoutSpaces = [sender.titleLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *numberWithoutSpaces = [self.callButton.titleLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", numberWithoutSpaces];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
