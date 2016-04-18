@@ -37,6 +37,7 @@
 		7860411C1CB45FF1000086E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Group app1/Assets.xcassets"; sourceTree = "<group>"; };
 		7860411F1CB45FF1000086E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		786041211CB45FF1000086E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A52B7E711CC5A695004AF710 /* InfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		A57DA1EF1CB69508000FF02D /* GreenButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreenButton.h; sourceTree = "<group>"; };
 		A57DA1F01CB69508000FF02D /* GreenButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreenButton.m; sourceTree = "<group>"; };
 		A57DA1F11CB69508000FF02D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -47,7 +48,6 @@
 		A57DA1F61CB69508000FF02D /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		A57DA1F71CB69508000FF02D /* UIColor+EveningPlannerColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+EveningPlannerColor.h"; sourceTree = "<group>"; };
 		A57DA1F81CB69508000FF02D /* UIColor+EveningPlannerColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+EveningPlannerColor.m"; sourceTree = "<group>"; };
-		A5C9D2171CBAE89B00E5B373 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		A5C9D2181CBAE89B00E5B373 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		A5C9D21A1CBAFA8800E5B373 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		A5C9D21B1CBAFA8800E5B373 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 				CED977141CB8499000A77664 /* ChoicePageViewController.h */,
 				CED977151CB8499000A77664 /* ChoicePageViewController.m */,
 				CE0BD5D41CBBFA6D00C8A7BB /* Model.xcdatamodeld */,
-				A5C9D2171CBAE89B00E5B373 /* InfoViewController.h */,
+				A52B7E711CC5A695004AF710 /* InfoViewController.h */,
 				A5C9D2181CBAE89B00E5B373 /* InfoViewController.m */,
 				7860411E1CB45FF1000086E4 /* LaunchScreen.storyboard */,
 				786041211CB45FF1000086E4 /* Info.plist */,

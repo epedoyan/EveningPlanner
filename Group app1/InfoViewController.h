@@ -2,7 +2,7 @@
 //  InfoViewController.h
 //  eveningPlanner
 //
-//  Created by Musho on 10/04/16.
+//  Created by Musho on 19/04/16.
 //
 //
 
@@ -11,5 +11,8 @@
 @interface InfoViewController : UIViewController
 
 @property (nonatomic, strong) NSManagedObjectID *placeObjectID;
+@property (nonatomic, strong) NSMutableArray *selectedPlacesIDs;
+
+@property (nonatomic) NSInteger currentMoney;
 
 @end
