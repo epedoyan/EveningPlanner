@@ -11,7 +11,7 @@
 #import "MapViewController.h"
 #import "WebViewController.h"
 
-@interface InfoViewController ()
+@interface InfoViewController () <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *ratingStars;
@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *urlButton;
 @property (weak, nonatomic) IBOutlet UIButton *mapButton;
 @property (weak, nonatomic) IBOutlet UIButton *callButton;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
 
@@ -70,7 +71,7 @@
                                     target:nil
                                     action:nil];
     
-    UIImage* image = [UIImage imageNamed:@"basket1"];
+    UIImage* image = [UIImage imageNamed:@"basketadd"];
     CGRect frameimg = CGRectMake(0, 0, 32, 32);
     UIButton *myChoicesButton = [[UIButton alloc] initWithFrame:frameimg];
     [myChoicesButton setBackgroundImage:image forState:UIControlStateNormal];
@@ -133,5 +134,14 @@
 - (void) segueToMyChoice {
     [self performSegueWithIdentifier:@"SegueToMyChoice" sender:self];
 }
-
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat pageWidth = self.imageScrollView.frame.size.width;
+    int page = floor((self.imageScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.pageControl.currentPage = page;
+}
+- (IBAction)pageControllTouched:(id)sender {
+    CGFloat pageWidth = self.imageScrollView.frame.size.width;
+    int page = floor((self.imageScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.pageControl.currentPage = page;
+}
 @end
