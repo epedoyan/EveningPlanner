@@ -82,6 +82,13 @@
                                      style:UIBarButtonItemStylePlain
                                     target:nil
                                     action:nil];
+    UIButton *button     = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *buttonImage = [UIImage imageNamed:@"basket.png"]  ;
+    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(basketButtonTouched) forControlEvents:UIControlEventTouchUpInside];
+    button.frame = CGRectMake(0, 0, 30, 30);
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button] ;
+    self.navigationItem.rightBarButtonItem = barButton;
 }
 
 - (void)makeDistanceLimit:(NSArray *)array {
@@ -99,6 +106,7 @@
         }
     }
     self.places = [tempPlaces copy];
+    [self performSelector:self.sortingMethod];
 }
 
 - (void)addOrRemoveButtonTouched:(UIButton *)sender {
@@ -126,6 +134,28 @@
         
     }
     self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)self.money];
+    if (self.placesObjectIDs.count != 0) {
+        UIButton *button     = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *buttonImage = [UIImage imageNamed:@"basketadd.png"]  ;
+        [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(basketButtonTouched) forControlEvents:UIControlEventTouchUpInside];
+        button.frame = CGRectMake(0, 0, 30, 30);
+        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button] ;
+        self.navigationItem.rightBarButtonItem = barButton;
+    } else {
+        UIButton *button     = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *buttonImage = [UIImage imageNamed:@"basket.png"]  ;
+        [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(basketButtonTouched) forControlEvents:UIControlEventTouchUpInside];
+        button.frame = CGRectMake(0, 0, 30, 30);
+        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button] ;
+        self.navigationItem.rightBarButtonItem = barButton;
+    }
+}
+
+- (void)basketButtonTouched {
+    ChoicePageViewController *choiceVC = [self.storyboard instantiateViewControllerWithIdentifier:@"myChoiceVC"];
+    [self showViewController:choiceVC sender:self];
 }
 
 - (IBAction)resultBarButtonTouched:(UIBarButtonItem *)sender {
@@ -192,7 +222,6 @@
             button.hidden = NO;
         }];
     }
-    [self performSelector:self.sortingMethod];
     [self.tableView reloadData];
 }
 
@@ -255,7 +284,6 @@
                 break;
         }
     }
-    [self performSelector:self.sortingMethod];
     [self.tableView reloadData];
 }
 #pragma mark - TableView Delegate and DataSource methods
@@ -288,6 +316,7 @@
     [[cell addOrRemoveButton] addTarget:nil
                                  action:@selector(addOrRemoveButtonTouched:)
                        forControlEvents:UIControlEventTouchUpInside];
+    [cell showRating:place.rating];
     return cell;
 }
 

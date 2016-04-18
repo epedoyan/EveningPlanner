@@ -26,7 +26,7 @@
                                     <constraint firstAttribute="height" constant="40" id="RID-bw-NE2"/>
                                     <constraint firstAttribute="width" constant="40" id="vE3-Hh-rTC"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="plussymbol"/>
+                                <state key="normal" backgroundImage="plus"/>
                                 <connections>
                                     <action selector="addOrRemoveButtonTouched:" destination="N8o-y3-zZZ" eventType="touchUpInside" id="J7k-Ji-lPv"/>
                                 </connections>
@@ -327,7 +327,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z2B-44-rI5" id="FsB-AE-1f0">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KFC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qna-Nw-Ttn">
@@ -510,7 +510,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qx5-jr-1Wh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1955" y="1049"/>
+            <point key="canvasLocation" x="2181" y="1091"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nW0-PY-mIs">
@@ -606,7 +606,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.10000000000000001" maxValue="9.9000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="WBE-ey-c7C">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="4.5" minValue="0.10000000000000001" maxValue="9.9000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="WBE-ey-c7C">
                                 <rect key="frame" x="18" y="236" width="284" height="31"/>
                                 <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -780,7 +780,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8DR-f7-bV2" id="fmw-Ju-Rdq">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KFC" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnG-vw-JeR">
@@ -1001,13 +1001,7 @@
                             <constraint firstItem="mPc-5Y-4lx" firstAttribute="top" secondItem="nlw-dE-qei" secondAttribute="bottom" constant="10" id="zsk-El-Pzl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="AMD" id="mH8-gc-D0j">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="tfS-aG-4Jk">
-                            <connections>
-                                <action selector="resultBarButtonTouched:" destination="q6F-Ni-F29" id="vXo-G3-Ntm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="AMD" id="mH8-gc-D0j"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="sortByPicker" destination="Vou-46-rMV" id="br0-Ug-jcx"/>
@@ -1033,9 +1027,8 @@
         <image name="Search" width="256" height="256"/>
         <image name="call-icon" width="294" height="296"/>
         <image name="kfc-logo" width="256" height="256"/>
-        <image name="minus" width="512" height="512"/>
-        <image name="plus" width="256" height="256"/>
-        <image name="plussymbol" width="447" height="451"/>
+        <image name="minus" width="447" height="449"/>
+        <image name="plus" width="447" height="451"/>
         <image name="safari" width="315" height="314"/>
         <image name="star_active" width="25" height="23"/>
         <image name="star_inactive" width="25" height="23"/>
