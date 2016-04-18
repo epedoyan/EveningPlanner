@@ -136,7 +136,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     
     [GoldsGym setName:@"Gold's Gym"
       descriptionInfo:@"Established in Venice, California in 1965, Gold’s Gym is the largest full service chain in the world with over 700 locations in 42 states and 28 countries. Gold’s Gym offers state of the art exercise equipment and industry leading fitness programs, including group exercise, personal training, cardiovascular equipment, cycling, Pilates, yoga and Cardio.With over 3.5 million members worldwide, Gold’s Gym helps all kinds of people achieve their individual potential through fitness."
-                 logo:@"bouldertown-logo"
+                 logo:@"goldsgym-logo"
                 price:@3500
                rating:@4
            imageFirst:@"goldsgymimg1"
@@ -172,9 +172,9 @@ static NSString *const kEntityNamePlaces = @"Places";
     Place *GolfArmenia = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
     
     [GolfArmenia setName:@"Golf Association"
-         descriptionInfo:@"Incourt tennis club operates since 1974. Over 40 years our club has become the best choice for, professional tennis players, tennis amateurs and active recreation funs. In 2014 the club was rebranded becoming Incourt tennis club the only professional institution to promote tennis in Armenia. The mission of our club is to form and spread tennis culture turning it to a trendy lifestyle. Incourt tennis club operates within the framework of Kinetic Sports company which also includes Orange Fitness club. "
+         descriptionInfo:@"Still in the spring of 1998 during his visit in Armenia Vahagn Hovnanyan gave birth to the idea of founding a golf club and developing golf in Armenia. In 2000 on a small piece of earth, surrounded by majestic Ararat, Aragats and Ara mountains, Vahagn Hovnanyan started the construction of “Ararat Golf Club” having no precedent in Armenia and whole Transcaucasia, consisting of 9 playing fields and an athletic field. In the beginning of 2001 the athletic field was put into operation, while the construction of scheduled 9 playing fields was actively progressing. In 2005 the construction activities were completed and for the first time in Armenia there was provided the occasion to play an aristocratic type of sports, GOLF by name,loved by millions of people all over the world. In parallel to the construction of golf fields, there were constructed also 18 “Mini Golf” fields, two tennis courts, a swimming pool, football and basketball fields, etc. In 2005 “Ararat Golf” club was renamed “Ararat Valley Country Club”, with the scope to gather people around the sport of golf. Within the framework of golf development in Armenia in 2007 the first golf competition was organized in Armenia. In the future the Golf Competition gave start of an annual Golf Tournament named by the founder of Ararat Golf Club and the President of Golf Association Mr. Vahak Hovnanian – “Vahakni Open” Golf Tournament."
                     logo:@"golfarmenia-logo"
-                   price:@3500
+                   price:@7000
                   rating:@3
               imageFirst:@"golfarmeniaimg1"
              imageSecond:@"golfarmeniaimg2"
@@ -575,7 +575,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     //Cinemas Theaters List
     
     Place *moscowCinema = [NSEntityDescription insertNewObjectForEntityForName:kEntityNamePlaces inManagedObjectContext:context];
-    [moscowCinema setName:@"Moscow Cinema" descriptionInfo:@"Cinema has four halls, the Red hal- 491 seats, the Blue hall - 350 seats, Red small hall - 49 seats, Videohall -  35 seats. The halls are equipped with modern technics. In parallel with film screenings Moscow cinema organizes various events and festivals. Some of them include 'Golden Apricot' Yerevan International Film Festival, 'British Film Festival', 'Rolan' International Film Festival', 'ReAnimania'  International Animation Film Festival of Yerevan, as well as screenings of Japanese, Indian, French and other films.Moreover, various events undertaken by differente mbassies are organizedhere. In parallel with film screenings different exhibitions are organizedin the waiting hall of the cinema."
+    [moscowCinema setName:@"Moscow Cinema" descriptionInfo:@"Cinema has four halls, the Red hal- 491 seats, the Blue hall - 350 seats, Red small hall - 49 seats, Videohall -  35 seats. The halls are equipped with modern technics. In parallel with film screenings Moscow cinema organizes various events and festivals. Some of them include 'Golden Apricot' Yerevan International Film Festival, 'British Film Festival', 'Rolan' International Film Festival', 'ReAnimania'  International Animation Film Festival of Yerevan, as well as screenings of Japanese, Indian, French and other films.Moreover, various events undertaken by different embassies are organized here. In parallel with film screenings different exhibitions are organized in the waiting hall of the cinema."
                      logo:@"moscowCinema-logo"
                     price:@2000
                    rating:@4
