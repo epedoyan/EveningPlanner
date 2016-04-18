@@ -11,15 +11,16 @@
 #import "MapViewController.h"
 #import "WebViewController.h"
 
-@interface InfoViewController ()
+@interface InfoViewController () <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *ratingStars;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
-@property (weak, nonatomic) IBOutlet UILabel *urlLabel;
-@property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *urlButton;
+@property (weak, nonatomic) IBOutlet UIButton *mapButton;
 @property (weak, nonatomic) IBOutlet UIButton *callButton;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
 
@@ -40,15 +41,20 @@
         imageViewRect.origin.x += imageViewRect.size.width;
         UIImageView *thirdImage = [self newImageViewWithImage:[UIImage imageNamed:place.imageThird] frame:imageViewRect];
     
+    self.priceLabel.text = [place.price.stringValue stringByAppendingString:@" AMD"];
     self.descriptionTextView.text = place.descriptionInfo;
-    self.urlLabel.text = place.urlString;
-    self.numberLabel.text = place.contactNumber;
+    [self.urlButton setTitle:[place.urlString stringByReplacingOccurrencesOfString:@"http://" withString:@""]forState:UIControlStateNormal];
+    [self.mapButton setTitle:[place.address stringByReplacingOccurrencesOfString:@", Yerevan, Armenia" withString:@""]forState:UIControlStateNormal];
+    [self.callButton setTitle:place.contactNumber forState:UIControlStateNormal];
+   
     self.callButton.titleLabel.text = place.contactNumber;
     
     [self.imageScrollView addSubview:firstImage];
     [self.imageScrollView addSubview:seconfImage];
     [self.imageScrollView addSubview:thirdImage];
     
+    self.navigationItem.title = place.name;
+
     // rating part
     for ( NSInteger i = 0; i < 5; ++i ) {
         if( i < [place.rating integerValue] ) {
@@ -64,12 +70,25 @@
                                      style:UIBarButtonItemStylePlain
                                     target:nil
                                     action:nil];
+    
+    UIImage* image = [UIImage imageNamed:@"basketadd"];
+    CGRect frameimg = CGRectMake(0, 0, 32, 32);
+    UIButton *myChoicesButton = [[UIButton alloc] initWithFrame:frameimg];
+    [myChoicesButton setBackgroundImage:image forState:UIControlStateNormal];
+    [myChoicesButton addTarget:self action:@selector(segueToMyChoice)
+         forControlEvents:UIControlEventTouchUpInside];
+    [myChoicesButton setShowsTouchWhenHighlighted:NO];
+    UIBarButtonItem *button =[[UIBarButtonItem alloc] initWithCustomView:myChoicesButton];
+    self.navigationItem.rightBarButtonItem = button;
+    
 }
+
+
 - (IBAction)addOrRemoveButtonTouched:(UIButton *)sender {
-    if (![sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minus"]]) {
-        [sender setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
+    if (![sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minussymbol"]]) {
+        [sender setBackgroundImage:[UIImage imageNamed:@"minussymbol"] forState:UIControlStateNormal];
     } else {
-        [sender setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
+        [sender setBackgroundImage:[UIImage imageNamed:@"plussymbol"] forState:UIControlStateNormal];
     }
 }
 
@@ -112,4 +131,17 @@
     [self showViewController:webVC sender:self];
 }
 
+- (void) segueToMyChoice {
+    [self performSegueWithIdentifier:@"SegueToMyChoice" sender:self];
+}
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat pageWidth = self.imageScrollView.frame.size.width;
+    int page = floor((self.imageScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.pageControl.currentPage = page;
+}
+- (IBAction)pageControllTouched:(id)sender {
+    CGFloat pageWidth = self.imageScrollView.frame.size.width;
+    int page = floor((self.imageScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.pageControl.currentPage = page;
+}
 @end
