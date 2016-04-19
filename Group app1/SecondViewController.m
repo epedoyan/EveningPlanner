@@ -30,12 +30,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *sortByPickerDoneButton;
 @property (weak, nonatomic) IBOutlet UIButton *sortByPickerCancelButton;
 
-@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
-@property (strong, nonatomic) NSArray *places;
-@property (nonatomic, strong) id sortingType;
+@property (strong, nonatomic) id sortingType;
 @property (nonatomic) SEL sortingMethod;
 @property (nonatomic) NSInteger currentMoney;
+@property (strong, nonatomic) NSArray *places;
+@property (strong, nonatomic) NSDictionary *distances;
 
 @end
 
@@ -102,7 +103,12 @@
     self.currentMoney = self.money;
     self.sortingMethod = @selector(sortByRating);
     self.placesObjectIDs = [[NSMutableArray alloc] init];
-    [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchAllPlaces]];
+    [self makeDistanceLimit:[[CoreDataManager defaultManager] fecthPlaceWith:kPlaceTypeGym and:kPlaceTypeGame]];
+    [self.topButtons[1] setBackgroundColor:[UIColor eveningPlannerGreenColor]];
+    [self.topButtons[1] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.numberOfSelectedTopButton = 2;
+    [self.bottomButtons[0] setTitle:@"Cinema, Theater" forState:UIControlStateNormal];
+    [self.bottomButtons[1] setTitle:@"Museum" forState:UIControlStateNormal];
     
     self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)self.currentMoney];
     self.navigationItem.backBarButtonItem =
@@ -117,6 +123,7 @@
     CLLocationCoordinate2D userCoordinate = CLLocationCoordinate2DMake(self.locationManager.location.coordinate.latitude,
                                                                        self.locationManager.location.coordinate.longitude);
     NSMutableArray *tempPlaces = [[NSMutableArray alloc] init];
+    NSMutableDictionary *tempDistances = [[NSMutableDictionary alloc] init];
     for (int i = 0; i < array.count; i++) {
         CLLocationCoordinate2D placeCoordinate = CLLocationCoordinate2DMake([[array[i] latitude] doubleValue],
                                                                             [[array[i] longitude] doubleValue]);
@@ -125,9 +132,11 @@
         CLLocationDistance distance = MKMetersBetweenMapPoints(pointOne, pointTwo);
         if (self.distanceLimit > distance/1000) {
             [tempPlaces addObject:array[i]];
+            [tempDistances setObject:[NSNumber numberWithFloat:distance] forKey:[array[i] name]];
         }
     }
     self.places = [tempPlaces copy];
+    self.distances = [tempDistances copy];
     [self performSelector:self.sortingMethod];
 }
 
@@ -165,6 +174,8 @@
     [self showViewController:myChoiceVC sender:self];
 }
 
+#pragma mark - GreenButtons methods
+
 - (IBAction)topButtonTouched:(UIButton *)sender {
     [self.bottomButtons[0] setBackgroundColor:self.view.backgroundColor];
     [self.bottomButtons[1] setBackgroundColor:self.view.backgroundColor];
@@ -186,7 +197,7 @@
         }];
         [self.bottomButtons[0] setTitle:@"Fast Food" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Restaurant" forState:UIControlStateNormal];
-        [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchFood]];
+        [self makeDistanceLimit:[[CoreDataManager defaultManager] fecthPlaceWith:kPlaceTypeFastFood and:kPlaceTypeRestaurant]];
         
         self.numberOfSelectedTopButton = 1;
         
@@ -200,10 +211,10 @@
         }];
         [self.bottomButtons[0] setTitle:@"Game" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Gym" forState:UIControlStateNormal];
-        [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchEntertainment]];
-
+        [self makeDistanceLimit:[[CoreDataManager defaultManager] fecthPlaceWith:kPlaceTypeGym and:kPlaceTypeGame]];
+        
         self.numberOfSelectedTopButton = 2;
-
+        
     }
     if ([sender isEqual:self.topButtons[2]]) {
         [UIView animateWithDuration:0.2 animations:^{
@@ -214,14 +225,10 @@
         }];
         [self.bottomButtons[0] setTitle:@"Cinema, Theater" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Museum" forState:UIControlStateNormal];
-        [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchCulture]];
-
+        [self makeDistanceLimit:[[CoreDataManager defaultManager] fecthPlaceWith:kPlaceTypeCinema and:kPlaceTypeMuseum]];
+        
         self.numberOfSelectedTopButton = 3;    }
-    for (UIButton *button in self.bottomButtons) {
-        [UIView animateWithDuration:0.5 animations:^{
-            button.hidden = NO;
-        }];
-    }
+
     [self.tableView reloadData];
 }
 
@@ -256,13 +263,13 @@
     if (self.isTheFirstBottomButtonTouched) {
         switch (self.numberOfSelectedTopButton) {
             case 1:
-                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchFastFood]];
+                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchPlaceWith:kPlaceTypeFastFood]];
                 break;
             case 2:
-                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchGames]];
+                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchPlaceWith:kPlaceTypeGame]];
                 break;
             case 3:
-                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchCinemaTheatre]];
+                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchPlaceWith:kPlaceTypeCinema]];
                 break;
                 
             default:
@@ -271,13 +278,13 @@
     } else {
         switch (self.numberOfSelectedTopButton) {
             case 1:
-                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchRestaurants]];
+                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchPlaceWith:kPlaceTypeRestaurant]];
                 break;
             case 2:
-                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchGyms]];
+                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchPlaceWith:kPlaceTypeGym]];
                 break;
             case 3:
-                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchMuseum]];
+                [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchPlaceWith:kPlaceTypeMuseum]];
                 break;
                 
             default:
@@ -299,14 +306,9 @@
     [cell.logo setImage:[UIImage imageNamed:place.logo]];
     [cell.name setText:place.name];
     [cell.price setText:[NSString stringWithFormat:@"%@",place.price]];
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([place.latitude doubleValue],
-                                                                   [place.longitude doubleValue]);
-    CLLocationCoordinate2D userCoordinate = CLLocationCoordinate2DMake(self.locationManager.location.coordinate.latitude,
-                                                                     self.locationManager.location.coordinate.longitude);
-    MKMapPoint pointOne = MKMapPointForCoordinate(coordinate);
-    MKMapPoint pointTwo = MKMapPointForCoordinate(userCoordinate);
-    CLLocationDistance distance = MKMetersBetweenMapPoints(pointOne, pointTwo);
-    [cell.distanceLabel setText:[NSString stringWithFormat:@"%.01f kilometer from current position.", distance/1000]];
+
+    [cell.distanceLabel setText:[NSString stringWithFormat:@"%.01f kilometer from current position.",
+                                 [self.distances[place.name] floatValue]/1000]];
     [cell.addOrRemoveButton setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
     for (NSManagedObjectID *temp in self.placesObjectIDs) {
         if ([temp isEqual:place.objectID]) {
@@ -332,6 +334,7 @@
     [self showViewController:infoVC sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
 #pragma mark - Methods for PickerView
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -339,7 +342,7 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 3;
+    return 4;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
@@ -352,6 +355,9 @@
             break;
         case 2:
             return @"Price";
+            break;
+        case 3:
+            return @"Distance";
             break;
     
         default:
@@ -370,6 +376,9 @@
             break;
         case 2:
             [self sortByPrice];
+            break;
+        case 3:
+            [self sortByDistance];
             break;
             
         default:
@@ -408,19 +417,40 @@
 - (void)sortByRating {
     self.sortingMethod = @selector(sortByRating);
     self.places = [self.places sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-        return [[(Place *)a rating] compare:[(Place *)b rating]]; }];
+        return [[(Place *)a rating] compare:[(Place *)b rating]];
+    }];
 }
 
 - (void)sortByName {
     self.sortingMethod = @selector(sortByName);
     self.places = [self.places sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-        return [[(Place *)a name] compare:[(Place *)b name]]; }];
+        return [[(Place *)a name] compare:[(Place *)b name]];
+    }];
 }
 
 - (void)sortByPrice {
     self.sortingMethod = @selector(sortByPrice);
     self.places = [self.places sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-        return [[(Place *)a price] compare:[(Place *)b price]]; }];
+        return [[(Place *)a price] compare:[(Place *)b price]];
+    }];
+}
+
+- (void)sortByDistance {
+    NSArray *names;
+    self.sortingMethod = @selector(sortByDistance);
+    names = [self.distances keysSortedByValueUsingComparator:^NSComparisonResult(id a, id b) {
+        return [a compare:b];
+    }];
+    NSMutableArray *sortedPlaces = [[NSMutableArray alloc] init];
+    for (NSString *name in names) {
+        for (Place *place in self.places) {
+            if ([place.name isEqualToString:name]) {
+                [sortedPlaces addObject:place];
+                break;
+            }
+        }
+    }
+    self.places = [sortedPlaces copy];
 }
 
 @end

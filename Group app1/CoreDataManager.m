@@ -10,6 +10,13 @@
 
 static NSString *const kEntityNamePlaces = @"Places";
 
+@interface CoreDataManager ()
+
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@end
+
 @implementation CoreDataManager
 
 + (id)defaultManager {
@@ -697,9 +704,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     
     [self saveContext];
 }
-
-- (NSArray *)fetchFastFood {
-    NSString *placeType = @"Fast Food";
+- (NSArray *)fetchPlaceWith:(NSString *)placeType {
     NSManagedObjectContext *context = [self managedObjectContext];
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
@@ -708,83 +713,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     return [context executeFetchRequest:fetchRequest error:nil];
 }
 
-- (NSArray *)fetchMuseum {
-    
-    NSString *placeType = @"Museum";
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"placeType == %@", placeType]];
-    
-    return [context executeFetchRequest:fetchRequest error:nil];
-}
-
-- (NSArray *)fetchRestaurants {
-    
-    NSString *placeType = @"Restaurant";
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"placeType == %@", placeType]];
-    
-    return [context executeFetchRequest:fetchRequest error:nil];
-}
-
-- (NSArray *)fetchCinemaTheatre {
-    
-    NSString *placeType = @"TheatreCinema";
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"placeType == %@", placeType]];
-    
-    return [context executeFetchRequest:fetchRequest error:nil];
-}
-
-- (NSArray *)fetchGames {
-    
-    NSString *placeType = @"Games";
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"placeType == %@", placeType]];
-    
-    return [context executeFetchRequest:fetchRequest error:nil];
-}
-
-- (NSArray *)fetchGyms {
-    
-    NSString *placeType = @"Gym";
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"placeType == %@", placeType]];
-    
-    return [context executeFetchRequest:fetchRequest error:nil];
-}
-
-- (NSArray *)fetchSelectedPlaces:(NSArray *)arrayOfIDs {
-    
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"(self IN %@)", arrayOfIDs]];
-
-    return [context executeFetchRequest:fetchRequest error:nil];
-}
-
-- (NSArray *)fetchAllPlaces {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
-    
-    return [context executeFetchRequest:fetchRequest error:nil];
-
-}
-
-- (NSArray *)fetchFood {
-    NSString *placeTypeOne = @"Fast Food";
-    NSString *placeTypeTwo = @"Restaurant";
+- (NSArray *)fecthPlaceWith:(NSString *)placeTypeOne and:(NSString *)placeTypeTwo {
     NSManagedObjectContext *context = [self managedObjectContext];
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
@@ -793,33 +722,6 @@ static NSString *const kEntityNamePlaces = @"Places";
     
     return [context executeFetchRequest:fetchRequest error:nil];
 }
-
-- (NSArray *)fetchEntertainment {
-    NSString *placeTypeOne = @"Games";
-    NSString *placeTypeTwo = @"Gym";
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"placeType == %@ OR placeType == %@", placeTypeOne,
-                                placeTypeTwo]];
-    
-    return [context executeFetchRequest:fetchRequest error:nil];
-    
-}
-
-- (NSArray *)fetchCulture {
-    NSString *placeTypeOne = @"TheatreCinema";
-    NSString *placeTypeTwo = @"Museum";
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"placeType == %@ || placeType == %@", placeTypeOne,
-                                placeTypeTwo]];
-    
-    return [context executeFetchRequest:fetchRequest error:nil];
-    
-}
-
 
 #pragma mark - Core Data stack
 
