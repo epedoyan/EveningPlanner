@@ -16,6 +16,7 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) MKPolylineRenderer *polylineRenderer;
 @property (strong, nonatomic) MKPolyline *polyline;
+@property NSMutableArray *detailedSteps;
 
 @end
 
@@ -38,14 +39,51 @@
         coordinate[0] = CLLocationCoordinate2DMake([self.latitudes[0] doubleValue], [self.longitudes[0] doubleValue]);
         coordinate[1] = CLLocationCoordinate2DMake(self.locationManager.location.coordinate.latitude,
                                                    self.locationManager.location.coordinate.longitude);
+        
         self.mapView.region = MKCoordinateRegionMakeWithDistance(coordinate[1], 5000,5000);
-        self.polyline = [MKPolyline polylineWithCoordinates:coordinate count:2];
-        self.polylineRenderer = [[MKPolylineRenderer alloc] initWithPolyline:self.polyline];
+        [self drawPathFrom:coordinate[0] to:coordinate[1]];
+        //self.polyline = [MKPolyline polylineWithCoordinates:coordinate count:2];
+        //self.polylineRenderer = [[MKPolylineRenderer alloc] initWithPolyline:self.polyline];
         
     } else {
         
     }
 
+}
+
+- (void)drawPathFrom:(CLLocationCoordinate2D)startPoint to:(CLLocationCoordinate2D)endPoint {
+    NSLog(@"%f %f", startPoint.latitude, startPoint.longitude);
+    NSLog(@"%f %f", endPoint.latitude, endPoint.longitude);
+    
+    NSURL *url=[[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&mode=driving",startPoint.latitude, startPoint.longitude, endPoint.latitude, endPoint.longitude]];
+    NSURLResponse *res;
+    NSError *err;
+    NSData *data=[NSURLConnection sendSynchronousRequest:[[NSURLRequest alloc] initWithURL:url] returningResponse:&res error:&err];
+    NSDictionary *dic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    NSArray *routes=dic[@"routes"];
+    NSArray *legs=routes[0][@"legs"];
+    NSArray *steps=legs[0][@"steps"];
+    NSMutableArray *textsteps=[[NSMutableArray alloc] init];
+    NSMutableArray *latlong=[[NSMutableArray alloc]init];
+    for(int i=0; i< [steps count]; i++){
+        NSString *html=steps[i][@"html_instructions"];
+        [latlong addObject:steps[i][@"end_location"]];
+        [textsteps addObject:html];
+    }
+    self.detailedSteps=textsteps;
+    [self showDirection:latlong];
+    NSLog(@"%@",_detailedSteps);
+}
+
+-(void)showDirection:(NSMutableArray*) latlong{
+    CLLocationCoordinate2D coordinates[latlong.count];
+    for(int i=0; i<[latlong count]; i++) {
+        coordinates[i].latitude  = [latlong[i][@"lat"] doubleValue];
+        coordinates[i].longitude = [latlong[i][@"lng"] doubleValue];
+    }
+    MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coordinates count:latlong.count];
+    [self.mapView addOverlay:polyline];
+    
 }
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
