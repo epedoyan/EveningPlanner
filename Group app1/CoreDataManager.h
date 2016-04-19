@@ -10,28 +10,22 @@
 #import "AppDelegate.h"
 #import "Place.h"
 
-@interface CoreDataManager : NSObject
+static NSString *const kPlaceTypeFastFood = @"Fast Food";
+static NSString *const kPlaceTypeRestaurant = @"Restaurant";
+static NSString *const kPlaceTypeGame = @"Games";
+static NSString *const kPlaceTypeGym = @"Gym";
+static NSString *const kPlaceTypeMuseum = @"Museum";
+static NSString *const kPlaceTypeCinema = @"TheatreCinema";
+
+@interface CoreDataManager : NSObject 
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
 + (id)defaultManager;
-- (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
 
+- (void)saveContext;
 - (void)insertPlacesList;
 
-- (NSArray *)fetchFastFood;
-- (NSArray *)fetchRestaurants;
-- (NSArray *)fetchMuseum;
-- (NSArray *)fetchCinemaTheatre;
-- (NSArray *)fetchGames;
-- (NSArray *)fetchGyms;
-- (NSArray *)fetchAllPlaces;
-- (NSArray *)fetchFood;
-- (NSArray *)fetchEntertainment;
-- (NSArray *)fetchCulture;
-- (NSArray *)fetchSelectedPlaces:(NSArray *)arrayOfIDs;
+- (NSArray *)fetchPlaceWith:(NSString *)placeType;
+- (NSArray *)fecthPlaceWith:(NSString *)placeTypeOne and:(NSString *)placeTypeTwo;
 
 @end
