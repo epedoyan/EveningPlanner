@@ -67,15 +67,15 @@
         secondVC.distanceLimit = [self.rangeLabel.text floatValue] / 1000;
     }
     
-   // if (secondVC.money <= 500 || secondVC.money >= 100000) {
-//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning!!!" message:@"Please, write in the range from 500 to 100000" preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
-//        [alert addAction:alertAction];
-//        alert.view.center = self.view.center;
-//        [self presentViewController:alert animated:YES completion:nil];
-//    } else {
+    if (secondVC.money <= 500 || secondVC.money >= 100000) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning!!!" message:@"Please, write in the range from 500 to 100000" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:alertAction];
+        alert.view.center = self.view.center;
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
         [self showViewController:secondVC sender:self];
-    //}
+    }
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
@@ -86,13 +86,21 @@
     self.searchButtonBottomLayout.constant = keyboardRect.size.height + 5;
     
     self.iconTopLayout.constant = -(self.view.frame.size.height / 3.0);
+    
+    [UIView animateWithDuration:1 animations:^{
+        [self.view layoutIfNeeded];
+    }];
 
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
     
     self.searchButtonBottomLayout.constant = 30;
-    self.iconTopLayout.constant = 0;    
+    self.iconTopLayout.constant = 0;
+    
+    [UIView animateWithDuration:1 animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
