@@ -103,7 +103,7 @@
     self.currentMoney = self.money;
     self.sortingMethod = @selector(sortByRating);
     self.placesObjectIDs = [[NSMutableArray alloc] init];
-    [self makeDistanceLimit:[[CoreDataManager defaultManager] fecthPlaceWith:kPlaceTypeGym and:kPlaceTypeGame]];
+    [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchPlaceWith:kPlaceTypeGym and:kPlaceTypeGame]];
     [self.topButtons[1] setBackgroundColor:[UIColor eveningPlannerGreenColor]];
     [self.topButtons[1] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.numberOfSelectedTopButton = 2;
@@ -197,7 +197,7 @@
         }];
         [self.bottomButtons[0] setTitle:@"Fast Food" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Restaurant" forState:UIControlStateNormal];
-        [self makeDistanceLimit:[[CoreDataManager defaultManager] fecthPlaceWith:kPlaceTypeFastFood and:kPlaceTypeRestaurant]];
+        [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchPlaceWith:kPlaceTypeFastFood and:kPlaceTypeRestaurant]];
         
         self.numberOfSelectedTopButton = 1;
         
@@ -211,7 +211,7 @@
         }];
         [self.bottomButtons[0] setTitle:@"Game" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Gym" forState:UIControlStateNormal];
-        [self makeDistanceLimit:[[CoreDataManager defaultManager] fecthPlaceWith:kPlaceTypeGym and:kPlaceTypeGame]];
+        [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchPlaceWith:kPlaceTypeGym and:kPlaceTypeGame]];
         
         self.numberOfSelectedTopButton = 2;
         
@@ -225,7 +225,7 @@
         }];
         [self.bottomButtons[0] setTitle:@"Cinema, Theater" forState:UIControlStateNormal];
         [self.bottomButtons[1] setTitle:@"Museum" forState:UIControlStateNormal];
-        [self makeDistanceLimit:[[CoreDataManager defaultManager] fecthPlaceWith:kPlaceTypeCinema and:kPlaceTypeMuseum]];
+        [self makeDistanceLimit:[[CoreDataManager defaultManager] fetchPlaceWith:kPlaceTypeCinema and:kPlaceTypeMuseum]];
         
         self.numberOfSelectedTopButton = 3;    }
 

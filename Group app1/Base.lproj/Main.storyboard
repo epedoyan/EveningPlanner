@@ -303,6 +303,9 @@
                                     <constraint firstAttribute="width" secondItem="LSk-GI-QSj" secondAttribute="height" multiplier="1:1" id="zxe-20-o9y"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="Map-Google"/>
+                                <connections>
+                                    <action selector="mapButtonTouched" destination="zTU-xG-igF" eventType="touchUpInside" id="Zrr-Xg-yaG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHJ-Yh-DPi" userLabel="Clear Button">
                                 <rect key="frame" x="268" y="518" width="36" height="30"/>
