@@ -7,16 +7,13 @@
 //
 
 #import "SecondViewController.h"
-#import "MainViewController.h"
 #import "ChoicePageViewController.h"
 #import "TableViewCell.h"
 #import "UIColor+EveningPlannerColor.h"
-#import "CoreDataManager.h"
 #import "InfoViewController.h"
-#import "ChoicePageViewController.h"
 #import <MapKit/MapKit.h>
 
-@interface SecondViewController () <UITableViewDelegate,UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate>
+@interface SecondViewController () <UITableViewDelegate,UITableViewDataSource, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *bottomButtons;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *topButtons;
@@ -25,12 +22,15 @@
 
 @property (nonatomic) BOOL isTheFirstBottomButtonTouched;
 @property (nonatomic) NSInteger numberOfSelectedTopButton;
-@property (weak, nonatomic) IBOutlet UIPickerView *sortByPicker;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomLayout;
-@property (weak, nonatomic) IBOutlet UIButton *sortByPickerDoneButton;
-@property (weak, nonatomic) IBOutlet UIButton *sortByPickerCancelButton;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *sortingButtons;
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *sortByViews;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *animationPlusTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *animationPlusWidthConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *animationPlus;
+
 
 @property (strong, nonatomic) id sortingType;
 @property (nonatomic) SEL sortingMethod;
@@ -107,8 +107,8 @@
     [self.topButtons[1] setBackgroundColor:[UIColor eveningPlannerGreenColor]];
     [self.topButtons[1] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.numberOfSelectedTopButton = 2;
-    [self.bottomButtons[0] setTitle:@"Cinema, Theater" forState:UIControlStateNormal];
-    [self.bottomButtons[1] setTitle:@"Museum" forState:UIControlStateNormal];
+    [self.bottomButtons[0] setTitle:@"Game" forState:UIControlStateNormal];
+    [self.bottomButtons[1] setTitle:@"Gym" forState:UIControlStateNormal];
     
     self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)self.currentMoney];
     self.navigationItem.backBarButtonItem =
@@ -144,6 +144,20 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:(TableViewCell *)[[sender superview] superview]];
     NSManagedObjectID *placeID = [self.places[indexPath.row] objectID];
     if ([sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minus"]]) {
+        [self.animationPlus setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
+        self.animationPlus.hidden = NO;
+        self.animationPlusTopConstraint.constant = -200;
+        self.animationPlusWidthConstraint.constant = 10;
+        [UIView animateWithDuration:0.4 animations:^{
+            [self.animationPlus layoutIfNeeded];
+        }];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            self.animationPlus.hidden = YES;
+            self.animationPlusTopConstraint.constant = -45;
+            self.animationPlusWidthConstraint.constant = 45;
+        });
+
+        
         [sender setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
         [self.placesObjectIDs removeObject:placeID];
         self.currentMoney = self.currentMoney + [[self.places[indexPath.row] price] integerValue];
@@ -159,6 +173,18 @@
             [self presentViewController:moneyAlert animated:YES completion:nil];
         } else {
             self.currentMoney = money;
+            [self.animationPlus setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
+            self.animationPlus.hidden = NO;
+            self.animationPlusTopConstraint.constant = -200;
+            self.animationPlusWidthConstraint.constant = 10;
+            [UIView animateWithDuration:0.4 animations:^{
+                [self.animationPlus layoutIfNeeded];
+            }];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                self.animationPlus.hidden = YES;
+                self.animationPlusTopConstraint.constant = -45;
+                self.animationPlusWidthConstraint.constant = 45;
+            });
             [sender setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
             [self.placesObjectIDs addObject:placeID];
         }
@@ -335,90 +361,75 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark - Methods for PickerView
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 4;
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    switch (row) {
-        case 0:
-            return @"Rating";
-            break;
-        case 1:
-            return @"Name";
-            break;
-        case 2:
-            return @"Price";
-            break;
-        case 3:
-            return @"Distance";
-            break;
-    
-        default:
-            break;
-    }
-    return nil;
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    switch (row) {
-        case 0:
-            [self sortByRating];
-            break;
-        case 1:
-            [self sortByName];
-            break;
-        case 2:
-            [self sortByPrice];
-            break;
-        case 3:
-            [self sortByDistance];
-            break;
-            
-        default:
-            break;
-    }
-}
-
-- (IBAction)sortByPickerDoneButtonTouched:(id)sender {
+#pragma mark - Methods for sorting
+- (IBAction)sortReverseButtonTouched:(id)sender {
+    self.places = [[self.places reverseObjectEnumerator] allObjects];
     [self.tableView reloadData];
+}
+
+- (IBAction)sortByButtonTouched:(id)sender {
+    if ([self.sortingButtons[0] alpha] == 0) {
+        [UIView animateWithDuration:0.5 animations:^{
+            for (int i = 0; i < self.sortByViews.count; i++) {
+                [self.sortingButtons[i] setAlpha:1];
+                [self.sortByViews[i] setAlpha:1];
+            }
+        }];
+    } else {
+        [UIView animateWithDuration:0.5 animations:^{
+            for (int i= 0; i < self.sortingButtons.count; i++) {
+                [self.sortingButtons[i] setAlpha:0];
+                [self.sortByViews[i] setAlpha:0];
+            }
+        }];
+    }
+}
+- (IBAction)sortByRatingButtonTouched:(id)sender {
+    [self sortByRating];
     [UIView animateWithDuration:0.5 animations:^{
-        
-        self.sortByPicker.alpha = 0;
-        self.sortByPickerDoneButton.alpha = 0;
-        self.sortByPickerCancelButton.alpha = 0;
+        for (int i= 0; i < self.sortingButtons.count; i++) {
+            [self.sortingButtons[i] setAlpha:0];
+            [self.sortByViews[i] setAlpha:0];
+        }
+    }];
+}
+- (IBAction)sortByPriceButtonTouched:(id)sender {
+    [self sortByPrice];
+    [UIView animateWithDuration:0.5 animations:^{
+        for (int i= 0; i < self.sortingButtons.count; i++) {
+            [self.sortingButtons[i] setAlpha:0];
+            [self.sortByViews[i] setAlpha:0];
+        }
+    }];
+}
+- (IBAction)sortByDistanceButtonTouched:(id)sender {
+    [self sortByDistance];
+    [UIView animateWithDuration:0.5 animations:^{
+        for (int i= 0; i < self.sortingButtons.count; i++) {
+            [self.sortingButtons[i] setAlpha:0];
+            [self.sortByViews[i] setAlpha:0];
+        }
+    }];
+}
+- (IBAction)sortByNameButtonTouched:(id)sender {
+    [self sortByName];
+    [UIView animateWithDuration:0.5 animations:^{
+        for (int i= 0; i < self.sortingButtons.count; i++) {
+            [self.sortingButtons[i] setAlpha:0];
+            [self.sortByViews[i] setAlpha:0];
+        }
     }];
 }
 
-- (IBAction)sortByCancelButtonTouched:(id)sender {
-    [UIView animateWithDuration:0.5 animations:^{
-        
-        self.sortByPicker.alpha = 0;
-        self.sortByPickerDoneButton.alpha = 0;
-        self.sortByPickerCancelButton.alpha = 0;
-    }];
-}
-- (IBAction)sortByButtonTouched:(id)sender {
-    [UIView animateWithDuration:0.5 animations:^{
-        
-        self.sortByPicker.alpha = 1;
-        self.sortByPickerDoneButton.alpha = 1;
-        self.sortByPickerCancelButton.alpha = 1;
-    }];
-}
-#pragma mark - Sorting methods
+
 
 - (void)sortByRating {
     self.sortingMethod = @selector(sortByRating);
     self.places = [self.places sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         return [[(Place *)a rating] compare:[(Place *)b rating]];
     }];
+    [self.tableView reloadData];
+
 }
 
 - (void)sortByName {
@@ -426,6 +437,8 @@
     self.places = [self.places sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         return [[(Place *)a name] compare:[(Place *)b name]];
     }];
+    [self.tableView reloadData];
+
 }
 
 - (void)sortByPrice {
@@ -433,6 +446,8 @@
     self.places = [self.places sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         return [[(Place *)a price] compare:[(Place *)b price]];
     }];
+    [self.tableView reloadData];
+
 }
 
 - (void)sortByDistance {
@@ -451,6 +466,8 @@
         }
     }
     self.places = [sortedPlaces copy];
+    [self.tableView reloadData];
+
 }
 
 @end
