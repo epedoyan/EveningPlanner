@@ -13,7 +13,7 @@
 #import "InfoViewController.h"
 #import <MapKit/MapKit.h>
 
-@interface SecondViewController () <UITableViewDelegate,UITableViewDataSource, UIPickerViewDataSource, CLLocationManagerDelegate>
+@interface SecondViewController () <UITableViewDelegate,UITableViewDataSource, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *bottomButtons;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *topButtons;
@@ -104,8 +104,8 @@
     [self.topButtons[1] setBackgroundColor:[UIColor eveningPlannerGreenColor]];
     [self.topButtons[1] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.numberOfSelectedTopButton = 2;
-    [self.bottomButtons[0] setTitle:@"Cinema, Theater" forState:UIControlStateNormal];
-    [self.bottomButtons[1] setTitle:@"Museum" forState:UIControlStateNormal];
+    [self.bottomButtons[0] setTitle:@"Game" forState:UIControlStateNormal];
+    [self.bottomButtons[1] setTitle:@"Gym" forState:UIControlStateNormal];
     
     self.navigationItem.title = [NSString stringWithFormat:@"%ld AMD", (long)self.currentMoney];
     self.navigationItem.backBarButtonItem =
