@@ -49,12 +49,17 @@
 }
 
 - (IBAction)sliderValueChanged:(UISlider *)sender {
-    if (sender.value < 1) {
-        self.rangeLabel.text = [[NSString stringWithFormat:@"%f",(sender.value * 1000)] substringToIndex:3];
-        self.metrLabel.text = @"Meter";
+    if (sender.value < 0.5) {
+        int distance = sender.value * 1000;
+        if (distance % 50 < 25)
+            distance = distance - distance % 50;
+        else
+            distance = distance + 50 - distance % 50;
+        self.rangeLabel.text = [NSString stringWithFormat:@"%d",distance];
+        self.metrLabel.text = @"m";
     } else {
         self.rangeLabel.text = [[NSString stringWithFormat:@"%f",sender.value] substringToIndex:3];
-        self.metrLabel.text = @"Kilometer";
+        self.metrLabel.text = @"km";
     }
 }
 
@@ -84,9 +89,7 @@
     CGRect keyboardRect = [keyboardFrameBegin CGRectValue];
     
     self.searchButtonBottomLayout.constant = keyboardRect.size.height + 5;
-    
     self.iconTopLayout.constant = -(self.view.frame.size.height / 3.0);
-    
     [UIView animateWithDuration:1 animations:^{
         [self.view layoutIfNeeded];
     }];
