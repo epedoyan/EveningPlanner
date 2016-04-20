@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QGe-2a-vxS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QGe-2a-vxS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -918,7 +918,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended prices and ratings. Touch for more information." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIm-VQ-45s">
-                                <rect key="frame" x="20" y="169" width="204" height="24"/>
+                                <rect key="frame" x="20" y="169" width="194" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="rfe-qx-eGU"/>
                                 </constraints>
@@ -1031,9 +1031,9 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Qiq-Jc-byX"/>
-                                        <exclude reference="FoC-7x-CMz"/>
                                         <exclude reference="69z-2g-1pf"/>
                                         <exclude reference="eyf-gY-TQF"/>
+                                        <exclude reference="FoC-7x-CMz"/>
                                         <exclude reference="KiE-j5-hL9"/>
                                         <exclude reference="4oE-fD-SzJ"/>
                                         <exclude reference="EG1-T3-V4H"/>
@@ -1048,6 +1048,19 @@
                                     <action selector="sortReverseButtonTouched:" destination="q6F-Ni-F29" eventType="touchUpInside" id="efU-9h-Lyb"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JE4-V6-U42">
+                                <rect key="frame" x="267" y="152" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="get-2F-a4V"/>
+                                    <constraint firstAttribute="width" secondItem="JE4-V6-U42" secondAttribute="height" multiplier="1:1" id="wAi-3b-Ygi"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="plus"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="wAi-3b-Ygi"/>
+                                    </mask>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1057,7 +1070,9 @@
                             <constraint firstItem="E8R-e4-sxL" firstAttribute="top" secondItem="ysK-xM-dM5" secondAttribute="bottom" id="4Oe-UY-rES"/>
                             <constraint firstItem="MOr-er-qwI" firstAttribute="width" secondItem="mPc-5Y-4lx" secondAttribute="width" id="5Xh-Ep-Eoc"/>
                             <constraint firstItem="ysK-xM-dM5" firstAttribute="top" secondItem="u1d-8f-Ecg" secondAttribute="bottom" constant="8" id="6B7-xV-QBN"/>
+                            <constraint firstAttribute="trailing" secondItem="JE4-V6-U42" secondAttribute="trailing" constant="8" id="7Ec-DY-XDe"/>
                             <constraint firstItem="exi-O9-qb2" firstAttribute="width" secondItem="MOr-er-qwI" secondAttribute="width" multiplier="1/2" constant="-18" id="7Wa-W1-gr7"/>
+                            <constraint firstItem="JE4-V6-U42" firstAttribute="width" secondItem="JE4-V6-U42" secondAttribute="height" multiplier="1:1" id="BrQ-39-bbf"/>
                             <constraint firstAttribute="trailing" secondItem="S8v-vT-TTz" secondAttribute="trailing" constant="34" id="Bzc-jN-qlc"/>
                             <constraint firstItem="6Bi-BN-pzs" firstAttribute="width" secondItem="XGX-L8-wy1" secondAttribute="width" id="C11-TO-wZX"/>
                             <constraint firstItem="u1d-8f-Ecg" firstAttribute="top" secondItem="MOr-er-qwI" secondAttribute="bottom" constant="13" id="CAI-1d-YTo"/>
@@ -1066,6 +1081,7 @@
                             <constraint firstAttribute="trailing" secondItem="MOr-er-qwI" secondAttribute="trailing" id="E8W-Aq-tz5"/>
                             <constraint firstItem="exi-O9-qb2" firstAttribute="leading" secondItem="89X-bu-6cS" secondAttribute="trailing" id="HqO-lU-DSN"/>
                             <constraint firstItem="mPc-5Y-4lx" firstAttribute="leading" secondItem="1Qn-XM-8TK" secondAttribute="leading" id="J6n-kA-4Ew"/>
+                            <constraint firstItem="JE4-V6-U42" firstAttribute="top" secondItem="u1d-8f-Ecg" secondAttribute="bottom" constant="-45" id="KWP-Zs-JG6"/>
                             <constraint firstAttribute="trailing" secondItem="exi-O9-qb2" secondAttribute="trailing" constant="34" id="Lb2-9h-maK"/>
                             <constraint firstItem="XGX-L8-wy1" firstAttribute="leading" secondItem="nlw-dE-qei" secondAttribute="trailing" id="OHc-lQ-NB1"/>
                             <constraint firstItem="6Bi-BN-pzs" firstAttribute="top" secondItem="2FD-NI-OqH" secondAttribute="bottom" constant="20" id="R1x-Me-GWl"/>
@@ -1102,6 +1118,9 @@
                     <navigationItem key="navigationItem" title="AMD" id="mH8-gc-D0j"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="animationPlus" destination="JE4-V6-U42" id="Mwe-MK-reg"/>
+                        <outlet property="animationPlusTopConstraint" destination="KWP-Zs-JG6" id="7S4-88-S97"/>
+                        <outlet property="animationPlusWidthConstraint" destination="get-2F-a4V" id="ETS-gE-Avu"/>
                         <outlet property="tableView" destination="ysK-xM-dM5" id="uin-Sn-RUd"/>
                         <outlet property="tableViewBottomLayout" destination="4Oe-UY-rES" id="cMP-Tm-dOl"/>
                         <outlet property="tableViewLabel" destination="nIm-VQ-45s" id="U27-CH-Uv9"/>

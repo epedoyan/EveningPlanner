@@ -27,6 +27,9 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *sortingButtons;
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *sortByViews;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *animationPlusTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *animationPlusWidthConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *animationPlus;
 
 
 @property (strong, nonatomic) id sortingType;
@@ -141,6 +144,20 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:(TableViewCell *)[[sender superview] superview]];
     NSManagedObjectID *placeID = [self.places[indexPath.row] objectID];
     if ([sender.currentBackgroundImage isEqual:[UIImage imageNamed:@"minus"]]) {
+        [self.animationPlus setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
+        self.animationPlus.hidden = NO;
+        self.animationPlusTopConstraint.constant = -200;
+        self.animationPlusWidthConstraint.constant = 10;
+        [UIView animateWithDuration:0.4 animations:^{
+            [self.animationPlus layoutIfNeeded];
+        }];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            self.animationPlus.hidden = YES;
+            self.animationPlusTopConstraint.constant = -45;
+            self.animationPlusWidthConstraint.constant = 45;
+        });
+
+        
         [sender setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
         [self.placesObjectIDs removeObject:placeID];
         self.currentMoney = self.currentMoney + [[self.places[indexPath.row] price] integerValue];
@@ -156,6 +173,18 @@
             [self presentViewController:moneyAlert animated:YES completion:nil];
         } else {
             self.currentMoney = money;
+            [self.animationPlus setBackgroundImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
+            self.animationPlus.hidden = NO;
+            self.animationPlusTopConstraint.constant = -200;
+            self.animationPlusWidthConstraint.constant = 10;
+            [UIView animateWithDuration:0.4 animations:^{
+                [self.animationPlus layoutIfNeeded];
+            }];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                self.animationPlus.hidden = YES;
+                self.animationPlusTopConstraint.constant = -45;
+                self.animationPlusWidthConstraint.constant = 45;
+            });
             [sender setBackgroundImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
             [self.placesObjectIDs addObject:placeID];
         }
