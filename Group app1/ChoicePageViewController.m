@@ -9,6 +9,7 @@
 #import "ChoicePageViewController.h"
 #import "TableViewCell.h"
 #import "SecondViewController.h"
+#import "MapViewController.h"
 
 @interface  ChoicePageViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -67,11 +68,26 @@
     [self.myTableView reloadData];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.selectedPlacesIDs count];
+
+- (IBAction)mapButtonTouched {
+    NSManagedObjectContext *context = [[CoreDataManager defaultManager] managedObjectContext];
+    NSMutableArray *tempLatitudes = [[NSMutableArray alloc] init];
+    NSMutableArray *tempLongitudes = [[NSMutableArray alloc] init];
+    for (NSManagedObjectID *placeID in self.selectedPlacesIDs) {
+        Place *place = [context objectWithID:placeID];
+        [tempLatitudes addObject:place.latitude];
+        [tempLongitudes addObject:place.longitude];
+    }
+    MapViewController *mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"mapVC"];
+    mapVC.latitudes = tempLatitudes;
+    mapVC.longitudes = tempLongitudes;
+    [self showViewController:mapVC sender:self];
 }
 
 #pragma mark - UITableViewDataSource methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.selectedPlacesIDs count];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     

@@ -235,7 +235,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     [villa setName:@"Villa"
    descriptionInfo:@"350-seat hall - We have a three hundred and fifty-seat hall on the second floor for your parties. A 100-seat hall - On the first floor we have a hundred-seat hall with quiet interior, where the brick walls are covered with black-and-white photos of old Yerevan. Family private rooms - Alongside the pool there are six to sixteen-seat eight separate small rooms. Above all rises fifty-seat spacious, comfortable and quiet private outdoor balcony. Outdoor pavilions - We also have five roundly wooden pavilions. This is a wonderful place for small groups who prefer the atmosphere of nature, a pleasant murmur of water and sun rays penetrating inside. Kitchen - The restaurant menu is rich in the Caucasus and Mediterranean cuisines, which are represented in Armenian style. It will satisfy every visitor's taste, as the best and tastiest."
               logo:@"villaLogo"
-             price:@10000
+             price:@8000
             rating:@4
         imageFirst:@"villaOne"
        imageSecond:@"villaTwo"
@@ -253,7 +253,7 @@ static NSString *const kEntityNamePlaces = @"Places";
         descriptionInfo:@"The BlackBerry is one of the “L’Orange” network cafes opened its doors on March 5, 2005 in downtown Yerevan at 21 Abovyan St. The name L’Orange came from the wish to associate it with something fun and happy."
                    logo:@"blackBerryLogo"
                   price:@10000
-                 rating:@4
+                 rating:@5
              imageFirst:@"blackBerryOne"
             imageSecond:@"blackBerryTwo"
              imageThird:@"blackBerryThree"
@@ -269,8 +269,8 @@ static NSString *const kEntityNamePlaces = @"Places";
     [dolmama setName:@"Dolmama"
      descriptionInfo:@"Dolmama was established in 1998. Starting it was simple but there were many problems to resolve, not the least of them was creation of a menu that would be interesting, tasty, good looking and typical Armenian, to be exact - Eastern Armenian. Most of the world familiar with Armenian food has had contacts with western Armenians (territory of Ottoman Empire) who where dispersed all over the world at the beginning of the last century after the tragic events of the Armenian Genocide. Armenia has very rich culinary culture, with many influences of nations surrounding it. In its turn, Armenian culinary has had a great impact on the culinary culture of the neighboring countries. Yogurt is a good example of this. . First time I heard about yogurt in the US, when Colombo yogurt was advertised on the radio in the early 70s. On the other hand, Eastern Armenian cuisine that developed on the current mountainous territory of the Republic of Armenia has overseen many hardships. Being part of the Soviet Union was not the least of them. Now, how boring can that be?"
                 logo:@"dolmamaLogo"
-               price:@10000
-              rating:@4
+               price:@6000
+              rating:@3
           imageFirst:@"dolmamaOne"
          imageSecond:@"dolmamaTwo"
           imageThird:@"dolmamaThree"
@@ -286,7 +286,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     [kavkazskayaPlennitsa setName:@"Caucasian Captive"
                   descriptionInfo:@"Owing to the professional cooks invited from Georgia, Armenia and the countries of caucasian region, you can tasty the most delicious armenian tolma, tavlama, harisa, georgian khachapuries, juicy chaxoxbili,  refined sacivi and other tasty dishes of the caucasian national cuisine."
                              logo:@"plennitsaLogo"
-                            price:@10000
+                            price:@5000
                            rating:@4
                        imageFirst:@"plennitsaOne"
                       imageSecond:@"plennitsaTwo"
@@ -303,8 +303,8 @@ static NSString *const kEntityNamePlaces = @"Places";
     [blackAngus setName:@"Black Angus"
         descriptionInfo:@"Black Angus was founded to bring the people and visitors of Yerevan a multi sensory experience of quality food in a beautiful burger bar environment. Our menu is focused on unique burger recipes, steaks, and traditional breakfasts that pair perfectly with craft cocktails in a boutique setting with free wifi, curated music, and modern interior design. One of the most popular restaurants in Yerevan on Trip Advisor and FourSquare, Black Angus is often called the best burger in Yerevan. Artak invites you to dine at Black Angus and experience it for yourself."
                    logo:@"angusLogo"
-                  price:@10000
-                 rating:@4
+                  price:@4000
+                 rating:@5
              imageFirst:@"angusOne"
             imageSecond:@"angusTwo"
              imageThird:@"angusThree"
@@ -320,8 +320,8 @@ static NSString *const kEntityNamePlaces = @"Places";
     [charles setName:@"Charles"
      descriptionInfo:@"The restaurant Charles was established in 2009. With this name we tried to show the connection between two cooperating countries - Armenia and France. Charles is named after not only world famous Aznavour, who is Armenian, but also after many other French people.Charles restaurant is situated in the centre of Erevan, in the most crowded part of Erevan, near Cascade. If you are a lover of European varied cuisine and prefer to enjoy wines of high quality, then we can surely say that restaurant Charles is for you.Our menu also consists of both old traditional Armenian dishes. Pleasing interior, elegant live music, excellent service, and lovely staff. In our restaurant each of our clients can feel comfortable, enjoying his rest in one of our six halls.There are halls for smokers, for non-smokers, lounge bar, where you can enjoy Armenian paintings and warmth your evenings with the fireplace. And finally, you can listen to live music filled with the sounds of violin and piano.Our outdoor café is famous as one of the most pleasant places in Erevan for enjoying the quiet atmosphere of the street and live music."
                 logo:@"charlesLogo"
-               price:@10000
-              rating:@4
+               price:@7000
+              rating:@3
           imageFirst:@"charlesOne"
          imageSecond:@"charlesTwo"
           imageThird:@"charlesThree"
@@ -338,7 +338,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     descriptionInfo:@"CRUMBS bread factory specializes in Eu­ropean bread and pastry baking. We use natural, artisan methods and the finest quality ingredients to bake our breads and pastries. All our products are hand-made and baked using reci­pes and techniques perfected over cen­turies. In order to give you a direct access to these treats, CRUMBS has opened café/shops where you can not only have a cup of coffee with your favorite pastry but also enjoy a great meal. Sandwiches, soups, salads and more other delicious products are made right at CRUMBS kitchen."
                logo:@"crumbsLogo"
               price:@10000
-             rating:@4
+             rating:@5
          imageFirst:@"crumbsOne"
         imageSecond:@"crumbsTwo"
          imageThird:@"crumbsThree"
@@ -354,8 +354,8 @@ static NSString *const kEntityNamePlaces = @"Places";
     [theClub setName:@"The Club"
      descriptionInfo:@"Indulge in a daily feast of epicurean delights at the elegant Western Armenian restaurant with a French touch. This warm, unfussy place is very cozy and the signature food, created by Chef Anahit Sargisian and French Guest Chefs, is terrific and affordable."
                 logo:@"clubLogo"
-               price:@10000
-              rating:@4
+               price:@5000
+              rating:@3
           imageFirst:@"clubOne"
          imageSecond:@"clubTwo"
           imageThird:@"clubThree"
@@ -373,7 +373,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     [karas setName:@"Karas"
    descriptionInfo:@"Karas was founded in 2005 in Aremenia. Currently Karas operates as a national food chain including 13 service points. The chain has 5 restaurants in the Yerevan city, 1 restaurant in Yerevan Mall, 1 drive thru format restaurant in Yerevan and 1 restaurant in Tsaghkadzor. There are also 4 bistros in Yerevan and 1 bistro in Abovyan. In 2008 the chain launched delivery service, which is one of the one of the largest delivery services in Armenia today."
               logo:@"karasLogo"
-             price:@10000
+             price:@1000
             rating:@4
         imageFirst:@"karasOne"
        imageSecond:@"karasTwo"
@@ -390,8 +390,8 @@ static NSString *const kEntityNamePlaces = @"Places";
     [proshyanShaurma setName:@"Proshyan Shaurma"
              descriptionInfo:@"In the fast food industry Proshyan shaurma offers a completely new quality. This was the first company to use innovative technologies, which help to save time and the taste of the food, we use only fresh and local food. The group of highly qualified chefs, who has passed a special trainings offers its customers a complete menu."
                         logo:@"proshyanLogo"
-                       price:@10000
-                      rating:@4
+                       price:@800
+                      rating:@2
                   imageFirst:@"proshyanOne"
                  imageSecond:@"proshyanTwo"
                   imageThird:@"proshyanThree"
@@ -407,8 +407,8 @@ static NSString *const kEntityNamePlaces = @"Places";
     [gyros setName:@"Mr. Gyros"
    descriptionInfo:@"First branch of Mr. Gyros greek fast food was founded  on May 1, 2009.  By using well-designed strategy, Mr. Gyros has eight  branches in Yerevan now. The main aim of our company is to create a pleasant atmosphere and to  offer  only fresh and natural product."
               logo:@"gyrosLogo"
-             price:@10000
-            rating:@4
+             price:@1500
+            rating:@5
         imageFirst:@"gyrosOne"
        imageSecond:@"gyrosTwo"
         imageThird:@"gyrosThree"
@@ -424,7 +424,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     [pizzaHut setName:@"Pizza Hut"
       descriptionInfo:@"In 1958, Frank and Dan Carney had an idea for a great local pizza restaurant in Wichita Kansas. When a friend suggested opening a pizza parlor--then a rarity--they agreed that the idea could prove successful, and they borrowed $600 from their mother to start a business with partner John Bender.Renting a small building at 503 South Bluff in downtown Wichita and purchasing secondhand equipment to make pizzas, the Carneys and Bender opened the first Pizza Hut restaurant; on opening night, they gave pizza away to encourage community interest. The small 25 seat restaurant only had room for 9 letters on the sign… the building looked like a hut… so 'Pizza Hut' was born!A year later, in 1959, Pizza Hut was incorporated in Kansas, and Dick Hassur opened the first franchise unit in Topeka, Kansas. Fifteen years later, we opened the first UK restaurant and since then we've become the biggest Pizza Company on the planet!A subsidiary of PepsiCo, Inc., the company oversees more than 11,000 pizza restaurants and delivery outlets in 90 countries worldwide."
                  logo:@"hutLogo"
-                price:@10000
+                price:@3000
                rating:@4
            imageFirst:@"hutOne"
           imageSecond:@"hutTwo"
@@ -442,8 +442,8 @@ static NSString *const kEntityNamePlaces = @"Places";
     [tashirPizza setName:@"Tashir Pizza"
          descriptionInfo:@"The first pizzeria Tashir Pizza was opened on March 22, 1999 in RF, in  Kaluga city. Since 1999 there are more than 270 pizzerias as in Russia as in CIS countries. Nowadays you can find Tashir Pizza in Moscow, Balashikha, Kaluga, Obninsk, Tula, Kursk, Belgorod, Serpukhov, Voronezh, Korolyov, Ryazan, Lipetsk, Saratov, Engels, Rostov-in-Done, Penza, Nizhny Novgorod, Pyatigorsk, Stavropol, Nevinnomissk, Yerevan,Vanadzor, Gyumri and so on."
                     logo:@"tashirLogo"
-                   price:@10000
-                  rating:@4
+                   price:@2000
+                  rating:@3
               imageFirst:@"tashirOne"
              imageSecond:@"tashirTwo"
               imageThird:@"tashirThree"
@@ -459,8 +459,8 @@ static NSString *const kEntityNamePlaces = @"Places";
     [mamaMia setName:@"Mama Mia"
      descriptionInfo:@"The network of “Mama Mia” pizzerias offers its visitors the best combination of recreation and entertainment. Here you can enjoy a wide range of pizzas, family hamburgers, hot dishes, khachapury, soups, garnish, salads, appetizers, as well as dessert, alcoholic and non-alcoholic beverages, fresh, coffee tea, beer, cocktails and cigarettes. Your “tasty time” spent here will be intensified through piano, jazz and other music played in the hall."
                 logo:@"miaLogo"
-               price:@10000
-              rating:@4
+               price:@3000
+              rating:@2
           imageFirst:@"miaOne"
          imageSecond:@"miaTwo"
           imageThird:@"miaThree"
@@ -713,7 +713,7 @@ static NSString *const kEntityNamePlaces = @"Places";
     return [context executeFetchRequest:fetchRequest error:nil];
 }
 
-- (NSArray *)fecthPlaceWith:(NSString *)placeTypeOne and:(NSString *)placeTypeTwo {
+- (NSArray *)fetchPlaceWith:(NSString *)placeTypeOne and:(NSString *)placeTypeTwo {
     NSManagedObjectContext *context = [self managedObjectContext];
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePlaces];

@@ -26,6 +26,6 @@ static NSString *const kPlaceTypeCinema = @"TheatreCinema";
 - (void)insertPlacesList;
 
 - (NSArray *)fetchPlaceWith:(NSString *)placeType;
-- (NSArray *)fecthPlaceWith:(NSString *)placeTypeOne and:(NSString *)placeTypeTwo;
+- (NSArray *)fetchPlaceWith:(NSString *)placeTypeOne and:(NSString *)placeTypeTwo;
 
 @end
