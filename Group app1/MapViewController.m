@@ -16,7 +16,6 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) MKPolylineRenderer *polylineRenderer;
 @property (strong, nonatomic) MKPolyline *polyline;
-@property NSMutableArray *detailedSteps;
 
 @end
 
@@ -41,20 +40,13 @@
                                                    self.locationManager.location.coordinate.longitude);
         
         self.mapView.region = MKCoordinateRegionMakeWithDistance(coordinate[1], 5000,5000);
-        [self drawPathFrom:coordinate[0] to:coordinate[1]];
-        //self.polyline = [MKPolyline polylineWithCoordinates:coordinate count:2];
-        //self.polylineRenderer = [[MKPolylineRenderer alloc] initWithPolyline:self.polyline];
-        
-    } else {
+        [self drawPathFrom:coordinate[1] to:coordinate[0]];
         
     }
 
 }
 
 - (void)drawPathFrom:(CLLocationCoordinate2D)startPoint to:(CLLocationCoordinate2D)endPoint {
-    NSLog(@"%f %f", startPoint.latitude, startPoint.longitude);
-    NSLog(@"%f %f", endPoint.latitude, endPoint.longitude);
-    
     NSURL *url=[[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&mode=driving",startPoint.latitude, startPoint.longitude, endPoint.latitude, endPoint.longitude]];
     NSURLResponse *res;
     NSError *err;
@@ -63,16 +55,14 @@
     NSArray *routes=dic[@"routes"];
     NSArray *legs=routes[0][@"legs"];
     NSArray *steps=legs[0][@"steps"];
-    NSMutableArray *textsteps=[[NSMutableArray alloc] init];
     NSMutableArray *latlong=[[NSMutableArray alloc]init];
-    for(int i=0; i< [steps count]; i++){
-        NSString *html=steps[i][@"html_instructions"];
-        [latlong addObject:steps[i][@"end_location"]];
-        [textsteps addObject:html];
+    if ([steps count] > 0) {
+        [latlong addObject:steps[0][@"start_location"]];
     }
-    self.detailedSteps=textsteps;
+    for(int i=0; i< [steps count]; i++){
+        [latlong addObject:steps[i][@"end_location"]];
+    }
     [self showDirection:latlong];
-    NSLog(@"%@",_detailedSteps);
 }
 
 -(void)showDirection:(NSMutableArray*) latlong{
