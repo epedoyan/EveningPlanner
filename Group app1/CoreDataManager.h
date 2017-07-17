@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "Place.h"
 
+// some some comment
+
 static NSString *const kPlaceTypeFastFood = @"Fast Food";
 static NSString *const kPlaceTypeRestaurant = @"Restaurant";
 static NSString *const kPlaceTypeGame = @"Games";
@@ -24,6 +26,7 @@ static NSString *const kPlaceTypeCinema = @"TheatreCinema";
 
 - (void)saveContext;
 - (void)insertPlacesList;
+- (void)ff;
 
 - (NSArray *)fetchPlaceWith:(NSString *)placeType;
 - (NSArray *)fetchPlaceWith:(NSString *)placeTypeOne and:(NSString *)placeTypeTwo;
